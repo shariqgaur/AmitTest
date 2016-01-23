@@ -11,7 +11,23 @@ namespace MDK.client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var _dbcontext = new MDKLinkToSQLDataContext();
 
+            var login = new Login();
+         
+            //Code for insert data into table
+
+            //login.UserName = "Anand";
+            //login.Password = "Bharne";
+            //_dbcontext.Logins.InsertOnSubmit(login);
+            //_dbcontext.SubmitChanges();
+
+            var loginTable = _dbcontext.Logins;
+             GridView1.DataSource = loginTable.ToList();
+             GridView1.DataBind();
+
+
+            
         }
     }
 }
