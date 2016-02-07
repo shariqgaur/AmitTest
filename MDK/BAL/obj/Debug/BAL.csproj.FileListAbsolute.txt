@@ -1,0 +1,9 @@
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\BAL.dll
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\BAL.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\DAL.dll
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\Models.dll
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\DAL.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\bin\Debug\Models.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\obj\Debug\BAL.dll
+F:\MDK\ProjectCodebase\trunk\MDK\BAL\obj\Debug\BAL.pdb

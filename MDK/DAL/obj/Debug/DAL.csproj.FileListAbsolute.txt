@@ -1,0 +1,8 @@
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\bin\Debug\DAL.dll.config
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\bin\Debug\DAL.dll
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\bin\Debug\DAL.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\obj\Debug\DAL.dll
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\obj\Debug\DAL.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\bin\Debug\Models.dll
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\bin\Debug\Models.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

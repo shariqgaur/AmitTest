@@ -1,0 +1,4 @@
+F:\MDK\ProjectCodebase\trunk\MDK\Models\bin\Debug\Models.dll
+F:\MDK\ProjectCodebase\trunk\MDK\Models\bin\Debug\Models.pdb
+F:\MDK\ProjectCodebase\trunk\MDK\Models\obj\Debug\Models.dll
+F:\MDK\ProjectCodebase\trunk\MDK\Models\obj\Debug\Models.pdb
