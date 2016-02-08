@@ -4,9 +4,10 @@
 
     <link href="lib/UIpackages/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="lib/UIpackages/node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
 
 </head>
-<body role="document" ng-app="MDKApp" ng-controller="MainCtrl" style="margin: 0.5% 1% 0.5% 1%; padding: 1% 3% 0% 3%; border: 0px solid green;">
+<body role="document" ng-app="MDKApp" ng-controller="MainCtrl"  border: 0px solid green;">
 
     <div class="row">
         <h1>AccTrack</h1>
@@ -14,11 +15,11 @@
     <div class="row">
         <hr style="background-color: orange; height: 1.1px;" />
     </div>
-    <div class="row" style="min-height: 435px;">
+    <div class="row viewBody">
         <section ui-view></section>
     </div>
     <div class="row">
-        <hr style="height:1.1px; background:gray;"/>
+        <hr style="height: 1.1px; background: gray;" />
         <footer style="height: 40px; border: 0px solid black;">
             <div class="text-center">
                 All rights are reserved by Amit Debadwar
@@ -48,6 +49,9 @@
 
     <!--Angular controllers-->
     <script src="scripts/controller/MainController.js"></script>
+    <script src="scripts/controller/LoginCtrl.js"></script>
+    <script src="scripts/controller/DashboardCtrl.js"></script>
+
     <!--Angular controllers End-->
 
 

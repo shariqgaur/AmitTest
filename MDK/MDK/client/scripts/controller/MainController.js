@@ -1,3 +1,3 @@
-﻿app.controller("MainCtrl", function ($scope) {
+﻿angular.module("MDKApp").controller("MainCtrl",["$scope",function ($scope) {
     $scope.msg = "sainath";
- });
+ }]);

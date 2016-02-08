@@ -1,0 +1,30 @@
+h2
+{
+    color: #006598;
+    font-style: italic;
+}
+
+body
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.viewBody
+{
+    min-height: 435px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lineSearch{
+    width:auto;
+    margin-left:10px;
+     
+}
+
+.searchIcon{
+    left:210px;
+}
