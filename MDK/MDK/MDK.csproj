@@ -132,7 +132,9 @@
     <Content Include="client\app.config.js" />
     <Content Include="client\app.js" />
     <Content Include="client\app.routes.js" />
+    <Content Include="client\images\mdk.gif" />
     <Content Include="client\index.html" />
+    <Content Include="client\lib\angular-animate.js" />
     <Content Include="client\lib\angular-ui-router.js" />
     <Content Include="client\lib\route.js" />
     <Content Include="client\lib\ui-bootstrap-tpls-0.11.2.js" />
@@ -278,6 +280,8 @@
     <Content Include="client\scripts\common\services\constants.js" />
     <Content Include="client\scripts\common\services\httpFactoryService.js" />
     <Content Include="client\scripts\common\services\service.js" />
+    <Content Include="client\scripts\controller\DashboardCtrl.js" />
+    <Content Include="client\scripts\controller\LoginCtrl.js" />
     <Content Include="client\scripts\controller\MainController.js" />
     <Content Include="client\scripts\js\exceptionhandler.js" />
     <Content Include="client\scripts\js\httpinterceptor.js" />
@@ -338,6 +342,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="DatabaseScript\1.sql" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -453,6 +458,7 @@
     <Content Include="client\lib\UIpackages\node_modules\jquery\src\.jshintrc" />
     <Content Include="client\StubData\data.json" />
     <Content Include="client\StubData\homePageData.json" />
+    <Content Include="client\Test\package.json" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

@@ -1,0 +1,18 @@
+{
+  "name": "MDKTest",
+  "version": "0.0.1",
+  "description": "specs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amit Debadwar",
+  "license": "ISC",
+  "devDependencies": {
+    "karma-cli": "^0.1.2",
+    "karma": "^0.13.19",
+    "jasmin": "*",
+    "karma-chrome-launcher": "^0.2.2",
+    "requirejs": "^2.1.22"
+  }
+}

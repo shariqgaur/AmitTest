@@ -12,11 +12,11 @@
             <div class="col-md-offset-3 col-md-5">
 
                 <form class="form-horizontal">
-
-                    <div class="form-group">
+                
+                    <div class="form-group animate-show" ng-show="isLoginError">
                         <label for="error" class="control-label"></label>
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="alert alert-warning alert-dismissible" role="alert">
+                        <div class="col-md-offset-2 col-md-10" >
+                            <div class="alert alert-danger alert-dismissible" role="alert">
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                 <span class="sr-only">Error:</span>
                                 User name or password is incorrect !
@@ -31,7 +31,7 @@
                         <label for="inputEmail3" class="col-md-2 control-label">User Id</label>
                         <div class="col-md-10">
 
-                            <input type="text" class="form-control" id="inputEmail3" placeholder="e.g. APJKalam_765">
+                            <input type="text" class="form-control" ng-model="userName" placeholder="e.g. apjKalam_765">
 
                             </input>
                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -41,7 +41,7 @@
                     <div class="form-group has-feedback">
                         <label for="inputPassword3" class="col-md-2 control-label">Password</label>
                         <div class="col-md-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="*************************"></input>
+                            <input type="password" class="form-control" ng-model="userPassword" placeholder="*************************"></input>
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                             <div class="text-center">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-default btn-primary pull-right" ng-click="login()">
-                                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Log in
+                                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in
                             </button>
                         </div>
 

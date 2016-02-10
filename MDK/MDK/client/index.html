@@ -7,13 +7,25 @@
     <link href="style/style.css" rel="stylesheet" />
 
 </head>
-<body role="document" ng-app="MDKApp" ng-controller="MainCtrl"  border: 0px solid green;">
+<body role="document" ng-app="MDKApp" ng-controller="MainCtrl">
 
     <div class="row">
-        <h1>AccTrack</h1>
+
+        <div class="col-md-6">
+            <header>
+                <div class="logo">
+                    <div class="logoHeading">
+                        <h1>AccTrack
+                        </h1>
+                        <small class="logoSubHeading">makes accounting easy !</small>
+                    </div>
+                </div>
+            </header>
+        </div>
     </div>
+
     <div class="row">
-        <hr style="background-color: orange; height: 1.1px;" />
+        <hr class="mainHR" />
     </div>
     <div class="row viewBody">
         <section ui-view></section>
@@ -32,6 +44,7 @@
     <script src="lib/UIpackages/node_modules/angular/angular.min.js"></script>
     <script src="lib/angular-ui-router.js"></script>
     <script src="lib/ui-bootstrap-tpls-0.11.2.js"></script>
+    <script src="lib/angular-animate.js"></script>
     <!--Libs End-->
 
 
