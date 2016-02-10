@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.InterfaceDAL;
 
 namespace DAL.Admin
 {
-    public class UserManagementDAL : BASEDAL
+    public class UserManagementDAL_OLD : BASEDAL
     {
         UserMangement userManagementEntity = null;
 
-        public UserManagementDAL()
+        public UserManagementDAL_OLD()
         {
             userManagementEntity = new UserMangement();
         }
@@ -39,5 +40,11 @@ namespace DAL.Admin
             }
 
         }
+    }
+
+
+    public class UserManagementDAL:IDal
+    {
+    
     }
 }

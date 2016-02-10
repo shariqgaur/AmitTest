@@ -1,9 +1,0 @@
-F:\MDK\ProjectCodebase\trunk\MDK\Models\bin\Debug\Models.dll
-F:\MDK\ProjectCodebase\trunk\MDK\Models\bin\Debug\Models.pdb
-F:\MDK\ProjectCodebase\trunk\MDK\Models\obj\Debug\Models.dll
-F:\MDK\ProjectCodebase\trunk\MDK\Models\obj\Debug\Models.pdb
-C:\Amit\Amit\OutSide\MDK\trunk\MDK\Models\bin\Debug\Models.dll
-C:\Amit\Amit\OutSide\MDK\trunk\MDK\Models\bin\Debug\Models.pdb
-C:\Amit\Amit\OutSide\MDK\trunk\MDK\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
-C:\Amit\Amit\OutSide\MDK\trunk\MDK\Models\obj\Debug\Models.dll
-C:\Amit\Amit\OutSide\MDK\trunk\MDK\Models\obj\Debug\Models.pdb
