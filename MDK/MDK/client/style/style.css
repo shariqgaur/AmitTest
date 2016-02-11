@@ -52,16 +52,17 @@ body
     {
         padding: 0px;
         margin-left: 100px;
-        color: #484f6c;
+        color: #006598;
         display: inline-block;
         font-style: italic;
         border: 0px solid green;
+        font-weight:bold;
     }
 
 .logoSubHeading
 {
     font-family: BatangChe;
-    color: #31708f;
+    color: #858585;
     font-size:medium;
     font-weight:bold;
     font-style:normal;
@@ -70,6 +71,22 @@ body
 
 
 /*Login page CSS*/
+
+.loginBox {
+     padding:2%;
+    border:1px solid gray;
+    border-radius:10px;
+    width:45%;
+
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a0d8ef+0,ddf1f9+65,feffff+100 */
+background: #a0d8ef; /* Old browsers */
+background: -moz-linear-gradient(top, #a0d8ef 0%, #ddf1f9 65%, #feffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #a0d8ef 0%,#ddf1f9 65%,#feffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #a0d8ef 0%,#ddf1f9 65%,#feffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
+
+
+}
 
      .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
              transition: all linear 0.7s;
