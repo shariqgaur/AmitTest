@@ -10,9 +10,9 @@ namespace DAL.InterfaceDAL
 {
     public interface IDal
     {
-        public ITransport insertRecord(IModel model);
-        public ITransport deleteRecordById(int model);
-        public ITransport editRecordById(int model);
-        public ITransport updateRecordById(int id, IModel newModel);
+       ITransport insertRecord(IModel model);
+       ITransport deleteRecordById(int model);
+       ITransport editRecordById(int model);
+       ITransport updateRecordById(int id, IModel newModel);
     }
 }
