@@ -635,6 +635,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{e1f8f464-9a1e-4c8c-944f-7ea5fcbb24f7}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{cb9ccea3-a9a4-4d94-86f2-bfda5a677ad4}</Project>
       <Name>Models</Name>

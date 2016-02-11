@@ -8,12 +8,12 @@ using System.Web.Script.Serialization;
 
 namespace DAL.Admin
 {
-   public class BASEDAL
+   public class BASEDal
     {
      protected  MDKDBMLDataContext _dataContext = null;
      protected JavaScriptSerializer _serializer = null;
 
-       public BASEDAL()
+       public BASEDal()
        {    
            _dataContext = new MDKDBMLDataContext();
            _serializer = new JavaScriptSerializer();

@@ -63,10 +63,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminInterfae\IAdminServices.cs" />
+    <Compile Include="AdminInterfae\IBusinessServices.cs" />
     <Compile Include="AdminServices\AdminServices.svc.cs">
       <DependentUpon>AdminServices.svc</DependentUpon>
     </Compile>
-    <Compile Include="AdminServices\IAdminServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

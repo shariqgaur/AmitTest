@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\UserMangementDAL.cs" />
-    <Compile Include="BASEDAL.cs" />
-    <Compile Include="Admin\RoleManagementDAL.cs" />
+    <Compile Include="BASEDal.cs" />
+    <Compile Include="InterfaceDAL\IDal.cs" />
     <Compile Include="MDKDBML.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +80,9 @@
       <Project>{cb9ccea3-a9a4-4d94-86f2-bfda5a677ad4}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

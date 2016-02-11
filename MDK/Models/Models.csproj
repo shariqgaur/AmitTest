@@ -40,10 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="interfaces\IErrorInfo.cs" />
+    <Compile Include="interfaces\IMDKModel.cs" />
     <Compile Include="interfaces\IViewData.cs" />
     <Compile Include="LoginMangementModel.cs" />
-    <Compile Include="MDKConstant.cs" />
-    <Compile Include="MDKConstants.cs" />
     <Compile Include="ParsnalInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleManagementModel.cs" />
