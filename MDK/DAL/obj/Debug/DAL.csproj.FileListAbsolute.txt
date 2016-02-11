@@ -1,8 +1,0 @@
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\bin\Debug\DAL.dll.config
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\bin\Debug\DAL.dll
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\bin\Debug\DAL.pdb
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\bin\Debug\Models.dll
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\bin\Debug\Models.pdb
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\obj\Debug\DAL.dll
-C:\Amit\Amit\OutSide\MDK codebase\MDK\DAL\obj\Debug\DAL.pdb
