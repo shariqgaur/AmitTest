@@ -1,0 +1,11 @@
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\Services.dll
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\Services.pdb
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\BAL.dll
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\Models.dll
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\DAL.dll
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\BAL.pdb
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\Models.pdb
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\bin\DAL.pdb
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\obj\Debug\Services.dll
+C:\Amit\Amit\OutSide\MDK codebase\MDK\Services\obj\Debug\Services.pdb
