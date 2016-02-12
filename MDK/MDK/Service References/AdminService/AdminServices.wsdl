@@ -18,21 +18,5 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IAdminServices/validateUserResponse" message="tns:IAdminServices_validateUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IAdminServices" type="tns:IAdminServices">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="validateUser">
-      <soap:operation soapAction="http://tempuri.org/IAdminServices/validateUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="AdminServices">
-    <wsdl:port name="BasicHttpBinding_IAdminServices" binding="tns:BasicHttpBinding_IAdminServices">
-      <soap:address location="http://localhost:1062/AdminServices/AdminServices.svc" />
-    </wsdl:port>
-  </wsdl:service>
+  <wsdl:service name="AdminServices" />
 </wsdl:definitions>

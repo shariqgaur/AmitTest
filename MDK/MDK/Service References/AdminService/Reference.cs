@@ -16,10 +16,10 @@ namespace MDK.AdminService {
     public interface IAdminServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminServices/validateUser", ReplyAction="http://tempuri.org/IAdminServices/validateUserResponse")]
-        void validateUser(string data);
+        string validateUser(string data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminServices/validateUser", ReplyAction="http://tempuri.org/IAdminServices/validateUserResponse")]
-        System.Threading.Tasks.Task validateUserAsync(string data);
+        System.Threading.Tasks.Task<string> validateUserAsync(string data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,11 +49,11 @@ namespace MDK.AdminService {
                 base(binding, remoteAddress) {
         }
         
-        public void validateUser(string data) {
-            base.Channel.validateUser(data);
+        public string validateUser(string data) {
+            return base.Channel.validateUser(data);
         }
         
-        public System.Threading.Tasks.Task validateUserAsync(string data) {
+        public System.Threading.Tasks.Task<string> validateUserAsync(string data) {
             return base.Channel.validateUserAsync(data);
         }
     }

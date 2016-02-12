@@ -73,7 +73,7 @@ body
 /*Login page CSS*/
 
 .loginBox {
-     padding:2%;
+     padding:5% 2% 1% 2%;
     border:1px solid gray;
     border-radius:10px;
     width:45%;

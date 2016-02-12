@@ -1,8 +1,13 @@
-﻿angular.module("MDKApp").controller("LoginCtrl", ["$scope","$state", function ($scope,$state) {
+﻿angular.module("MDKApp").controller("LoginCtrl", ["$scope", "$state", "apiService", function ($scope, $state, apiService) {
     $scope.msg = "My Login";
 
     $scope.login = function () {
         alert('sai');
-        $state.go('dashboard');
+        //$state.go('dashboard');
+        apiService.validateUser().then(function () {
+            alert('success');
+        }).catch(function () {
+            alert('error');
+        });
     };
 }]);
