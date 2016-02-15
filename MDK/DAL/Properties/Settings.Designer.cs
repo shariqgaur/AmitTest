@@ -32,5 +32,16 @@ namespace DAL.Properties {
                 return ((string)(this["MDK_DBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PNEITSH52343d;Initial Catalog=MDK_DB;User ID=iwebuser;Password=iwebus" +
+            "er")]
+        public string MDK_DBConnectionString1 {
+            get {
+                return ((string)(this["MDK_DBConnectionString1"]));
+            }
+        }
     }
 }

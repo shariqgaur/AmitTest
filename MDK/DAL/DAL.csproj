@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\LoginDAL.cs" />
+    <Compile Include="Business\PersonalInfoDAL.cs" />
     <Compile Include="InterfaceDAL\IDal.cs" />
     <Compile Include="MDKDBML.designer.cs">
       <AutoGen>True</AutoGen>

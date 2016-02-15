@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminServices\AdminServices.svc" />
+    <Content Include="BusinessServices\BusinessServices.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -69,6 +70,10 @@
       <DependentUpon>AdminServices.svc</DependentUpon>
     </Compile>
     <Compile Include="AdminServices\IAdminServices.cs" />
+    <Compile Include="BusinessServices\BusinessServices.svc.cs">
+      <DependentUpon>BusinessServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessServices\IBusinessServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +82,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\MDK.pubxml" />
     <None Include="Properties\PublishProfiles\MDKServices.pubxml" />
+    <None Include="Properties\PublishProfiles\Services.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
