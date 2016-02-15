@@ -1,0 +1,7 @@
+
+
+	1) Remove bin/obj file
+	for /d /r . %d in (bin,obj) do @if exist "%d" rd /s/q "%d"
+	
+	2) Remove empty directories
+	for /f "delims=" %d in ('dir /s /b /ad ^| sort /r') do rd "%d"

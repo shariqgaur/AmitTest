@@ -1,0 +1,7 @@
+Valid user
+
+{"validateUserResult":"{\"SuccessCode\":\"VALID_USER\",\"UIData\":null,\"ErrorCode\":null,\"ErrorMessage\":null,\"ViewData\":{\"Uid\":1,\"Role\":\"Admin\",\"LoginName\":\"amitdebadwar\",\"Password\":\"amitdebadwar\"}}"}
+
+Invalid user
+
+{"validateUserResult":"{\"SuccessCode\":null,\"ErrorCode\":\"INVALID_USER\",\"ErrorMessage\":\"User name\/password is incorrect !\",\"ViewData\":null}"}

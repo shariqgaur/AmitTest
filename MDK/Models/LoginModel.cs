@@ -8,7 +8,8 @@ namespace Models
 {
     public class LoginModel : IModel
     {
-        public string UserID { get; set; }
+        public string UserId { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
     }
 }

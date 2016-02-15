@@ -12,7 +12,11 @@ namespace MDK.ServerViews.Admin
 {
     public partial class userMangement : System.Web.UI.Page
     {
-       
-       
+
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

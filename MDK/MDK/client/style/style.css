@@ -19,6 +19,9 @@ body
     margin-right: auto;
     margin-top:auto;
     margin-bottom:auto;
+
+
+  
 }
 
 .mainHR
@@ -41,7 +44,7 @@ body
 
 .logo
 {
-    background: url(../images/mdk.gif) no-repeat;
+     
     background-size: 100px 80px;
     display: inline-block;
     border: 0px solid green;

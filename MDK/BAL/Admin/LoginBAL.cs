@@ -12,15 +12,31 @@ namespace BAL.Admin
 {
     public class LoginBAL : IBal
     {
-        LoginDAL loginDal;
+        LoginDAL loginDal = null;
+        TLoginData tloginData = null;
+        LoginModel loginModel = null;
 
-        public ITransport validateUser(IModel model)
+        public LoginBAL()
         {
             loginDal = new LoginDAL();
+            loginModel = new LoginModel();
+            tloginData = new TLoginData();
+        }
 
-            /*Logic goes here and setting database response to ITransport*/
+        public TLoginData validateUser(IModel model)
+        {
+            try
+            {
+                tloginData = loginDal.validateUser(model);
+                return tloginData;
+            }
 
-            return loginDal.validateUser(model);
+            catch (Exception exp)
+            {
+                tloginData.ErrorCode = "BUSINESS_LOGIC_ERROR";
+                tloginData.ErrorMessage = "validateUser: " + exp.InnerException;
+                return tloginData;
+            }
         }
     }
 }

@@ -11,14 +11,48 @@ namespace DAL.Admin
 {
     public class LoginDAL : IDal
     {
-        public ITransport validateUser(IModel model)
+        LoginModel modelEntity;
+        MDKDBMLDataContext _dataContext;
+        TLoginData tLoginData;
+         
+
+        public LoginDAL()
         {
-            var modelEntity = (LoginModel)model;
-            /*Data access logic goes here */
+            _dataContext = new MDKDBMLDataContext();
+            tLoginData = new TLoginData();
+      
+        }
 
-            TestLogin test = new TestLogin();
+        public TLoginData validateUser(IModel model)
+        {
+            try
+            {
+                modelEntity = (LoginModel)model;
 
-            return test.getTestUser();
+                var record = _dataContext.UserMangements.Where(x => x.LoginName == modelEntity.UserId && x.Password == modelEntity.Password).ToList();
+
+                if (record.Count > 0)
+                {
+                    tLoginData.SuccessCode = "VALID_USER";
+                    modelEntity.UserId = record[0].LoginName;
+                    modelEntity.Role = record[0].Role;
+                    tLoginData.tLoginData = modelEntity;
+
+                    return tLoginData;
+                   
+
+                }
+
+                return tLoginData;
+            }
+
+            catch (Exception e)
+            {
+                tLoginData.ErrorCode = "DATA_ACCESS_ERROR";
+                tLoginData.ErrorMessage = "validateUser: " + e.InnerException.ToString();
+                return tLoginData;
+            }
+
         }
 
         public ITransport insertRecord(IModel model)
@@ -40,30 +74,12 @@ namespace DAL.Admin
         {
             throw new NotImplementedException();
         }
-    }
 
-
-
-    /*Testing */
-    public class TestLogin
-    {
-        TransportData test = null;
-
-        public TestLogin()
+        public List<IModel> getAllRecords()
         {
-            test = new TransportData();
-            test.uiData.ViewData = "UI Data from DAL";
-            test.errorData.ErrorCode = "ERROR_CODE";
-            test.errorData.ErrorMessage = "ErrorMessage";
+            throw new NotImplementedException();
         }
-
-        public ITransport getTestUser()
-        {
-            return test;
-        }
-
     }
-
 
 
 }

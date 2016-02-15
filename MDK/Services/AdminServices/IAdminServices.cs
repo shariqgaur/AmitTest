@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Models;
 using Models.TransportModel;
 
 namespace Services.AdminServices
@@ -14,7 +15,10 @@ namespace Services.AdminServices
     public interface IAdminServices
     {
         [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,RequestFormat=WebMessageFormat.Json,BodyStyle=WebMessageBodyStyle.WrappedRequest,Method="POST")]
-        string validateUser(string data);
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat=WebMessageFormat.Json,
+            BodyStyle=WebMessageBodyStyle.Wrapped,
+            Method="POST")]
+        TLoginData validateUser(string data);
     }
 }

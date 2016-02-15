@@ -11,41 +11,36 @@ using Models.TransportModel;
 
 namespace Services.AdminServices
 {
-
-    public class TestData
-    {
-
-        public string Id { get; set; }
-        public string Name { get; set; }
-
-    }
-
     public class AdminServices : IAdminServices
     {
 
-        string transport;
-        JavaScriptSerializer _serialize;
+        TLoginData tLoginData = null;
+        LoginBAL loginBal = null;
+        JavaScriptSerializer _serializer = null;
+        LoginModel loginModel = null;
 
-
-
-
-        public string validateUser(string data)
+        public AdminServices()
         {
-            LoginModel loginModel = new LoginModel();
-            _serialize = new JavaScriptSerializer();
+            tLoginData = new TLoginData();
+            loginBal = new LoginBAL();
+            _serializer = new JavaScriptSerializer();
+            loginModel = new LoginModel();
+        }
 
+        public TLoginData validateUser(string data)
+        {
+            try
+            {
+                loginModel = _serializer.Deserialize<LoginModel>(data);
+                tLoginData = loginBal.validateUser(loginModel);
 
-            loginModel.UserID = "amit";
-            loginModel.Password = "786";
+                return tLoginData;
 
-            LoginBAL loginBal = new LoginBAL();
-
-            //ToDo
-            /*Return value here to UI*/
-            transport = _serialize.Serialize((TransportData)loginBal.validateUser(loginModel));
-
-            return transport;
-
+            }
+            catch (Exception exp)
+            {
+                return null; //transport = e.InnerException.ToString();
+            }
         }
 
 

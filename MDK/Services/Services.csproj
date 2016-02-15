@@ -60,7 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminServices\AdminServices.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminServices\AdminServices.svc.cs">
@@ -73,6 +75,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\MDK.pubxml" />
+    <None Include="Properties\PublishProfiles\MDKServices.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,12 +106,10 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51544</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1062/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:1062/</IISAppRootUrl>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>6695</DevelopmentServerPort>
+          <DevelopmentServerVPath>/WCF</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9595/WCF</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

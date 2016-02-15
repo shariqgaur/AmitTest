@@ -1,18 +1,20 @@
 {
-  "name": "UIpackages",
-  "version": "1.0.0",
-  "description": "",
+  "name": "MDK",
+  "version": "0.0.1",
+  "description": "Accouting application",
   "main": "index.js",
   "dependencies": {
-    "jquery": "^2.2.0",
-    "angular": "^1.5.0",
-    "bootstrap": "^3.3.6"
+    "angular": "~1.5.0",
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "accouting"
+  ],
   "author": "Amit Debadwar",
   "license": "ISC"
 }

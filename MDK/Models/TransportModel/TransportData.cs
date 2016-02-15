@@ -8,32 +8,9 @@ namespace Models.TransportModel
 {
     public class TransportData : ITransport
     {
-        public UIData uiData { get; set; }
-        public ErrorData errorData { get; set; }
-
-        public TransportData()
-        {
-            uiData = new UIData();
-            errorData = new ErrorData();
-        }
-
-    }
-
-
-    public class UIData
-    {
-        public string ViewData { get; set; }
-    }
-
-    public class ErrorData
-    {
+        public string SuccessCode { get; set; }
+        public string SuccessMessage { get; set; }
         public string ErrorCode { get; set; }
         public string ErrorMessage { get; set; }
-
-        public string getErrorMessageByErrorCode(string errorCode)
-        {
-            return string.Empty;
-        }
-    }
-
+   }
 }

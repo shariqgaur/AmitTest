@@ -22,7 +22,7 @@ namespace MDK
 
             LoginModel loginModel = new LoginModel();
 
-            loginModel.UserID = "amit";
+            loginModel.UserId = "amit";
             loginModel.Password = "786";
 
             string jsonData=_serializer.Serialize(loginModel);
