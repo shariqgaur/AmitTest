@@ -10,23 +10,20 @@
     </div>
 
     <div class="row">
-        <div class="col-md-offset-4">
+        <div class="col-md-5" style="min-height: 100px; min-width: 100px">sa</div>
+        <div class="col-md-7">
 
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
-                      
-                          
-                       <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Business Lines</h4>
+
+                    <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Business Lines</h4>
                     <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" style="margin-left:43px;">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
-                         
+                        <input type="text" class="form-control" placeholder="search business lines by firstname/lastname or contact number" style="margin-left: 43px;">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-   
-  
-                     
+
                 </div>
                 <div class="panel-title">
                 </div>
@@ -35,21 +32,43 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Business Name</th>
+                                <th style="">Business Name</th>
                                 <th>Contact Number</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody ng-repeat="record in businessLines">
                             <tr>
                                 <td><a href="#" ng-bind="record.Pid"></a></td>
                                 <td><a href="#"><span ng-bind="record.FirstName+' '+record.MiddleName +' ' +record.LastName"></span></a></td>
-                                <td><a href="#" ng-bind="record.ContactNo"></a></td>
+                                <td><a href="#" ng-bind="'+91 '+record.ContactNo | tel"></a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="panel-footer">Panel footer</div>
+                <div class="panel-footer">
+                    <!--Panel footer-->
+
+                    <nav>
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
         </div>

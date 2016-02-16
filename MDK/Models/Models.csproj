@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="ErrorCodes.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="PersonalInfoModel.cs" />

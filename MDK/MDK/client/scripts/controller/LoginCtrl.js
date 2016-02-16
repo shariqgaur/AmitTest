@@ -19,7 +19,8 @@
                 $state.go("dashboard");
             }
             else {
-                $scope.loginErrorMessage = data.data.ErrorMessage;
+                console.log(data.data.validateUserResult.ErrorMessage);
+                $scope.loginErrorMessage = data.data.validateUserResult.ErrorMessage;
                 $scope.isLoginError = true;
             }
 

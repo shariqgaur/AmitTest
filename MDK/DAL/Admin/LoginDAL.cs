@@ -33,22 +33,26 @@ namespace DAL.Admin
 
                 if (record.Count > 0)
                 {
-                    tLoginData.SuccessCode = "VALID_USER";
+                    tLoginData.SuccessCode = ErrorCodes.VALID_USER;
                     modelEntity.UserId = record[0].LoginName;
                     modelEntity.Role = record[0].Role;
                     tLoginData.tLoginData = modelEntity;
 
                     return tLoginData;
-                   
+
 
                 }
-
-                return tLoginData;
+                else
+                {
+                    tLoginData.ErrorCode = ErrorCodes.INVALID_USER;
+                    tLoginData.ErrorMessage = ErrorMessages.INVALID_USER_MSG;
+                    return tLoginData;
+                }
             }
 
             catch (Exception e)
             {
-                tLoginData.ErrorCode = "DATA_ACCESS_ERROR";
+                tLoginData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
                 tLoginData.ErrorMessage = "validateUser: " + e.InnerException.ToString();
                 return tLoginData;
             }

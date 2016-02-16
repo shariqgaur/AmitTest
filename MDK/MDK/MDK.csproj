@@ -586,6 +586,7 @@
     <Content Include="client\lib\UIpackages\node_modules\jquery\src\var\toString.js" />
     <Content Include="client\lib\UIpackages\node_modules\jquery\src\wrap.js" />
     <Content Include="client\scripts\common\directives\progressBar.js" />
+    <Content Include="client\scripts\common\filters\formatMobileNumber.js" />
     <Content Include="client\scripts\common\services\constants.js" />
     <Content Include="client\scripts\common\services\httpFactoryService.js" />
     <Content Include="client\scripts\common\services\service.js" />
