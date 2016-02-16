@@ -1307,13 +1307,6 @@
     <Content Include="ServerViews\Admin\RoleMangement.aspx" />
     <Content Include="ServerViews\Admin\UserMangement.aspx" />
     <Content Include="ServerViews\loginMangement.aspx" />
-    <None Include="Service References\AdminService\AdminServices.disco" />
-    <None Include="Service References\AdminService\configuration91.svcinfo" />
-    <None Include="Service References\AdminService\configuration.svcinfo" />
-    <None Include="Service References\AdminService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1404,11 +1397,6 @@
     <Compile Include="ServerViews\loginMangement.aspx.designer.cs">
       <DependentUpon>loginMangement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\AdminService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1426,13 +1414,6 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AdminService\AdminServices.wsdl" />
-    <None Include="Service References\AdminService\AdminServices.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AdminService\AdminServices1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1445,9 +1426,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AdminService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

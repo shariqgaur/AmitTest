@@ -46,7 +46,11 @@
             <th>Role
             </th>
             <td>
-                <asp:DropDownList ID="DrpRoles" runat="server" Width="300px" Height="25px"></asp:DropDownList>
+                <asp:DropDownList ID="DrpRoles" runat="server" Width="300px" Height="25px">
+                    <asp:ListItem Selected="True">Select Role</asp:ListItem>
+                    <asp:ListItem>Admin</asp:ListItem>
+                    <asp:ListItem>User</asp:ListItem>
+                </asp:DropDownList>
                 <br />
             </td>
         </tr>

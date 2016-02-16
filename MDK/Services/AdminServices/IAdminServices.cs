@@ -20,5 +20,13 @@ namespace Services.AdminServices
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
         TLoginData validateUser(string data);
+
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TUserManegementData createUser(string data);
     }
 }

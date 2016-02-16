@@ -49,6 +49,8 @@
     <Compile Include="TransportModel\TLoginData.cs" />
     <Compile Include="TransportModel\TPersonalInfoData.cs" />
     <Compile Include="TransportModel\TransportData.cs" />
+    <Compile Include="TransportModel\TUserManegementData.cs" />
+    <Compile Include="UserMangementModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

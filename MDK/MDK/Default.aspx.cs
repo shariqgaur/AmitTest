@@ -18,18 +18,6 @@ namespace MDK
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            var adminService = new AdminService.AdminServicesClient();
-
-            LoginModel loginModel = new LoginModel();
-
-            loginModel.UserId = "amit";
-            loginModel.Password = "786";
-
-            string jsonData=_serializer.Serialize(loginModel);
-
-            adminService.validateUser(jsonData);
-
-
 
 
         }

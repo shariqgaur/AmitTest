@@ -1,50 +1,83 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.InterfaceDAL;
+using Models;
+using Models.TransportModel;
+
 
 namespace DAL.Admin
 {
-    public class UserManagementDAL_OLD : BASEDAL
+    public class UserMangementDAL : IDal
     {
-        UserMangement userManagementEntity = null;
+        UserMangementModel modelEntity;
+        MDKDBMLDataContext _dataContext;
+        TUserManegementData tUserManegementData;
 
-        public UserManagementDAL_OLD()
+        public UserMangementDAL()
         {
-            userManagementEntity = new UserMangement();
+            _dataContext = new MDKDBMLDataContext();
+            tUserManegementData = new TUserManegementData();
+
         }
 
-        public bool addNewuserDAL(string data)
+        public TUserManegementData createUser(IModel model)
         {
+            UserMangement userManagement = new UserMangement();
+
             try
             {
-                //Deserialize object
-                var tblData = _serializer.Deserialize<UserManagementModel>(data);
+                modelEntity = (UserMangementModel)model;
 
-                //Model data assign to entity
-                userManagementEntity.LoginName = tblData.LoginName;
-                userManagementEntity.Password = tblData.Password;
+                userManagement.LoginName = modelEntity.LoginName;
+                userManagement.Password = modelEntity.Password;
+                userManagement.Role = modelEntity.Role;
 
-                //Save to database
-                _dataContext.UserMangements.InsertOnSubmit(userManagementEntity);
+                _dataContext.UserMangements.InsertOnSubmit(userManagement);
                 _dataContext.SubmitChanges();
-                return true;
+
+                tUserManegementData.SuccessCode = ErrorCodes.DATA_ACCESS_SUCCESS;
+
+                return tUserManegementData;
             }
 
-            catch
+            catch (Exception e)
             {
-                return false;
+                tUserManegementData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+                tUserManegementData.ErrorMessage = "createUser: " + e.InnerException.ToString();
+                return tUserManegementData;
             }
 
+        }
+
+        public ITransport insertRecord(IModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ITransport deleteRecordById(int model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ITransport editRecordById(int model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ITransport updateRecordById(int id, IModel newModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IModel> getAllRecords()
+        {
+            throw new NotImplementedException();
         }
     }
 
 
-    public class UserManagementDAL:IDal
-    {
-    
-    }
 }
+

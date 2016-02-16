@@ -9,7 +9,6 @@ using BAL.Admin;
 using BAL.Business;
 using Models;
 using Models.TransportModel;
-
 namespace Services.AdminServices
 {
     public class AdminServices : IAdminServices
@@ -21,6 +20,10 @@ namespace Services.AdminServices
 
         JavaScriptSerializer _serializer = null;
 
+        UserMangementModel userMangementModel = null;
+        UserMangementBAL userMangementBAL = null;
+        TUserManegementData tuserMangementData = null;
+
         public AdminServices()
         {
             loginModel = new LoginModel();
@@ -28,6 +31,12 @@ namespace Services.AdminServices
             tLoginData = new TLoginData();
 
             _serializer = new JavaScriptSerializer();
+
+            userMangementModel = new UserMangementModel();
+            userMangementBAL = new UserMangementBAL();
+            tuserMangementData = new TUserManegementData();
+
+
         }
 
         public TLoginData validateUser(string data)
@@ -43,9 +52,30 @@ namespace Services.AdminServices
             catch (Exception exp)
             {
                 tLoginData.ErrorCode = "SERVICE_ERROR";
-                tLoginData.ErrorMessage  = "validateUser: " + exp.InnerException.ToString();
+                tLoginData.ErrorMessage = "validateUser: " + exp.InnerException.ToString();
                 return tLoginData;
             }
+        }
+
+
+        public TUserManegementData createUser(string data)
+        {
+            try
+            {
+                userMangementModel = _serializer.Deserialize<UserMangementModel>(data);
+                tuserMangementData = userMangementBAL.createUser(userMangementModel);
+                return tuserMangementData;
+            }
+            catch (Exception exp)
+            {
+                tuserMangementData.ErrorCode = "SERVICE_ERROR";
+                tuserMangementData.ErrorMessage = "createUser:" + exp.InnerException.ToString();
+                return tuserMangementData;
+            }
+
+
+
+
         }
     }
 }
