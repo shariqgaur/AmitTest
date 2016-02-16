@@ -20,7 +20,7 @@ namespace BAL.Business
 
        public TPersonalInfoData getAllBusinessLines()
        {
-           return personalInfoDAL.getAllBusinessLines();
+           return null;
        }
 
     }
