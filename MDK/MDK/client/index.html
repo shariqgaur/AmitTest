@@ -30,73 +30,74 @@
 </head>
 <body role="document" ng-app="MDKApp" ng-controller="MainCtrl">
     <div cg-busy="{promise:$root.loading,templateUrl:'views/loader.html',message:'Processing...',backdrop:true,delay:0,minDuration:1000}">
-    <div class="row" ng-controller="HeaderCtrl">
-         <div class="col-md-4">
-            <header>
-                <div class="logo">
-                    <div class="logoHeading">
-                        <h1><b>AccTrack</b>
-                        </h1>
-                        <small class="logoSubHeading">makes accounting easy !</small>
+        <div class="row" ng-controller="HeaderCtrl">
+            <div class="col-md-4">
+                <header>
+                    <div class="logo">
+                        <div class="logoHeading">
+                            <h1><b>AccTrack</b>
+                            </h1>
+                            <small class="logoSubHeading">makes accounting easy !</small>
+                        </div>
                     </div>
-                </div>
-            </header>
-        </div>
-    </div>
-
-    <div class="row">
-        <hr class="mainHR" />
-    </div>
-    <div class="row viewBody">
-        <section ui-view></section>
-    </div>
-    <div class="row">
-        <hr style="height: 1.1px; background: gray;" />
-        <footer style="height: 40px; border: 0px solid black;">
-            <div class="text-center">
-                All rights are reserved by Amit Debadwar
+                </header>
             </div>
-        </footer>
-    </div>
-    <!--Libs-->
-    <script src="lib/UIpackages/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="lib/UIpackages/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="lib/UIpackages/node_modules/angular/angular.min.js"></script>
-    <script src="lib/angular-ui-router.js"></script>
-    <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-    <script src="lib/UIpackages/node_modules/angular-animate/angular-animate.js"></script>
-    <script src="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.js"></script>
-    <!--Libs End-->
+        </div>
 
-    <!--App directives-->
-    <!--App directives end-->
+        <div class="row">
+            <hr class="mainHR" />
+        </div>
+        <div class="row viewBody">
+            <section ui-view></section>
+        </div>
+        <div class="row">
+            <hr style="height: 1.1px; background: gray;" />
+            <footer style="height: 40px; border: 0px solid black;">
+                <div class="text-center">
+                    All rights are reserved by Amit Debadwar
+                </div>
+            </footer>
+        </div>
+        <!--Libs-->
+        <script src="lib/UIpackages/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="lib/UIpackages/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/UIpackages/node_modules/angular/angular.min.js"></script>
+        <script src="lib/angular-ui-router.js"></script>
+        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script src="lib/UIpackages/node_modules/angular-animate/angular-animate.js"></script>
+        <script src="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.js"></script>
+        <!--Libs End-->
 
-    <!--Custom angular services-->
-    <script src="scripts/common/services/httpFactoryService.js"></script>
-    <!--Custom angular services End-->
+        <!--App directives-->
+        <!--App directives end-->
 
-    <!--App specific-->
-    <script src="app.js"></script>
-    <script src="app.config.js"></script>
-    <!--App specific End-->
+        <!--Custom angular services-->
+        <script src="scripts/common/services/httpFactoryService.js"></script>
+        <!--Custom angular services End-->
 
-    <!--Angualar constant-->
-    <script src="scripts/common/services/constants.js"></script>
-    <!--Angualar constant End-->
+        <!--App specific-->
+        <script src="app.js"></script>
+        <script src="app.config.js"></script>
+        <!--App specific End-->
 
-    <!--Angular custom services-->
-    <script src="scripts/common/services/service.js"></script>
-    <!--Angular custom services End-->
+        <!--Angualar constant-->
+        <script src="scripts/common/services/constants.js"></script>
+        <!--Angualar constant End-->
 
-    <!--Angular custom filteres-->
-    <script src="scripts/common/filters/formatMobileNumber.js"></script>
-    <!--Angular custom filteres End-->
+        <!--Angular custom services-->
+        <script src="scripts/common/services/service.js"></script>
+        <!--Angular custom services End-->
 
-    <!--Angular controllers-->
-    <script src="scripts/controller/MainController.js"></script>
-    <script src="scripts/controller/LoginCtrl.js"></script>
-    <script src="scripts/controller/DashboardCtrl.js"></script>
-    <script src="scripts/controller/HeaderCtrl.js"></script>
-    <!--Angular controllers End-->
+        <!--Angular custom filteres-->
+        <script src="scripts/common/filters/formatMobileNumber.js"></script>
+        <!--Angular custom filteres End-->
+
+        <!--Angular controllers-->
+        <script src="scripts/controller/MainController.js"></script>
+        <script src="scripts/controller/LoginCtrl.js"></script>
+        <script src="scripts/controller/DashboardCtrl.js"></script>
+        <script src="scripts/controller/HeaderCtrl.js"></script>
+        <script src="scripts/controller/LineDetailsCtrl.js"></script>
+        <!--Angular controllers End-->
 </body>
 </html>

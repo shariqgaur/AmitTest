@@ -9,9 +9,13 @@ angular.module('MDKApp').config(['$stateProvider', '$urlRouterProvider', functio
           url: "/dashboard",
           templateUrl: "views/dashboard.html",
           controller: "DashboardCtrl"
+      }).state("lineDetails", {
+          url: "/lineDetails",
+          templateUrl:"views/lineDetails.html",
+          controller: "LineDetailsCtrl"
       });
 
-  $urlRouterProvider.otherwise("/login");
+  $urlRouterProvider.otherwise("/lineDetails");
 
 }]);
 

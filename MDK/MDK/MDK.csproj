@@ -853,6 +853,7 @@
     <Content Include="client\scripts\common\services\constants.js" />
     <Content Include="client\scripts\common\services\httpFactoryService.js" />
     <Content Include="client\scripts\common\services\service.js" />
+    <Content Include="client\scripts\controller\LineDetailsCtrl.js" />
     <Content Include="client\scripts\controller\HeaderCtrl.js" />
     <Content Include="client\scripts\controller\DashboardCtrl.js" />
     <Content Include="client\scripts\controller\LoginCtrl.js" />
@@ -864,6 +865,9 @@
     <Content Include="client\Test\karma.conf.js" />
     <Content Include="client\Test\tests\example.js" />
     <Content Include="client\Test\tests\exampleTestSpec.js" />
+    <Content Include="client\views\dashboard.html" />
+    <Content Include="client\views\LineDetails.html" />
+    <Content Include="client\views\loader.html" />
     <Content Include="client\views\login.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
