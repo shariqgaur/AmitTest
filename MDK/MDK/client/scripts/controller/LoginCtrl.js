@@ -8,18 +8,12 @@
             Password: $scope.userPassword
         };
 
-         
-
         apiService.validateUser(loginInfo).then(function (data) {
-
-             
-
-            console.log(data);
+ 
             if (data.data.validateUserResult.SuccessCode === "VALID_USER") {
                 $state.go("dashboard");
             }
             else {
-                console.log(data.data.validateUserResult.ErrorMessage);
                 $scope.loginErrorMessage = data.data.validateUserResult.ErrorMessage;
                 $scope.isLoginError = true;
             }
@@ -27,5 +21,10 @@
         }).catch(function (data) {
             console.log(data);
         });
+
+        $scope.closeLoginUserValidationAlert = function () {
+            $scope.isLoginError = false;
+        };
+
     };
 }]);
