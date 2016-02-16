@@ -10,11 +10,6 @@ namespace Services.BusinessServices
 {
     public class BusinessServices : IBusinessServices
     {
-        TLoginData tLoginData = null;
-        LoginBAL loginBal = null;
-        JavaScriptSerializer _serializer = null;
-        LoginModel loginModel = null;
-
         public BusinessServices()
         {
 
