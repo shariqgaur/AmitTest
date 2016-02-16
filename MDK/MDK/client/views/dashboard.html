@@ -1,13 +1,51 @@
 ﻿<div ng-controller="LoginCtrl">
 
     <div class="row">
-
         <div class="col-md-3">
             <h2>Dashboard
             </h2>
         </div>
 
         <div class="clearfix"></div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-offset-4">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                      
+                         Business Lines
+                      <input type="text" class="pull-right lineSearch" placeholder="search business lines"/>
+
+   
+  
+                     
+                </div>
+                <div class="panel-title">
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Business Name</th>
+                                <th>Contact Number</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="record in businessLines">
+                            <tr>
+                                <td><a href="#" ng-bind="record.Pid"></a></td>
+                                <td><a href="#"><span ng-bind="record.FirstName+' '+record.MiddleName +' ' +record.LastName"></span></a></td>
+                                <td><a href="#" ng-bind="record.ContactNo"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">Panel footer</div>
+            </div>
+
+        </div>
     </div>
 </div>

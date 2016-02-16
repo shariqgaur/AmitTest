@@ -26,10 +26,10 @@
         <elementListCompartment Id="e2af0da7-905a-4f22-b68e-578e3777e5d9" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3adf316a-7a78-4b4e-b769-3167d83272e3" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="3adf316a-7a78-4b4e-b769-3167d83272e3" absoluteBounds="6, 0.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/MDKDBMLDataContext/UserMangement" />
       <nestedChildShapes>
-        <elementListCompartment Id="84775de7-cbec-4b03-89a3-d68616112442" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="84775de7-cbec-4b03-89a3-d68616112442" absoluteBounds="6.015, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

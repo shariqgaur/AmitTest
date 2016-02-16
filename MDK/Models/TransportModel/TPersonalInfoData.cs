@@ -9,5 +9,6 @@ namespace Models.TransportModel
    public class TPersonalInfoData:TransportData
     {
        public PersonalInfoModel tPersonalInfoData;
+       public IEnumerable<PersonalInfoModel> allRecords;
     }
 }

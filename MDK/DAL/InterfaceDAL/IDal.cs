@@ -14,6 +14,6 @@ namespace DAL.InterfaceDAL
         ITransport deleteRecordById(int model);
         ITransport editRecordById(int model);
         ITransport updateRecordById(int id, IModel newModel);
-        List<IModel> getAllRecords();
+         
      }
 }

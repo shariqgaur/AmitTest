@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Web.Script.Serialization;
 using BAL.Admin;
+using BAL.Business;
 using Models;
 using Models.TransportModel;
 
@@ -14,17 +15,19 @@ namespace Services.AdminServices
     public class AdminServices : IAdminServices
     {
 
-        TLoginData tLoginData = null;
-        LoginBAL loginBal = null;
-        JavaScriptSerializer _serializer = null;
         LoginModel loginModel = null;
+        LoginBAL loginBal = null;
+        TLoginData tLoginData = null;
+
+        JavaScriptSerializer _serializer = null;
 
         public AdminServices()
         {
-            tLoginData = new TLoginData();
-            loginBal = new LoginBAL();
-            _serializer = new JavaScriptSerializer();
             loginModel = new LoginModel();
+            loginBal = new LoginBAL();
+            tLoginData = new TLoginData();
+
+            _serializer = new JavaScriptSerializer();
         }
 
         public TLoginData validateUser(string data)
@@ -39,12 +42,10 @@ namespace Services.AdminServices
             }
             catch (Exception exp)
             {
-                return null; //transport = e.InnerException.ToString();
+                tLoginData.ErrorCode = "SERVICE_ERROR";
+                tLoginData.ErrorMessage  = "validateUser: " + exp.InnerException.ToString();
+                return tLoginData;
             }
         }
-
-
-
-       
     }
 }

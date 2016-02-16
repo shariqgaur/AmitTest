@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using Models;
+using Models.TransportModel;
 
 namespace Services.BusinessServices
 {
@@ -19,6 +20,6 @@ namespace Services.BusinessServices
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
-        IEnumerable<PersonalInfo> getAllBusinessLines();
+        TPersonalInfoData getAllBusinessLines(string data);
     }
 }

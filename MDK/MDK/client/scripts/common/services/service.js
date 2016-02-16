@@ -1,6 +1,6 @@
 
 angular.module("MDKApp")
-    .service("apiService", ['$http', '$rootScope', 'serverName', 'port', 'AdminServices', function ($http, $rootScope, serverName, port, AdminServices) {
+    .service("apiService", ['$http', '$rootScope', 'serverName', 'port', 'AdminServices', 'BusinessServices', function ($http, $rootScope, serverName, port, AdminServices, BusinessServices) {
 
         var self = this;
 
@@ -13,11 +13,13 @@ angular.module("MDKApp")
         };
 
         self.validateUser = function (data) {
-
-            console.log(serverName + port + AdminServices + "validateUser");
-            var d = "last post ";
             return self.__post(serverName + port + AdminServices + "validateUser", { "data":angular.toJson(data) });
         };
+
+        self.getAllBusinessLines = function () {
+            return self.__post(serverName + port + BusinessServices + "getAllBusinessLines", { "data": "" });
+            
+        }
 
 
         return self;
