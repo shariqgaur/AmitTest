@@ -17,27 +17,27 @@
                 <div class="panel-heading clearfix">
 
                     <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Business Lines</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="search business lines by firstname/lastname or contact number" style="margin-left: 43px;">
-                        <div class="input-group-btn">
+                    <!--<div class="input-group" style="border:2px solid green;">-->
+                        <input type="text" class="form-control" ng-model="searchLine" placeholder="search business lines by firstname/lastname or contact number" style="width:70%;margin:0px 20px 0px 150px;">
+                        <!--<div class="input-group-btn">
                             <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                    </div>
+                        </div>-->
+                    <!--</div>-->
 
                 </div>
                 <div class="panel-title">
                 </div>
                 <div class="panel-body">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th style="">Business Name</th>
+                                <th>Business Name</th>
                                 <th>Contact Number</th>
 
                             </tr>
                         </thead>
-                        <tbody ng-repeat="record in businessLines">
+                        <tbody ng-repeat="record in businessLines | filter: searchLine">
                             <tr>
                                 <td><a href="#" ng-bind="record.Pid"></a></td>
                                 <td><a href="#"><span ng-bind="record.FirstName+' '+record.MiddleName +' ' +record.LastName"></span></a></td>
