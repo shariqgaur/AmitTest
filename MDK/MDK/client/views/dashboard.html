@@ -41,7 +41,7 @@
                             <tr>
                                 <td><a href="#" ng-bind="record.Pid"></a></td>
                                 <td><a href="#"><span ng-bind="record.FirstName+' '+record.MiddleName +' ' +record.LastName"></span></a></td>
-                                <td><a href="#" ng-bind="'+91 '+record.ContactNo | tel"></a></td>
+                                <td><a href="#" ng-bind="record.ContactNo | tel"></a></td>
                             </tr>
                         </tbody>
                     </table>
