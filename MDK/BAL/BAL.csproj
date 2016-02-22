@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\LoginBAL.cs" />
-    <Compile Include="Admin\UserManehementBAL.cs" />
     <Compile Include="Business\PersonalInfoBAL.cs" />
     <Compile Include="InterfaceBAL\IBal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
