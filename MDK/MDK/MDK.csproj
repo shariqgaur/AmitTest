@@ -866,7 +866,6 @@
     <Content Include="client\Test\karma.conf.js" />
     <Content Include="client\Test\tests\example.js" />
     <Content Include="client\Test\tests\exampleTestSpec.js" />
-    <Content Include="client\views\addUser.html" />
     <Content Include="client\views\dashboard.html" />
     <Content Include="client\views\lineDetails.html" />
     <Content Include="client\views\loader.html" />
