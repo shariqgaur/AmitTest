@@ -1,0 +1,115 @@
+﻿<div ng-controller="AddUserCtrl">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>User Management
+            </h2>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-7">
+            <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title pull-left" style="padding: 3px;">Users</h4>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table- table-hover">
+                        <thead>
+                            <tr>
+                                <th>User's Id</th>
+                                <th>Password</th>
+                                <th>Role</th>
+                                <th>Active</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Amit Debadwar</td>
+                                <td>********</td>
+                                <td>Admin</td>
+                                <td>
+                                    <form>
+                                        <div class="form-group text-center">
+                                            <label>
+                                                <input type="checkbox" value="dlf" checked>
+                                            </label>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-offset=1">
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title pull-left" style="padding: 3px;">Add New User</h4>
+                </div>
+
+                <div class="panel-body">
+                      <table class="table table- table-hover">
+                        <thead>
+                            <tr>
+
+                                <td>
+                                    <form>
+                                        <div class="form-group">
+
+                                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="new user's id">
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <select class="form-control">
+                                                <option>Select role</option>
+                                                <option>Super Admin</option>
+                                                <option>Admin</option>
+                                                <option>Accountant</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+
+                                                    <input type="checkbox" value="dlf">
+                                                    Active
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="button" class="btn btn-primary pull-right" value="+ Add New User" />
+                                        </div>
+
+                                    </form>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <div style="color: green;">User added successfully!.</div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
