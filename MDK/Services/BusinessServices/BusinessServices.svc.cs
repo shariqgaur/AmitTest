@@ -13,7 +13,7 @@ namespace Services.BusinessServices
 {
     public class BusinessServices : IBusinessServices
     {
-
+        JavaScriptSerializer _serializer = null;
 
         PersonalInfoModel personalInfoModel = null;
         PersonalInfoBAL personalInfoBAL = null;
@@ -21,6 +21,7 @@ namespace Services.BusinessServices
 
         public BusinessServices()
         {
+            _serializer = new JavaScriptSerializer();
             personalInfoModel = new PersonalInfoModel();
             personalInfoBAL = new PersonalInfoBAL();
             tPersonalInfoData = new TPersonalInfoData();
@@ -51,9 +52,11 @@ namespace Services.BusinessServices
         {
             try
             {
-                JavaScriptSerializer _serializer = new JavaScriptSerializer();
+               
                 personalInfoModel = _serializer.Deserialize<PersonalInfoModel>(data);
-                //tPersonalInfoData.tPersonalInfoData= personalInfoBAL.createBusinessUser(personalInfoModel);
+                tPersonalInfoData= personalInfoBAL.createBusinessUser(personalInfoModel);
+               
+                tPersonalInfoData.tPersonalInfoData = personalInfoModel;
                 return tPersonalInfoData;
 
             }
