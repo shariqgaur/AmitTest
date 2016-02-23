@@ -21,5 +21,12 @@ namespace Services.BusinessServices
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
         TPersonalInfoData getAllBusinessLines(string data);
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TPersonalInfoData createBusinessUser(string data);
     }
 }

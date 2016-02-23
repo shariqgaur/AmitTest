@@ -13,6 +13,8 @@ namespace Models
         public const string DATA_ACCESS_ERROR = "DATA_ACCESS_ERROR";
         public const string BUSINESS_LOGIC_ERROR="BUSINESS_LOGIC_ERROR";
         public const string DATA_ACCESS_SUCCESS = "DATA_ACCESS_SUCCESS";
+        public const string SERVICE_ERROR = "SERVICE_ERROR";
+        public const string RECORD_SAVED_SUCCESSFULLY = "RECORD_SAVED_SUCCESSFULLY";
     }
 
 

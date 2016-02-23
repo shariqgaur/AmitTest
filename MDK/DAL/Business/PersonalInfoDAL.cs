@@ -14,6 +14,7 @@ namespace DAL.Business
         PersonalInfoModel personalInfoModel = null;
         MDKDBMLDataContext _dataContext = null;
         TPersonalInfoData tPersonalInfoData = null;
+        ParsnalInfo personalInfoEntity = null;
 
         public PersonalInfoDAL()
         {
@@ -71,6 +72,37 @@ namespace DAL.Business
             {
                 tPersonalInfoData.ErrorCode = "DATA_ACCESS_ERROR";
                 tPersonalInfoData.ErrorMessage = "getAllRecords: " + exp.InnerException.ToString();
+                return tPersonalInfoData;
+            }
+        }
+
+        public TPersonalInfoData createBusinessUser(IModel model)
+        {
+            try
+            {
+                var modelData = (PersonalInfoModel)model;
+
+                personalInfoEntity.FirstName = modelData.FirstName;
+                personalInfoEntity.LastName = modelData.LastName;
+                personalInfoEntity.MiddileName = modelData.MiddleName;
+                personalInfoEntity.Pid = 0;
+                personalInfoEntity.Address = modelData.Address;
+                personalInfoEntity.ContactNo = modelData.ContactNo;
+                personalInfoEntity.EmailID = modelData.EmailID;
+                personalInfoEntity.DateOfBirth = modelData.DateOfBirth;
+
+                _dataContext.ParsnalInfos.InsertOnSubmit(personalInfoEntity);
+                _dataContext.SubmitChanges();
+
+                tPersonalInfoData.SuccessCode = ErrorCodes.RECORD_SAVED_SUCCESSFULLY;
+
+                return tPersonalInfoData;
+            }
+
+            catch (Exception exp)
+            {
+                tPersonalInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+                tPersonalInfoData.ErrorMessage = exp.InnerException.ToString();
                 return tPersonalInfoData;
             }
         }
