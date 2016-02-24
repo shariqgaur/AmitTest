@@ -27,16 +27,20 @@
       <Column Name="PFESI_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ParsnalInfo" Member="ParsnalInfos">
-    <Type Name="ParsnalInfo">
+  <Table Name="dbo.PersonalInformation" Member="PersonalInformations">
+    <Type Name="PersonalInformation">
       <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MiddileName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="EmailID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AlternateNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EmailID" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BusinessName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.RoleMangemant" Member="RoleMangemants">

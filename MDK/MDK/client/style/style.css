@@ -1,15 +1,18 @@
-h2 {
+h2
+{
     color: #006598;
     font-style: italic;
 }
 
-body {
+body
+{
     margin-left: auto;
     margin-right: auto;
     width: 90%;
 }
 
-.viewBody {
+.viewBody
+{
     min-height: 70%;
     width: 85%;
     margin-left: auto;
@@ -18,21 +21,24 @@ body {
     margin-bottom: auto;
 }
 
-.mainHR {
+.mainHR
+{
     background-color: orange;
     height: 1.1px;
 }
 
- 
 
-.logo {
+
+.logo
+{
     background-size: 100px 80px;
     display: inline-block;
     border: 0px solid green;
     margin-top: 2%;
 }
 
-    .logo .logoHeading {
+    .logo .logoHeading
+    {
         padding: 0px;
         margin-left: 100px;
         color: #006598;
@@ -42,7 +48,8 @@ body {
         font-weight: bold;
     }
 
-.logoSubHeading {
+.logoSubHeading
+{
     font-family: BatangChe;
     color: #858585;
     font-size: medium;
@@ -54,7 +61,8 @@ body {
 
 /*Login page CSS*/
 
-.loginBox {
+.loginBox
+{
     padding: 5% 2% 1% 2%;
     border: 1px solid gray;
     border-radius: 10px;
@@ -67,11 +75,13 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
 }
 
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove
+{
     transition: all linear 0.7s;
 }
 
-.animate-show.ng-hide {
+.animate-show.ng-hide
+{
     line-height: 0;
     opacity: 0;
     padding: 10px 5px 0px 10px;
@@ -81,21 +91,35 @@ body {
 
 /*Dashboard page css*/
 
-.panel-title {
+.panel-title
+{
     margin-top: 0;
     margin-bottom: 0;
     font-size: 16px;
     color: inherit;
 }
 
-.panel-info > .panel-heading {
+.panel-info > .panel-heading
+{
     color: #31708F;
     background-color: #D9EDF7;
     border-color: #BCE8F1;
 }
 
-.panel-body {
+.panel-body
+{
     padding: 15px;
 }
 
 /*Dashboard page css*/
+
+/*Dashboard page css END*/
+
+
+/*Global*/
+.formHelpText
+{
+    color: gray;
+    font-weight: bolder;
+}
+/*Global END*/

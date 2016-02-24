@@ -1,0 +1,146 @@
+﻿<div ng-controller="BusinessUserManagementCtrl">
+
+    <div class="row">
+        <div class="col-md-5">
+            <h2>Business User Management
+            </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title pull-left">Business Personal Information</h4>
+                </div>
+                <div class="panel-title">
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Does client have Business name?</strong>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="business" id="rdBusiness_Yes" value="Business_Yes" ng-model="isBusiness" ng-init="isBusiness='Business_Yes'">
+                                    Yes
+                                </label>
+                                    </div>
+                            </div>
+
+                            <div class="col-md-1">
+                                <label class="radio-inline">
+                                    <input type="radio" name="business" id="rdBusiness_No" value="Business_No" ng-model="isBusiness">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="isBusiness=='Business_Yes'">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Business Name</label>
+                                    <input type="email" class="form-control" id="Email7" placeholder="e.g. XYZ PVT LTD.">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Business Type</label>
+                                    <select class="form-control">
+                                        <option>select business type</option>
+                                        <option>Propriotorship</option>
+                                        <option>Partnership</option>
+                                        <option>LLP</option>
+                                        <option>PVT LTD</option>
+                                        <option>LTD</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row" ng-show="isBusiness=='Business_No'">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="txtFirstName" placeholder="firs name" ng-model="firstName">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="middleName">Middle Name</label>
+                                    <input type="text" class="form-control" id="txtMiddleName" placeholder="middle name" ng-model="middleName">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="lastName">Lastname</label>
+                                    <input type="text" class="form-control" id="txtLastName" placeholder="last name" ng-model="lastName">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contactNumber">Contact Number</label> 
+                                    <input type="text" class="form-control" id="txtContactNumber" placeholder="e.g. 909-617-4175" ng-model="contactNumber">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Alternate Number</label> 
+                                    <input type="text" class="form-control" id="txtAlternateNumber" placeholder="e.g. 986-022-2007" ng-model="alternateNumber">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="emailId">Email Id</label>
+                                    <input type="email" class="form-control" id="txtEmailId" placeholder="e.g. amit.debadwar@gmail.com" ng-model="emailId">
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label for="exampleInputEmail1">Date Of Birth</label>
+                                <input type="date" class="form-control" id="txtDate" ng-model="DateOfBirth">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Address</label> <small class="formHelpText"> (This address will be used for postal communication.)</small>
+                                    <textarea class="form-control" rows="3" placeholder="please write your full address so that we can reach you out in time !" ng-model="businessAddress"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-default" value="Reset" ng-click="clearPersonalInfo()"/>
+                            </div>
+
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary" value="Save" ng-click="savePersonalInfo()"/>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

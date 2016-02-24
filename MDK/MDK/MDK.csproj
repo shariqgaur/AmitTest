@@ -853,6 +853,7 @@
     <Content Include="client\scripts\common\services\constants.js" />
     <Content Include="client\scripts\common\services\httpFactoryService.js" />
     <Content Include="client\scripts\common\services\service.js" />
+    <Content Include="client\scripts\controller\Business\BusinessUserManagementCtrl.js" />
     <Content Include="client\scripts\controller\UserManagement.js" />
     <Content Include="client\scripts\controller\LineDetailsCtrl.js" />
     <Content Include="client\scripts\controller\HeaderCtrl.js" />
@@ -866,6 +867,7 @@
     <Content Include="client\Test\karma.conf.js" />
     <Content Include="client\Test\tests\example.js" />
     <Content Include="client\Test\tests\exampleTestSpec.js" />
+    <Content Include="client\views\Business\businessUserManagement.html" />
     <Content Include="client\views\dashboard.html" />
     <Content Include="client\views\lineDetails.html" />
     <Content Include="client\views\loader.html" />

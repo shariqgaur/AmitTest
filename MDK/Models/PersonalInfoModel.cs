@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-   public class PersonalInfoModel:IModel
+    public class PersonalInfoModel : IModel
     {
         public int Pid { get; set; }
         public string FirstName { get; set; }
@@ -16,5 +16,8 @@ namespace Models
         public string ContactNo { get; set; }
         public string EmailID { get; set; }
         public string DateOfBirth { get; set; }
+        public string BusinessName { get; set; }
+        public string BusinessType { get; set; }
+        public string BusinessGUID { get; set; }
     }
 }

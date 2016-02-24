@@ -11,16 +11,18 @@ namespace DAL.Business
 {
     public class PersonalInfoDAL : IDal
     {
+
         PersonalInfoModel personalInfoModel = null;
         MDKDBMLDataContext _dataContext = null;
         TPersonalInfoData tPersonalInfoData = null;
-        ParsnalInfo personalInfoEntity = null;
+        PersonalInformation personalInfoEntity = null;
 
         public PersonalInfoDAL()
         {
             personalInfoModel = new PersonalInfoModel();
             _dataContext = new MDKDBMLDataContext();
             tPersonalInfoData = new TPersonalInfoData();
+            personalInfoEntity = new PersonalInformation();
         }
 
         public Models.TransportModel.ITransport insertRecord(Models.IModel model)
@@ -50,7 +52,7 @@ namespace DAL.Business
         {
             try
             {
-                var allLines = _dataContext.ParsnalInfos;
+                var allLines = _dataContext.PersonalInformations;
 
                 var allRecords = allLines.Select(item => new PersonalInfoModel()
                 {
@@ -61,7 +63,11 @@ namespace DAL.Business
                     DateOfBirth = item.DateOfBirth,
                     EmailID = item.EmailID,
                     LastName = item.LastName,
-                    MiddleName = item.MiddileName
+                    MiddleName = item.MiddleName,
+                    BusinessGUID = item.BusinessGUID,
+                    BusinessName = item.BusinessName,
+                    BusinessType = item.BusinessType
+
                 }).ToList();
 
                 tPersonalInfoData.SuccessCode = "DATA_ACCESS_SUCCESS";
@@ -80,18 +86,21 @@ namespace DAL.Business
         {
             try
             {
-                var modelData = (PersonalInfoModel)model;
+                personalInfoModel = (PersonalInfoModel)model;
 
-                personalInfoEntity.FirstName = modelData.FirstName;
-                personalInfoEntity.LastName = modelData.LastName;
-                personalInfoEntity.MiddileName = modelData.MiddleName;
+                personalInfoEntity.FirstName = personalInfoModel.FirstName;
+                personalInfoEntity.LastName = personalInfoModel.LastName;
+                personalInfoEntity.MiddleName = personalInfoModel.MiddleName;
                 personalInfoEntity.Pid = 0;
-                personalInfoEntity.Address = modelData.Address;
-                personalInfoEntity.ContactNo = modelData.ContactNo;
-                personalInfoEntity.EmailID = modelData.EmailID;
-                personalInfoEntity.DateOfBirth = modelData.DateOfBirth;
+                personalInfoEntity.Address = personalInfoModel.Address;
+                personalInfoEntity.ContactNo = personalInfoModel.ContactNo;
+                personalInfoEntity.EmailID = personalInfoModel.EmailID;
+                personalInfoEntity.DateOfBirth = personalInfoModel.DateOfBirth;
+                personalInfoEntity.BusinessGUID = personalInfoModel.BusinessGUID;
+                personalInfoEntity.BusinessName = personalInfoModel.BusinessName;
+                personalInfoEntity.BusinessType = personalInfoModel.BusinessType;
 
-                _dataContext.ParsnalInfos.InsertOnSubmit(personalInfoEntity);
+                _dataContext.PersonalInformations.InsertOnSubmit(personalInfoEntity);
                 _dataContext.SubmitChanges();
 
                 tPersonalInfoData.SuccessCode = ErrorCodes.RECORD_SAVED_SUCCESSFULLY;

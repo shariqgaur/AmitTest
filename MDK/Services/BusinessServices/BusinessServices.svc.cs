@@ -45,18 +45,13 @@ namespace Services.BusinessServices
         }
 
 
-
-
-
         public TPersonalInfoData createBusinessUser(string data)
         {
             try
             {
-               
+
                 personalInfoModel = _serializer.Deserialize<PersonalInfoModel>(data);
-                tPersonalInfoData= personalInfoBAL.createBusinessUser(personalInfoModel);
-               
-                tPersonalInfoData.tPersonalInfoData = personalInfoModel;
+                tPersonalInfoData = personalInfoBAL.createBusinessUser(personalInfoModel);
                 return tPersonalInfoData;
 
             }
@@ -64,9 +59,12 @@ namespace Services.BusinessServices
             catch (Exception exp)
             {
                 tPersonalInfoData.ErrorCode = ErrorCodes.SERVICE_ERROR;
-                tPersonalInfoData.ErrorMessage =exp.InnerException.ToString();
+                tPersonalInfoData.ErrorMessage = exp.InnerException.ToString();
                 return tPersonalInfoData;
             }
         }
+
+
+
     }
 }

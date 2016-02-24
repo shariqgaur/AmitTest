@@ -13,14 +13,18 @@ angular.module('MDKApp').config(['$stateProvider', '$urlRouterProvider', functio
             url: "/lineDetails",
             templateUrl: "views/lineDetails.html",
             controller: "LineDetailsCtrl"
-        }).state("addUser", {
-            url: "/addUser",
+        }).state("userManagement", {
+            url: "/userManagement",
             templateUrl: "views/userManagement.html",
-            controller: function () { }
+            controller: "UserManagementCtrl"
 
+        }).state("businessUserManagement", {
+            url: "/businessUserManagement",
+            templateUrl: "views/Business/businessUserManagement.html",
+            controller: "BusinessUserManagementCtrl"
         });
 
-    $urlRouterProvider.otherwise("/addUser");
+    $urlRouterProvider.otherwise("/businessUserManagement");
 
 }]);
 

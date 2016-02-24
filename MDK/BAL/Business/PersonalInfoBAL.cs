@@ -34,6 +34,7 @@ namespace BAL.Business
             {
                 personalInfoModel = (PersonalInfoModel)data;
                 tPersonalInfoData = personalInfoDAL.createBusinessUser(personalInfoModel);
+                tPersonalInfoData.tPersonalInfoData.BusinessGUID = RandomStringOfLength(4) + "-" + System.Guid.NewGuid().ToString().Substring(0, 8);
                 return tPersonalInfoData;
             }
 
@@ -45,5 +46,15 @@ namespace BAL.Business
             }
 
         }
+
+        private string RandomStringOfLength(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
+
+
 }

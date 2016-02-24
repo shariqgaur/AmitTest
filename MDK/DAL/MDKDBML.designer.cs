@@ -30,9 +30,9 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertParsnalInfo(ParsnalInfo instance);
-    partial void UpdateParsnalInfo(ParsnalInfo instance);
-    partial void DeleteParsnalInfo(ParsnalInfo instance);
+    partial void InsertPersonalInformation(PersonalInformation instance);
+    partial void UpdatePersonalInformation(PersonalInformation instance);
+    partial void DeletePersonalInformation(PersonalInformation instance);
     partial void InsertRoleMangemant(RoleMangemant instance);
     partial void UpdateRoleMangemant(RoleMangemant instance);
     partial void DeleteRoleMangemant(RoleMangemant instance);
@@ -81,11 +81,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ParsnalInfo> ParsnalInfos
+		public System.Data.Linq.Table<PersonalInformation> PersonalInformations
 		{
 			get
 			{
-				return this.GetTable<ParsnalInfo>();
+				return this.GetTable<PersonalInformation>();
 			}
 		}
 		
@@ -484,8 +484,8 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ParsnalInfo")]
-	public partial class ParsnalInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PersonalInformation")]
+	public partial class PersonalInformation : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -494,7 +494,7 @@ namespace DAL
 		
 		private string _FirstName;
 		
-		private string _MiddileName;
+		private string _MiddleName;
 		
 		private string _LastName;
 		
@@ -502,9 +502,17 @@ namespace DAL
 		
 		private string _ContactNo;
 		
+		private string _AlternateNo;
+		
 		private string _EmailID;
 		
 		private string _DateOfBirth;
+		
+		private string _BusinessName;
+		
+		private string _BusinessType;
+		
+		private string _BusinessGUID;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -514,21 +522,29 @@ namespace DAL
     partial void OnPidChanged();
     partial void OnFirstNameChanging(string value);
     partial void OnFirstNameChanged();
-    partial void OnMiddileNameChanging(string value);
-    partial void OnMiddileNameChanged();
+    partial void OnMiddleNameChanging(string value);
+    partial void OnMiddleNameChanged();
     partial void OnLastNameChanging(string value);
     partial void OnLastNameChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
     partial void OnContactNoChanging(string value);
     partial void OnContactNoChanged();
+    partial void OnAlternateNoChanging(string value);
+    partial void OnAlternateNoChanged();
     partial void OnEmailIDChanging(string value);
     partial void OnEmailIDChanged();
     partial void OnDateOfBirthChanging(string value);
     partial void OnDateOfBirthChanged();
+    partial void OnBusinessNameChanging(string value);
+    partial void OnBusinessNameChanged();
+    partial void OnBusinessTypeChanging(string value);
+    partial void OnBusinessTypeChanged();
+    partial void OnBusinessGUIDChanging(string value);
+    partial void OnBusinessGUIDChanged();
     #endregion
 		
-		public ParsnalInfo()
+		public PersonalInformation()
 		{
 			OnCreated();
 		}
@@ -573,22 +589,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddileName", DbType="NVarChar(50)")]
-		public string MiddileName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="NVarChar(50)")]
+		public string MiddleName
 		{
 			get
 			{
-				return this._MiddileName;
+				return this._MiddleName;
 			}
 			set
 			{
-				if ((this._MiddileName != value))
+				if ((this._MiddleName != value))
 				{
-					this.OnMiddileNameChanging(value);
+					this.OnMiddleNameChanging(value);
 					this.SendPropertyChanging();
-					this._MiddileName = value;
-					this.SendPropertyChanged("MiddileName");
-					this.OnMiddileNameChanged();
+					this._MiddleName = value;
+					this.SendPropertyChanged("MiddleName");
+					this.OnMiddleNameChanged();
 				}
 			}
 		}
@@ -613,7 +629,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(1000)")]
 		public string Address
 		{
 			get
@@ -633,7 +649,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="NVarChar(20)")]
 		public string ContactNo
 		{
 			get
@@ -653,7 +669,27 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AlternateNo", DbType="NVarChar(20)")]
+		public string AlternateNo
+		{
+			get
+			{
+				return this._AlternateNo;
+			}
+			set
+			{
+				if ((this._AlternateNo != value))
+				{
+					this.OnAlternateNoChanging(value);
+					this.SendPropertyChanging();
+					this._AlternateNo = value;
+					this.SendPropertyChanged("AlternateNo");
+					this.OnAlternateNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(200)")]
 		public string EmailID
 		{
 			get
@@ -673,7 +709,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="NVarChar(70)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="NVarChar(100)")]
 		public string DateOfBirth
 		{
 			get
@@ -689,6 +725,66 @@ namespace DAL
 					this._DateOfBirth = value;
 					this.SendPropertyChanged("DateOfBirth");
 					this.OnDateOfBirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessName", DbType="NVarChar(100)")]
+		public string BusinessName
+		{
+			get
+			{
+				return this._BusinessName;
+			}
+			set
+			{
+				if ((this._BusinessName != value))
+				{
+					this.OnBusinessNameChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessName = value;
+					this.SendPropertyChanged("BusinessName");
+					this.OnBusinessNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessType", DbType="NVarChar(20)")]
+		public string BusinessType
+		{
+			get
+			{
+				return this._BusinessType;
+			}
+			set
+			{
+				if ((this._BusinessType != value))
+				{
+					this.OnBusinessTypeChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessType = value;
+					this.SendPropertyChanged("BusinessType");
+					this.OnBusinessTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessGUID
+		{
+			get
+			{
+				return this._BusinessGUID;
+			}
+			set
+			{
+				if ((this._BusinessGUID != value))
+				{
+					this.OnBusinessGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessGUID = value;
+					this.SendPropertyChanged("BusinessGUID");
+					this.OnBusinessGUIDChanged();
 				}
 			}
 		}
