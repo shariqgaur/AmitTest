@@ -32,16 +32,20 @@ namespace BAL.Business
         {
             try
             {
+
                 personalInfoModel = (PersonalInfoModel)data;
+ 
+                personalInfoModel.BusinessGUID = RandomStringOfLength(4) + "-" + System.Guid.NewGuid().ToString().Substring(0, 8);
                 tPersonalInfoData = personalInfoDAL.createBusinessUser(personalInfoModel);
-                tPersonalInfoData.tPersonalInfoData.BusinessGUID = RandomStringOfLength(4) + "-" + System.Guid.NewGuid().ToString().Substring(0, 8);
+                tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
                 return tPersonalInfoData;
+
             }
 
             catch (Exception exp)
             {
                 tPersonalInfoData.ErrorCode = ErrorCodes.BUSINESS_LOGIC_ERROR;
-                tPersonalInfoData.ErrorMessage = exp.InnerException.ToString();
+                tPersonalInfoData.ErrorMessage = exp.StackTrace;
                 return tPersonalInfoData;
             }
 

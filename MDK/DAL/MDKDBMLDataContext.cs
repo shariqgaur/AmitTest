@@ -10,7 +10,7 @@ namespace DAL
     public partial class MDKDBMLDataContext
     {
         public MDKDBMLDataContext()
-            : base(System.Configuration.ConfigurationManager.ConnectionStrings["amitDB"].ConnectionString)
+            : base(System.Configuration.ConfigurationManager.ConnectionStrings["MDKConnectionString"].ConnectionString)
         {
             OnCreated();
         }

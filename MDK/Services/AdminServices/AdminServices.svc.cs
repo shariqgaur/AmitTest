@@ -73,9 +73,6 @@ namespace Services.AdminServices
                 return tuserMangementData;
             }
 
-
-
-
         }
     }
 }

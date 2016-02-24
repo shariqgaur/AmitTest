@@ -21,6 +21,9 @@ angular.module("MDKApp")
             
         }
 
-
-        return self;
+        self.savePersonalInfo = function (data) {
+            return self.__post(serverName + port + BusinessServices + "createBusinessUser", { "data":angular.toJson(data)});
+        };
+       
+        
     }]);

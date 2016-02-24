@@ -58,8 +58,9 @@ namespace DAL.Business
                 {
                     Pid = item.Pid,
                     FirstName = item.FirstName,
-                    Address = item.Address,
+                    BusinessAddress = item.Address,
                     ContactNo = item.ContactNo,
+                    AlternateNumber=item.AlternateNo,
                     DateOfBirth = item.DateOfBirth,
                     EmailID = item.EmailID,
                     LastName = item.LastName,
@@ -86,13 +87,14 @@ namespace DAL.Business
         {
             try
             {
+                //tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
                 personalInfoModel = (PersonalInfoModel)model;
 
                 personalInfoEntity.FirstName = personalInfoModel.FirstName;
                 personalInfoEntity.LastName = personalInfoModel.LastName;
                 personalInfoEntity.MiddleName = personalInfoModel.MiddleName;
                 personalInfoEntity.Pid = 0;
-                personalInfoEntity.Address = personalInfoModel.Address;
+                personalInfoEntity.Address = personalInfoModel.BusinessAddress;
                 personalInfoEntity.ContactNo = personalInfoModel.ContactNo;
                 personalInfoEntity.EmailID = personalInfoModel.EmailID;
                 personalInfoEntity.DateOfBirth = personalInfoModel.DateOfBirth;
@@ -106,12 +108,13 @@ namespace DAL.Business
                 tPersonalInfoData.SuccessCode = ErrorCodes.RECORD_SAVED_SUCCESSFULLY;
 
                 return tPersonalInfoData;
+ 
             }
 
             catch (Exception exp)
             {
                 tPersonalInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
-                tPersonalInfoData.ErrorMessage = exp.InnerException.ToString();
+                tPersonalInfoData.ErrorMessage = exp.Message;
                 return tPersonalInfoData;
             }
         }
