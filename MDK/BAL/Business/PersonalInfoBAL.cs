@@ -34,10 +34,18 @@ namespace BAL.Business
             {
 
                 personalInfoModel = (PersonalInfoModel)data;
- 
+
                 personalInfoModel.BusinessGUID = RandomStringOfLength(4) + "-" + System.Guid.NewGuid().ToString().Substring(0, 8);
                 tPersonalInfoData = personalInfoDAL.createBusinessUser(personalInfoModel);
                 tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
+
+                if (tPersonalInfoData.SuccessCode == ErrorCodes.RECORD_SAVED_SUCCESSFULLY)
+                {
+                    tPersonalInfoData.tPersonalInfoData.BusinessGUID = personalInfoModel.BusinessGUID;
+                    tPersonalInfoData.SuccessCode =SuccessCode.RECORD_SAVED_SUCCESSFULLY;
+                    tPersonalInfoData.SuccessMessage =SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
+                }
+
                 return tPersonalInfoData;
 
             }

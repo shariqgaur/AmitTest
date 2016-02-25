@@ -83,7 +83,7 @@
                     <table class="table table-bordered table-hover table-responsive">
                         <thead>
                             <tr>
-                                <th>B.ID</th>
+                                <th>Business ID</th>
                                 <th>Business Name</th>
                                 <th>Contact Number</th>
 
@@ -92,7 +92,10 @@
                         <tbody ng-repeat="record in businessLines | filter: searchLine">
                             <tr>
                                 <td><a href="#" ng-bind="record.BusinessGUID"></a></td>
-                                <td><a href="#"><span ng-bind="record.FirstName || ''+' '+record.MiddleName || '' +' ' +record.LastName || ''"></span></a></td>
+                                <td><a href="#">
+                                    <!--<span ng-show="record.BusinessName" ng-bind="record.FirstName || ''+' '+record.MiddleName || '' +' ' +record.LastName || ''"></span>-->
+                                    <a href="#" ng-bind="record.BusinessName"></a>
+                                </a></td>
                                 <td><a href="#" ng-bind="record.ContactNo | tel"></a></td>
                             </tr>
                         </tbody>

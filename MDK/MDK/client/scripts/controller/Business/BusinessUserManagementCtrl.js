@@ -9,18 +9,11 @@
         return item + '-'+incremented;
     }
    */
-
-    
-
-   
-
-
-
-
+ 
     $scope.savePersonalInfo = function () {
 
         var personalInfo = {
-            Pid:1,
+            Pid: 1,
             FirstName: $scope.firstName,
             MiddleName: $scope.middleName,
             LastName: $scope.lastName,
@@ -34,12 +27,21 @@
             BusinessAddress: $scope.businessAddress
         };
 
-       
-        console.log(angular.toJson(personalInfo));
+        $scope.personalRecordSavedMSG = "sai";
 
         apiService.savePersonalInfo(personalInfo).then(function (data) {
-            console.log('SPI');
-           // console.log(data);
+            console.log(data);
+            if (data.data.createBusinessUserResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
+             
+                $scope.isBusinessInfoSaved = true;
+                $scope.personalRecordSavedMSG = data.data.createBusinessUserResult.SuccessMessage;
+               
+            }
+            else {
+                $scope.isBusinessInfoSaved = false;
+                $scope.personalRecordSavedMSG = data.data.createBusinessUserResult.ErrorMessage;
+            }
+
         }).catch();
 
     };

@@ -105,7 +105,7 @@ namespace DAL.Business
                 _dataContext.PersonalInformations.InsertOnSubmit(personalInfoEntity);
                 _dataContext.SubmitChanges();
 
-                tPersonalInfoData.SuccessCode = ErrorCodes.RECORD_SAVED_SUCCESSFULLY;
+                tPersonalInfoData.SuccessCode = SuccessCode.RECORD_SAVED_SUCCESSFULLY;
 
                 return tPersonalInfoData;
  

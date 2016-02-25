@@ -10,7 +10,9 @@ angular.module("MDKApp").controller("DashboardCtrl", ["$scope", "$state", "apiSe
         console.log(data);
 
         if (data && data.data && data.data.getAllBusinessLinesResult && data.data.getAllBusinessLinesResult.allRecords) {
+            
             $scope.businessLines = data.data.getAllBusinessLinesResult.allRecords;
+            console.log($scope.businessLines);
         }
 
     };
