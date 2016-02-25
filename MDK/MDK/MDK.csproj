@@ -929,6 +929,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="DatabaseScript\1.sql" />
+    <Content Include="Database\createTables\BankInfo.txt" />
+    <Content Include="Database\createTables\PersonalInfo.txt" />
+    <Content Include="Database\DbBackup\1.txt" />
+    <Content Include="Database\DbBackup\2.sql" />
+    <Content Include="Database\DbBackup\3 RoleNameAdded_inRoleManagementTBL.sql" />
+    <Content Include="Database\DbBackup\4.sql" />
+    <Content Include="Database\DbBackup\5.sql" />
+    <Content Include="Database\DbBackup\6.sql" />
+    <Content Include="Database\DbBackup\7.sql" />
+    <Content Include="Database\DeleteTables\BankInfo.txt" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
