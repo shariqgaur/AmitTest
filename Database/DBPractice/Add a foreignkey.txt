@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[BankInfo](
+	[Id] [int] identity(1,1) primary key,
+	[BankName] [nvarchar](200) NULL,
+	[Branch] [nvarchar](200) NULL,
+	[AccountNo] [nvarchar](50) NULL,
+	[IFSC_CODE] [nvarchar](50) NULL,
+	[MICR_CODE] [nvarchar](50) NULL,
+	[BANK_ADDRESS] [nvarchar](500) NULL,
+	[BANK_CONTACT_NO] [nvarchar](100) NULL,
+	[PersonalInfoID][int] FOREIGN KEY REFERENCES [dbo].[PersonalInformation](Pid)
+) ON [PRIMARY]
+
+GO
