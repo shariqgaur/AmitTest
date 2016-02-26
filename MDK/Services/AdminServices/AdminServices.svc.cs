@@ -51,7 +51,7 @@ namespace Services.AdminServices
             }
             catch (Exception exp)
             {
-                tLoginData.ErrorCode = "SERVICE_ERROR";
+                tLoginData.ErrorCode = ErrorCodes.SERVICE_ERROR;
                 tLoginData.ErrorMessage = "validateUser: " + exp.InnerException.ToString();
                 return tLoginData;
             }
@@ -68,7 +68,7 @@ namespace Services.AdminServices
             }
             catch (Exception exp)
             {
-                tuserMangementData.ErrorCode = "SERVICE_ERROR";
+                tuserMangementData.ErrorCode = ErrorCodes.SERVICE_ERROR;
                 tuserMangementData.ErrorMessage = "createUser:" + exp.InnerException.ToString();
                 return tuserMangementData;
             }

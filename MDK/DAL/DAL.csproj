@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Admin\LoginDAL.cs" />
     <Compile Include="Admin\UserMangementDAL.cs" />
+    <Compile Include="Business\LineDetailsDAL.cs" />
     <Compile Include="Business\PersonalInfoDAL.cs" />
     <Compile Include="InterfaceDAL\IDal.cs" />
     <Compile Include="MDKDBML.designer.cs">

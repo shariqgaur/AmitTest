@@ -27,7 +27,7 @@
             BusinessAddress: $scope.businessAddress
         };
 
-        $scope.personalRecordSavedMSG = "sai";
+ 
 
         apiService.savePersonalInfo(personalInfo).then(function (data) {
             console.log(data);

@@ -1,5 +1,5 @@
 
-var app = angular.module("MDKApp", ['ui.router', 'httpFactoryService', 'ui.bootstrap','cgBusy']);
+var app = angular.module("MDKApp", ['ui.router', 'httpFactoryService', 'ui.bootstrap', 'cgBusy', 'ngFileUpload']);
  
 
 

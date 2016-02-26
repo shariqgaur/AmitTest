@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -28,5 +29,23 @@ namespace Services.BusinessServices
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
         TPersonalInfoData createBusinessUser(string data);
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TLineDetails getLineDetails(string data);
+
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        string fileUpload(Stream data);
+
+        
+
     }
 }

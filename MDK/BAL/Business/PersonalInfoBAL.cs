@@ -42,7 +42,7 @@ namespace BAL.Business
                 if (tPersonalInfoData.SuccessCode == ErrorCodes.RECORD_SAVED_SUCCESSFULLY)
                 {
                     tPersonalInfoData.tPersonalInfoData.BusinessGUID = personalInfoModel.BusinessGUID;
-                    tPersonalInfoData.SuccessCode =SuccessCode.RECORD_SAVED_SUCCESSFULLY;
+                    tPersonalInfoData.SuccessCode =SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
                     tPersonalInfoData.SuccessMessage =SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
                 }
 

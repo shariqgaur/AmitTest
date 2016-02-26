@@ -13,17 +13,21 @@ angular.module("MDKApp")
         };
 
         self.validateUser = function (data) {
-            return self.__post(serverName + port + AdminServices + "validateUser", { "data":angular.toJson(data) });
+            return self.__post(serverName + port + AdminServices + "validateUser", { "data": angular.toJson(data) });
         };
 
         self.getAllBusinessLines = function () {
             return self.__post(serverName + port + BusinessServices + "getAllBusinessLines", { "data": "" });
-            
+
         }
 
         self.savePersonalInfo = function (data) {
-            return self.__post(serverName + port + BusinessServices + "createBusinessUser", { "data":angular.toJson(data)});
+            return self.__post(serverName + port + BusinessServices + "createBusinessUser", { "data": angular.toJson(data) });
         };
-       
-        
+
+        self.getLineDetails = function (data) {
+            return self.__post(serverName + port + BusinessServices + "getLineDetails", { "data": angular.toJson(data) });
+        }
+
+
     }]);
