@@ -61,6 +61,8 @@
   <ItemGroup>
     <Content Include="AdminServices\AdminServices.svc" />
     <Content Include="BusinessServices\BusinessServices.svc" />
+    <Content Include="BusinessServices\uploaded\sai.ico" />
+    <Content Include="BusinessServices\uploaded\sainath.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -80,6 +82,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BusinessServices\uploaded\sai" />
+    <Content Include="BusinessServices\uploaded\sainath" />
+    <Content Include="BusinessServices\uploaded\sainath1" />
     <None Include="Properties\PublishProfiles\MDK.pubxml" />
     <None Include="Properties\PublishProfiles\MDKServices.pubxml" />
     <None Include="Properties\PublishProfiles\Services.pubxml" />

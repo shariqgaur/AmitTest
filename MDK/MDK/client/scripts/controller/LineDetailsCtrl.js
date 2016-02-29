@@ -1,10 +1,10 @@
 ﻿
-angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "apiService","Upload" ,function ($scope,$rootScope, $state, $stateParams, apiService,Upload) {
+angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "apiService", function ($scope, $rootScope, $state, $stateParams, apiService) {
 
     var businessGUID = $stateParams.businessId;
 
     var init = function () {
-        $rootScope.loading=apiService.getLineDetails(businessGUID).then(function (data) {
+        $rootScope.loading = apiService.getLineDetails(businessGUID).then(function (data) {
 
             if (data && data.data) {
                 var lineData = data.data.getLineDetailsResult.personalInfo;
@@ -27,16 +27,39 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         }).catch();
     };
 
-    $scope.uploadFile = function () {
 
-        var sai = Upload.upload({
-            url: 'http://localhost:9595/WCF/BusinessServices/BusinessServices.svc/fileUpload',
-            data: { file: $scope.file}
+    $scope.showACKNSection = function () {
+        $scope.isShowACKNSection = true;
+    };
 
-        }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+    $scope.ACKNFileUpload = function () {
+
+     $rootScope.loading=apiService.uploadITACKN($scope.ACKNFile).then(function (data) {
+
         }).catch();
+
     };
 
     init();
 }]);
+
+/*
+*This is working service to upload file as multipart form data.
+*This service uploaded all king of files to the server.
+*/
+
+//angular.module("MDKApp").service('fileUpload', ['$http', function ($http) {
+//    this.uploadFileToUrl = function (file, uploadUrl) {
+//        var fd = new FormData();
+//        fd.append('file', file);
+//        $http.post(uploadUrl, fd, {
+//            transformRequest: angular.identity,
+//            headers: { 'Content-Type': undefined }
+//        })
+//        .success(function () {
+//        })
+//        .error(function () {
+//        });
+//    }
+//}]);
+

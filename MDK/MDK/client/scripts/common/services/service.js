@@ -27,7 +27,18 @@ angular.module("MDKApp")
 
         self.getLineDetails = function (data) {
             return self.__post(serverName + port + BusinessServices + "getLineDetails", { "data": angular.toJson(data) });
-        }
+        };
+
+        self.uploadITACKN = function (file) {
+
+            var fd = new FormData();
+            fd.append('file', file);
+
+            return self.__post(serverName + port + BusinessServices + "uploadITACKN", fd, {
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            });
+        };
 
 
     }]);

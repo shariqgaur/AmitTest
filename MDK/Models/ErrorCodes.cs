@@ -15,11 +15,13 @@ namespace Models
         public const string DATA_ACCESS_SUCCESS = "DATA_ACCESS_SUCCESS";
         public const string SERVICE_ERROR = "SERVICE_ERROR";
         public const string RECORD_SAVED_SUCCESSFULLY = "RECORD_SAVED_SUCCESSFULLY";
+        public const string FILE_UPLOAD_ERROR = "FILE_UPLOAD_ERROR";
     }
 
 
     public static class ErrorMessages
     {
         public const string INVALID_USER_MSG = "Username or password is incorrect !";
+        public const string FILE_UPLOAD_ERROR_MSG = "File is not uploaded. Please try again !";
     }
 }

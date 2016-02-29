@@ -27,10 +27,8 @@
 </head>
 
 <body role="document" ng-app="MDKApp" ng-controller="MainCtrl">
-    
+
     <div cg-busy="{promise:$root.loading,templateUrl:'views/loader.html',message:'Processing...',backdrop:true,delay:0,minDuration:1000}">
-
-
         <div class="row" ng-controller="HeaderCtrl">
 
             <header>
@@ -88,9 +86,6 @@
 
         <!--Libs End-->
 
-        <!--App directives-->
-        <!--App directives end-->
-
         <!--Custom angular services-->
         <script src="scripts/common/services/httpFactoryService.js"></script>
         <!--Custom angular services End-->
@@ -99,6 +94,12 @@
         <script src="app.js"></script>
         <script src="app.config.js"></script>
         <!--App specific End-->
+
+
+        <!--App directives-->
+        <script src="scripts/common/directives/fileModel.js"></script>
+        <!--App directives end-->
+
 
         <!--Angualar constant-->
         <script src="scripts/common/services/constants.js"></script>

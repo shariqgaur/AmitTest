@@ -43,9 +43,14 @@ namespace Services.BusinessServices
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
-        string fileUpload(Stream data);
+        string fileUpload(Stream stream);
 
-        
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        string uploadITACKN(Stream stream);
 
     }
 }
