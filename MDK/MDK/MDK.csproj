@@ -151,6 +151,7 @@
     <Content Include="client\scripts\js\exceptionhandler.js" />
     <Content Include="client\scripts\js\httpinterceptor.js" />
     <Content Include="client\scripts\js\windowsexception.js" />
+    <Content Include="client\style\animate.css" />
     <Content Include="client\style\style.css" />
     <Content Include="client\Test\karma.conf.js" />
     <Content Include="client\Test\tests\example.js" />

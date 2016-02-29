@@ -15,17 +15,17 @@
         </div>
     </div>
 
-
+    
     <div class="row" style="background: border-box;">
 
 
-        <form class="form-inline  pull-right" ng-show="isShowACKNSection">
+        <form class="form-inline  pull-right animated" ng-class="{fadeInDown:isShowACKNSection, fadeOutUp:!isShowACKNSection}">
             <div class="col-md-12">
                 <div class="form-group">
                     <input type="file" file-model="ACKNFile" class="form-control" />
                 </div>
                 <input type="button" ng-click="ACKNFileUpload()" class="btn btn-sm btn-default" value="Upload ITACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" ng-disabled="!ACKNFile" />
-                <input type="button" ng-click="isShowACKNSection=false" class="btn btn-sm btn-default" value="Close" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
+                <input type="button" ng-click="hideACKNSection()" class="btn btn-sm btn-default" value="Close" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
             </div>
         </form>
 

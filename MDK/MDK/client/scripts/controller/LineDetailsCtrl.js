@@ -30,7 +30,13 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
 
     $scope.showACKNSection = function () {
         $scope.isShowACKNSection = true;
+        
     };
+
+    $scope.hideACKNSection = function () {
+        $scope.isShowACKNSection = false;
+    }
+
 
     $scope.ACKNFileUpload = function () {
 

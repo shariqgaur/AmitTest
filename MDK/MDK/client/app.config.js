@@ -24,7 +24,7 @@ angular.module('MDKApp').config(['$stateProvider', '$urlRouterProvider', functio
             controller: "BusinessUserManagementCtrl"
         });
 
-    $urlRouterProvider.otherwise("/businessUserManagement");
+    $urlRouterProvider.otherwise("/login");
 
 }]);
 

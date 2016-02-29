@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MDK_DB" Class="MDKDBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PNEITSH52343d;Initial Catalog=MDK_DB;User ID=iwebuser" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="MDK_DBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BankInfo" Member="BankInfos">
     <Type Name="BankInfo">
-      <Column Name="Pid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BankName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Branch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -9,6 +10,8 @@
       <Column Name="MICR_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BANK_ADDRESS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="BANK_CONTACT_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PersonalInfoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PersonalInformation_BankInfo" Member="PersonalInformation" ThisKey="PersonalInfoID" OtherKey="Pid" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ITDetails" Member="ITDetails">
@@ -41,6 +44,7 @@
       <Column Name="BusinessName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="Pid" OtherKey="PersonalInfoID" Type="BankInfo" />
     </Type>
   </Table>
   <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
