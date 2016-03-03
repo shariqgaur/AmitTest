@@ -123,12 +123,44 @@ body
     font-weight: bolder;
 }
 
-.MDKSuccess {
-    color:green;
+.MDKSuccess
+{
+    color: green;
 }
 
-.MDKError {
-    color:red;
+.MDKError
+{
+    color: red;
 }
 
 /*Global END*/
+
+.selectedUpperButton
+{
+    border: 1px solid orange!important;
+}
+
+.btn:hover
+{
+    border: 1px solid orange!important;
+}
+
+.downloadBTN
+{
+    background: url(../images/download.png) no-repeat;
+    border: none;
+    width: 33px;
+}
+
+    .downloadBTN:hover
+    {
+        border: none !important;
+    }
+
+.mdkBTN
+{
+    background-color: #FFFFFF;
+    margin-left: 5px;
+    border: 1px solid #2AABD2;
+    color: #000;
+}

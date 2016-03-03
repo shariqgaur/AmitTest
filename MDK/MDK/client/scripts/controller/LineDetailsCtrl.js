@@ -40,28 +40,27 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
     ];
 
     $scope.upperButtons = [
-        { text: 'IT Acknowledgement' },
-        { text: '26 AS' },
-        { text: 'TAX Challan' },
-        { text: 'Audit Report' },
-        { text: 'Other' }
+         
+          { text: 'Workbook' },
+          { text: 'Audit Report' },
+          { text: 'TAX Challan' },
+          { text: '26 AS' },
+          { text: 'IT Acknowledgement' }
     ];
 
     $scope.fileChanged = function () {
-
-
         // console.log($scope.modelDocument);
-
     };
 
 
-    $scope.showACKNSection = function () {
+    $scope.showACKNSection = function (index) {
+        $scope.selectedDownloadDoc = index;
 
         $scope.isShowACKNSection = true;
-
     };
 
     $scope.hideACKNSection = function () {
+        $scope.selectedDownloadDoc = 999;
         $scope.isShowACKNSection = false;
     }
 

@@ -385,7 +385,12 @@ namespace Services.BusinessServices
             return string.Empty;
         }
 
-
+        /// <summary>
+        /// This method is used to upload files from client side
+        /// All the files will be stored where wcf is hosted
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public string uploadDocuments(Stream stream)
         {
             string basePath = HttpContext.Current.Server.MapPath(".");
@@ -439,12 +444,9 @@ namespace Services.BusinessServices
                 return exp.StackTrace;
             }
 
-            return Path.GetExtension(parser.Filename);
+            return SuccessCodes.FILE_UPLOAD_SUCCESS;
         }
 
-        public void createDir(string path)
-        {
-            Directory.CreateDirectory(path);
-        }
+       
     }
 }

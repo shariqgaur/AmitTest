@@ -5,14 +5,10 @@
         </div>
 
         <div class="col-md-9 pull-right">
-            <div class="pull-right">
-                <!-- <input type="button" class="btn  btn-sm" value="IT ACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2; color: #000" ng-click="showACKNSection()" />
-                <input type="button" class="btn  btn-sm" value="26 AS" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
-                <input type="button" class="btn  btn-sm" value="TAX Challan" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
-                <input type="button" class="btn  btn-sm" value="Audit Report" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
-                <input type="button" class="btn  btn-sm" value="Workbook" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />-->
+            <div class="pull-right" ng-repeat="button in upperButtons">
 
-                <span ng-repeat="button in upperButtons"></span>
+                <input type="button" class="btn  btn-sm mdkBTN" value="{{button.text}}" ng-click="showACKNSection($index)" ng-model="selectedDownloadDoc"
+                    ng-class="{'selectedUpperButton':$index==selectedDownloadDoc}" />
 
             </div>
         </div>
@@ -24,10 +20,14 @@
             <div class="col-md-12">
 
                 <div class="form-group">
-                    <input type="file" file-model="ACKNFile" class="form-control" />
+                    <select class="form-control">
+                        <option value="">--select year--</option>
+                    </select>
                 </div>
-                <input type="button" ng-click="ACKNFileUpload()" class="btn btn-sm btn-default" value="Upload ITACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" ng-disabled="!ACKNFile" />
-                <input type="button" ng-click="hideACKNSection()" class="btn btn-sm btn-default" value="Close" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
+
+                <input type="button"  class="btn downloadBTN"/>
+                <input type="button" ng-click="hideACKNSection()" class="btn  btn-sm mdkBTN" value="X"/>
+                
             </div>
         </form>
     </div>
@@ -372,7 +372,7 @@
                             </td>
 
                             <td>
-                                <img ng-src="{{docThumbnail}}" />
+                                <img ng-src="{{docThumbnail}}" ng-show="modelDocument"/>
                             </td>
 
                             <td>
