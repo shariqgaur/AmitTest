@@ -3,6 +3,8 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
 
     var businessGUID = $stateParams.businessId;
 
+   
+
     var init = function () {
         $rootScope.loading = apiService.getLineDetails(businessGUID).then(function (data) {
 
@@ -27,51 +29,71 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         }).catch();
     };
 
+    $scope.documentTypes = [
+        { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
+        { text: '26 AS', value: '26AS' },
+        { text: 'TAX Challan', value: 'TAXChallan' },
+        { text: 'Audit Report', value: 'AuditReport' },
+        { text: 'Workbook', value: 'Workbook' },
+        { text: 'Other', value: 'other' },
 
-    $scope.showACKNSection = function () {
-        $scope.isShowACKNSection = true;
+    ];
+
+    $scope.fileChanged = function () {
+      
+
+       // console.log($scope.modelDocument);
+
+    };
+
+
+$scope.showACKNSection = function () {
+       
+    $scope.isShowACKNSection = true;
         
-    };
+};
 
-    $scope.hideACKNSection = function () {
-        $scope.isShowACKNSection = false;
-    }
+$scope.hideACKNSection = function () {
+    $scope.isShowACKNSection = false;
+}
      
-    $scope.ACKNFileUpload = function () {
-      $rootScope.loading=apiService.uploadITACKN($scope.ACKNFile).then(function (data) {
-         }).catch();
-     };
+$scope.ACKNFileUpload = function () {
+    $rootScope.loading=apiService.uploadITACKN($scope.ACKNFile).then(function (data) {
+    }).catch();
+};
 
-    $scope.formatYear = function (year) {
-        var nextYear = year + 1;
-        return year + "-" + nextYear;
-    };
+$scope.formatYear = function (year) {
+    var nextYear = year + 1;
+    return year + "-" + nextYear;
+};
 
-    $scope.fC = function () {
-        console.log($scope.modelDocument);
-    };
 
-    $scope.uploadDocument = function () {
-       $rootScope.loading=Upload.upload({
-            url: 'http://localhost:9595/WCF/BusinessServices/BusinessServices.svc/uploadDocuments',
-            data: { file: $scope.modelDocument},
-            headers: {
-                businessId: businessGUID,
-                selectedYear:'2016'
-            }
-        }).then(function (resp) {
-            console.log('Success ');// + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        }, function (resp) {
-            console.log('Error status: ' + resp.status);
-        }, function (evt) {
-            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' );//+ evt.config.data.file.name);
-        });
-
-    };
+$scope.docThumbnail = "../client/images/defaultDoc.png";
 
 
 
-    init();
+$scope.uploadDocument = function () {
+    $rootScope.loading=Upload.upload({
+        url: 'http://localhost:9595/WCF/BusinessServices/BusinessServices.svc/uploadDocuments',
+        data: { file: $scope.modelDocument},
+        headers: {
+            businessId: businessGUID,
+            selectedYear: $scope.selectedYear,
+            selectedDocType: $scope.selectedDocumentType
+        }
+    }).then(function (resp) {
+        console.log('Success ');// + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+    }, function (resp) {
+        console.log('Error status: ' + resp.status);
+    }, function (evt) {
+        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        console.log('progress: ' + progressPercentage + '% ' );//+ evt.config.data.file.name);
+    });
+
+};
+
+
+
+init();
 }]);
  

@@ -132,7 +132,11 @@
     <Content Include="client\app.config.js" />
     <Content Include="client\app.js" />
     <Content Include="client\app.routes.js" />
+    <Content Include="client\images\defaultDoc.png" />
+    <Content Include="client\images\excel.png" />
+    <Content Include="client\images\pdf.png" />
     <Content Include="client\images\upload.png" />
+    <Content Include="client\images\word.png" />
     <Content Include="client\index.html" />
     <Content Include="client\lib\angular-ui-router.js" />
     <Content Include="client\lib\route.js" />

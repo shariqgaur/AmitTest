@@ -24,7 +24,7 @@ namespace Services.BusinessServices
         TPersonalInfoData tPersonalInfoData = null;
 
         LineDetailsBAL lineDetailsBAL = null;
-
+        Random RandomPIN = new Random();
         public BusinessServices()
         {
             _serializer = new JavaScriptSerializer();
@@ -94,12 +94,14 @@ namespace Services.BusinessServices
 
             try
             {
+                #region C O M E N T E D   C O D E
                 //1 working for pdf and pics
 
                 //using (var file = File.Create(path+"\\uploaded\\sairahem.pdf"))
                 //{
                 //    stream.CopyTo(file);
                 //}
+                #endregion
 
                 // using parser
                 var parser = new MultipartParser(stream);
@@ -107,13 +109,12 @@ namespace Services.BusinessServices
                     throw new ApplicationException("Error while parsing image file");
 
 
-
                 using (var ms = new FileStream(path + "\\uploaded\\" + parser.Filename, FileMode.CreateNew, FileAccess.Write))
                 {
                     ms.Write(parser.FileContents, 0, parser.FileContents.Length);
                 }
 
-                return "sainath";
+                return SuccessCodes.FILE_UPLOAD_SUCCESS;
 
 
             }
@@ -358,28 +359,30 @@ namespace Services.BusinessServices
 
         public string uploadITACKN(Stream stream)
         {
-            string path = HttpContext.Current.Server.MapPath(".");
-            var parser = new MultipartParser(stream);
+            //string path = HttpContext.Current.Server.MapPath(".");
+            //var parser = new MultipartParser(stream);
 
 
-            try
-            {
+            //try
+            //{
 
-                if (!parser.Success)
-                    throw new ApplicationException("Error while parsing image file");
+            //    if (!parser.Success)
+            //        throw new ApplicationException("Error while parsing image file");
 
-                using (var ms = new FileStream(path + "\\uploaded\\" + parser.Filename, FileMode.CreateNew, FileAccess.Write))
-                {
-                    ms.Write(parser.FileContents, 0, parser.FileContents.Length);
-                }
+            //    using (var ms = new FileStream(path + "\\uploaded\\" + parser.Filename, FileMode.CreateNew, FileAccess.Write))
+            //    {
+            //        ms.Write(parser.FileContents, 0, parser.FileContents.Length);
+            //    }
 
-                return "sainath ";
+            //    return "sainath ";
 
-            }
-            catch (Exception exp)
-            {
-                return exp.Message;
-            }
+            //}
+            //catch (Exception exp)
+            //{
+            //    return exp.Message;
+            //}
+
+            return string.Empty;
         }
 
 
@@ -394,8 +397,8 @@ namespace Services.BusinessServices
             string businessDataPath = basePath + "\\uploaded\\businessData\\";
             string businessId = headers["businessId"];
             string selectedYear = headers["selectedYear"];
+            string selectedDocType = headers["selectedDocType"];
             string fullPath = businessDataPath + businessId + "\\" + selectedYear+"\\";
-
 
             try
             {
@@ -406,7 +409,7 @@ namespace Services.BusinessServices
 
                 if (businessId != null || businessId == string.Empty)
                 {
-                    parser.Filename = businessId + "_" + selectedYear + Path.GetExtension(parser.Filename);
+                    parser.Filename = businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
                 }
 
                 if (!Directory.Exists(businessDataPath + businessId))
@@ -414,9 +417,10 @@ namespace Services.BusinessServices
                     Directory.CreateDirectory(businessDataPath + businessId);
                 }
 
+                //check selected year directory exists or not
                 if (!Directory.Exists(fullPath))
                 {
-                    Directory.CreateDirectory(fullPath);
+                    Directory.CreateDirectory(fullPath); 
                 }
 
                 if (File.Exists(fullPath + parser.Filename))
@@ -431,11 +435,11 @@ namespace Services.BusinessServices
                  
             }
             catch (Exception exp)
-            {
-                return exp.Message;
+            {    
+                return exp.StackTrace;
             }
 
-            return fullPath + parser.Filename;
+            return Path.GetExtension(parser.Filename);
         }
 
         public void createDir(string path)

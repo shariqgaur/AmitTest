@@ -234,7 +234,7 @@
                 <div class="panel-body">
                     <table class="table table- table-hover">
 
-                        <tr>
+                       <!-- <tr>
                             <th>IT Acknowledgement</th>
                             <td>
                                 <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedACKNYear">
@@ -361,6 +361,38 @@
 
                             <td>status
                             </td>
+                        </tr>-->
+                        <tr>
+                            <td>
+                                <select ng-options="doc.value as doc.text for doc in documentTypes" ng-model="selectedDocumentType">
+                                    <option value="">select document type</option>
+                                </select>
+                            </td>
+                             <td>
+                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedYear" ng-disabled="!selectedDocumentType">
+                                    <option value="">Select year</option>
+                                </select>
+                            </td>
+                             <td>
+                                <span ngf-select ng-model="modelDocument" name="file"  ngf-change="fileChanged()"
+                                     ngf-max-size="20MB" ng-disabled="!selectedYear || !selectedDocumentType" ng-class="{'help-block':!selectedDocumentType || !selectedYear}">click here to upload a document
+                                </span>
+                            </td>
+                              <td>
+                                <span class="help-block" ng-bind="modelDocument.name"></span>
+                            </td>
+
+                            <td>
+                                 <img ng-src="{{docThumbnail}}" />
+                            </td>
+
+                            <td>
+                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
+                            </td>
+
+                            <td>status
+                            </td>
+
                         </tr>
                     </table>
                 </div>
