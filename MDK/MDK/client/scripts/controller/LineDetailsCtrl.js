@@ -1,5 +1,5 @@
 ﻿
-angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "apiService", function ($scope, $rootScope, $state, $stateParams, apiService) {
+angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "apiService", "Upload", function ($scope, $rootScope, $state, $stateParams, apiService, Upload) {
 
     var businessGUID = $stateParams.businessId;
 
@@ -36,36 +36,42 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
     $scope.hideACKNSection = function () {
         $scope.isShowACKNSection = false;
     }
-
-
+     
     $scope.ACKNFileUpload = function () {
+      $rootScope.loading=apiService.uploadITACKN($scope.ACKNFile).then(function (data) {
+         }).catch();
+     };
 
-     $rootScope.loading=apiService.uploadITACKN($scope.ACKNFile).then(function (data) {
+    $scope.formatYear = function (year) {
+        var nextYear = year + 1;
+        return year + "-" + nextYear;
+    };
 
-        }).catch();
+    $scope.fC = function () {
+        console.log($scope.modelDocument);
+    };
+
+    $scope.uploadDocument = function () {
+       $rootScope.loading=Upload.upload({
+            url: 'http://localhost:9595/WCF/BusinessServices/BusinessServices.svc/uploadDocuments',
+            data: { file: $scope.modelDocument},
+            headers: {
+                businessId: businessGUID,
+                selectedYear:'2016'
+            }
+        }).then(function (resp) {
+            console.log('Success ');// + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' );//+ evt.config.data.file.name);
+        });
 
     };
 
+
+
     init();
 }]);
-
-/*
-*This is working service to upload file as multipart form data.
-*This service uploaded all king of files to the server.
-*/
-
-//angular.module("MDKApp").service('fileUpload', ['$http', function ($http) {
-//    this.uploadFileToUrl = function (file, uploadUrl) {
-//        var fd = new FormData();
-//        fd.append('file', file);
-//        $http.post(uploadUrl, fd, {
-//            transformRequest: angular.identity,
-//            headers: { 'Content-Type': undefined }
-//        })
-//        .success(function () {
-//        })
-//        .error(function () {
-//        });
-//    }
-//}]);
-
+ 

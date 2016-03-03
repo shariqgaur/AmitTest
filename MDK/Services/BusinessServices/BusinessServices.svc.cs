@@ -227,6 +227,8 @@ namespace Services.BusinessServices
                         re = new Regex(@"(?<=filename\=\"")(.*?)(?=\"")");
                         Match filenameMatch = re.Match(t);
 
+
+
                         // Did we find the required values?
                         if (name.Success || filenameMatch.Success)
                         {
@@ -336,7 +338,7 @@ namespace Services.BusinessServices
             public string Filename
             {
                 get;
-                private set;
+                set;
             }
 
             public byte[] FileContents
@@ -358,25 +360,87 @@ namespace Services.BusinessServices
         {
             string path = HttpContext.Current.Server.MapPath(".");
             var parser = new MultipartParser(stream);
+
+
             try
             {
 
                 if (!parser.Success)
                     throw new ApplicationException("Error while parsing image file");
-                  
+
                 using (var ms = new FileStream(path + "\\uploaded\\" + parser.Filename, FileMode.CreateNew, FileAccess.Write))
                 {
                     ms.Write(parser.FileContents, 0, parser.FileContents.Length);
                 }
 
-                return "sainath";
-
+                return "sainath ";
 
             }
             catch (Exception exp)
             {
                 return exp.Message;
             }
-         }
+        }
+
+
+        public string uploadDocuments(Stream stream)
+        {
+            string basePath = HttpContext.Current.Server.MapPath(".");
+            var parser = new MultipartParser(stream);
+
+            IncomingWebRequestContext request = WebOperationContext.Current.IncomingRequest;
+            var headers = request.Headers;
+
+            string businessDataPath = basePath + "\\uploaded\\businessData\\";
+            string businessId = headers["businessId"];
+            string selectedYear = headers["selectedYear"];
+            string fullPath = businessDataPath + businessId + "\\" + selectedYear+"\\";
+
+
+            try
+            {
+
+                if (!parser.Success)
+                    throw new ApplicationException("Error while parsing image file");
+
+
+                if (businessId != null || businessId == string.Empty)
+                {
+                    parser.Filename = businessId + "_" + selectedYear + Path.GetExtension(parser.Filename);
+                }
+
+                if (!Directory.Exists(businessDataPath + businessId))
+                {
+                    Directory.CreateDirectory(businessDataPath + businessId);
+                }
+
+                if (!Directory.Exists(fullPath))
+                {
+                    Directory.CreateDirectory(fullPath);
+                }
+
+                if (File.Exists(fullPath + parser.Filename))
+                {
+                    File.Delete(fullPath+parser.Filename);
+                }
+
+                using (var ms = new FileStream(fullPath + parser.Filename, FileMode.CreateNew, FileAccess.Write))
+                {
+                    ms.Write(parser.FileContents, 0, parser.FileContents.Length);
+                }
+                 
+            }
+            catch (Exception exp)
+            {
+                return exp.Message;
+            }
+
+            return fullPath + parser.Filename;
+        }
+
+        public void createDir(string path)
+        {
+            Directory.CreateDirectory(path);
+        }
     }
 }

@@ -52,5 +52,16 @@ namespace Services.BusinessServices
             Method = "POST")]
         string uploadITACKN(Stream stream);
 
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        string uploadDocuments(Stream stream);
+
+
+
+
     }
 }
