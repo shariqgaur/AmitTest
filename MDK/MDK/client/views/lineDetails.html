@@ -6,11 +6,14 @@
 
         <div class="col-md-9 pull-right">
             <div class="pull-right">
-                <input type="button" class="btn  btn-sm" value="IT ACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2; color: #000" ng-click="showACKNSection()" />
+                <!-- <input type="button" class="btn  btn-sm" value="IT ACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2; color: #000" ng-click="showACKNSection()" />
                 <input type="button" class="btn  btn-sm" value="26 AS" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
                 <input type="button" class="btn  btn-sm" value="TAX Challan" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
                 <input type="button" class="btn  btn-sm" value="Audit Report" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
-                <input type="button" class="btn  btn-sm" value="Workbook" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
+                <input type="button" class="btn  btn-sm" value="Workbook" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />-->
+
+                <span ng-repeat="button in upperButtons"></span>
+
             </div>
         </div>
     </div>
@@ -27,20 +30,6 @@
                 <input type="button" ng-click="hideACKNSection()" class="btn btn-sm btn-default" value="Close" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
             </div>
         </form>
-
-
-        <form class="form-inline  pull-right" ng-show="isShow26ASSection">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <input type="file" file-model="ACKNFile" class="form-control" />
-                </div>
-                <input type="button" ng-click="ACKNFileUpload()" class="btn btn-sm btn-default" value="Upload ITACKN" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" ng-disabled="!ACKNFile" />
-                <input type="button" ng-click="isShowACKNSection=false" class="btn btn-sm btn-default" value="Close" style="background-color: #FFFFFF; border: 1px solid #2AABD2;" />
-            </div>
-        </form>
-
-
-
     </div>
 
 
@@ -234,7 +223,7 @@
                 <div class="panel-body">
                     <table class="table table- table-hover">
 
-                       <!-- <tr>
+                        <!-- <tr>
                             <th>IT Acknowledgement</th>
                             <td>
                                 <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedACKNYear">
@@ -368,32 +357,40 @@
                                     <option value="">select document type</option>
                                 </select>
                             </td>
-                             <td>
+                            <td>
                                 <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedYear" ng-disabled="!selectedDocumentType">
                                     <option value="">Select year</option>
                                 </select>
                             </td>
-                             <td>
-                                <span ngf-select ng-model="modelDocument" name="file"  ngf-change="fileChanged()"
-                                     ngf-max-size="20MB" ng-disabled="!selectedYear || !selectedDocumentType" ng-class="{'help-block':!selectedDocumentType || !selectedYear}">click here to upload a document
+                            <td>
+                                <span ngf-select ng-model="modelDocument" name="file" ngf-change="fileChanged()"
+                                    ngf-max-size="20MB" ng-disabled="!selectedYear || !selectedDocumentType" ng-class="{'help-block':!selectedDocumentType || !selectedYear}">click here to upload a document
                                 </span>
                             </td>
-                              <td>
+                            <td>
                                 <span class="help-block" ng-bind="modelDocument.name"></span>
                             </td>
 
                             <td>
-                                 <img ng-src="{{docThumbnail}}" />
+                                <img ng-src="{{docThumbnail}}" />
                             </td>
 
                             <td>
                                 <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
                             </td>
 
-                            <td>status
-                            </td>
+
 
                         </tr>
+                        <!--<tr>
+                            <td colspan="5">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="90" aria-valuemax="100" style="width: 100%;">
+                                        <span>60% Complete</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>-->
                     </table>
                 </div>
                 <div class="panel-footer">
