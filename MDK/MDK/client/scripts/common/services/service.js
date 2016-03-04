@@ -29,15 +29,20 @@ angular.module("MDKApp")
             return self.__post(serverName + port + BusinessServices + "getLineDetails", { "data": angular.toJson(data) });
         };
 
-        self.uploadITACKN = function (file) {
+        //not in use now
+        //self.uploadITACKN = function (file) {
 
-            var fd = new FormData();
-            fd.append('file', file);
+        //    var fd = new FormData();
+        //    fd.append('file', file);
 
-            return self.__post(serverName + port + BusinessServices + "uploadITACKN", fd, {
-                transformRequest: angular.identity,
-                headers: { 'Content-Type': undefined }
-            });
+        //    return self.__post(serverName + port + BusinessServices + "uploadITACKN", fd, {
+        //        transformRequest: angular.identity,
+        //        headers: { 'Content-Type': undefined }
+        //    });
+        //};
+
+        self.getDocumentsToDownload = function (fileDetails) {
+            return self.__post(serverName + port + BusinessServices + "getDocumentsToDownload", { "data": angular.toJson(fileDetails) });
         };
 
 

@@ -61,6 +61,20 @@ namespace Services.BusinessServices
         string uploadDocuments(Stream stream);
 
 
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        string getDocumentsToDownload(string data);
+
+
+        //[OperationContract]
+        //[WebInvoke(ResponseFormat = WebMessageFormat.Json,
+        //    RequestFormat = WebMessageFormat.Json,
+        //    BodyStyle = WebMessageBodyStyle.Wrapped,
+        //    Method = "POST")]
+        //string documentDownload(string path);
 
 
     }

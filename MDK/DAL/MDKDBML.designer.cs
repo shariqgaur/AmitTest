@@ -33,12 +33,12 @@ namespace DAL
     partial void InsertBankInfo(BankInfo instance);
     partial void UpdateBankInfo(BankInfo instance);
     partial void DeleteBankInfo(BankInfo instance);
-    partial void InsertPersonalInformation(PersonalInformation instance);
-    partial void UpdatePersonalInformation(PersonalInformation instance);
-    partial void DeletePersonalInformation(PersonalInformation instance);
     partial void InsertRoleMangemant(RoleMangemant instance);
     partial void UpdateRoleMangemant(RoleMangemant instance);
     partial void DeleteRoleMangemant(RoleMangemant instance);
+    partial void InsertPersonalInformation(PersonalInformation instance);
+    partial void UpdatePersonalInformation(PersonalInformation instance);
+    partial void DeletePersonalInformation(PersonalInformation instance);
     partial void InsertUserMangement(UserMangement instance);
     partial void UpdateUserMangement(UserMangement instance);
     partial void DeleteUserMangement(UserMangement instance);
@@ -84,19 +84,19 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<PersonalInformation> PersonalInformations
-		{
-			get
-			{
-				return this.GetTable<PersonalInformation>();
-			}
-		}
-		
 		public System.Data.Linq.Table<RoleMangemant> RoleMangemants
 		{
 			get
 			{
 				return this.GetTable<RoleMangemant>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PersonalInformation> PersonalInformations
+		{
+			get
+			{
+				return this.GetTable<PersonalInformation>();
 			}
 		}
 		
@@ -629,6 +629,92 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMangemant")]
+	public partial class RoleMangemant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Rid;
+		
+		private string _RoleName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRidChanging(int value);
+    partial void OnRidChanged();
+    partial void OnRoleNameChanging(string value);
+    partial void OnRoleNameChanged();
+    #endregion
+		
+		public RoleMangemant()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Rid
+		{
+			get
+			{
+				return this._Rid;
+			}
+			set
+			{
+				if ((this._Rid != value))
+				{
+					this.OnRidChanging(value);
+					this.SendPropertyChanging();
+					this._Rid = value;
+					this.SendPropertyChanged("Rid");
+					this.OnRidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(50)")]
+		public string RoleName
+		{
+			get
+			{
+				return this._RoleName;
+			}
+			set
+			{
+				if ((this._RoleName != value))
+				{
+					this.OnRoleNameChanging(value);
+					this.SendPropertyChanging();
+					this._RoleName = value;
+					this.SendPropertyChanged("RoleName");
+					this.OnRoleNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PersonalInformation")]
 	public partial class PersonalInformation : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -980,92 +1066,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.PersonalInformation = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMangemant")]
-	public partial class RoleMangemant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Rid;
-		
-		private string _RoleName;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRidChanging(int value);
-    partial void OnRidChanged();
-    partial void OnRoleNameChanging(string value);
-    partial void OnRoleNameChanged();
-    #endregion
-		
-		public RoleMangemant()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Rid
-		{
-			get
-			{
-				return this._Rid;
-			}
-			set
-			{
-				if ((this._Rid != value))
-				{
-					this.OnRidChanging(value);
-					this.SendPropertyChanging();
-					this._Rid = value;
-					this.SendPropertyChanged("Rid");
-					this.OnRidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(50)")]
-		public string RoleName
-		{
-			get
-			{
-				return this._RoleName;
-			}
-			set
-			{
-				if ((this._RoleName != value))
-				{
-					this.OnRoleNameChanging(value);
-					this.SendPropertyChanging();
-					this._RoleName = value;
-					this.SendPropertyChanged("RoleName");
-					this.OnRoleNameChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	

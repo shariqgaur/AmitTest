@@ -3,7 +3,14 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
 
     var businessGUID = $stateParams.businessId;
 
+    $scope.upperButtons = [
 
+          { text: 'Workbook', value: 'Workbook' },
+          { text: 'Audit Report', value: 'AuditReport' },
+          { text: 'TAX Challan', value: 'TAXChallan' },
+          { text: '26 AS', value: '26AS' },
+          { text: 'IT Acknowledgement', value: 'ITAcknowledgement' }
+    ];
 
     var init = function () {
         $rootScope.loading = apiService.getLineDetails(businessGUID).then(function (data) {
@@ -29,6 +36,8 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         }).catch();
     };
 
+    $scope.businessYears = [2011,2012,2013,2014,2015,2016];
+
     $scope.documentTypes = [
         { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
         { text: '26 AS', value: '26AS' },
@@ -37,15 +46,6 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         { text: 'Workbook', value: 'Workbook' },
         { text: 'Other', value: 'other' },
 
-    ];
-
-    $scope.upperButtons = [
-         
-          { text: 'Workbook' },
-          { text: 'Audit Report' },
-          { text: 'TAX Challan' },
-          { text: '26 AS' },
-          { text: 'IT Acknowledgement' }
     ];
 
     $scope.fileChanged = function () {
@@ -79,6 +79,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
 
 
 
+
     $scope.uploadDocument = function () {
         $rootScope.loading = Upload.upload({
             url: 'http://localhost:9595/WCF/BusinessServices/BusinessServices.svc/uploadDocuments',
@@ -99,7 +100,18 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
 
     };
 
+    $scope.getDocumentsToDownload = function () {
 
+        var fileDetails = {
+            BusinessGUID: businessGUID,
+            SelectedYear: $scope.selectedDownloadYear,
+            fileType: $scope.upperButtons[$scope.selectedDownloadDoc].value
+        }
+
+        apiService.getDocumentsToDownload(fileDetails).then(function (data) {
+            console.log(data);
+        }).catch();
+    };
 
     init();
 }]);

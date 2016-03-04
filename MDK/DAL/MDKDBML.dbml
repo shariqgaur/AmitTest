@@ -29,6 +29,12 @@
       <Column Name="PFESI_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
+    <Type Name="RoleMangemant">
+      <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.PersonalInformation" Member="PersonalInformations">
     <Type Name="PersonalInformation">
       <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -44,12 +50,6 @@
       <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="Pid" OtherKey="PersonalInfoID" Type="BankInfo" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
-    <Type Name="RoleMangemant">
-      <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.UserMangement" Member="UserMangements">

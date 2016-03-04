@@ -414,7 +414,7 @@ namespace Services.BusinessServices
 
                 if (businessId != null || businessId == string.Empty)
                 {
-                    parser.Filename = businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
+                    parser.Filename=parser.Filename+"_"+ businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
                 }
 
                 if (!Directory.Exists(businessDataPath + businessId))
@@ -447,6 +447,26 @@ namespace Services.BusinessServices
             return SuccessCodes.FILE_UPLOAD_SUCCESS;
         }
 
+
+        public string getDocumentsToDownload(string data)
+        {
+            string basePath = HttpContext.Current.Server.MapPath(".");
+            string businessDataPath = basePath + "\\uploaded\\businessData\\";
+            string searchDirectory = null;
+            string[] files;
+            try
+            {
+                var fileDetails = _serializer.Deserialize<GetDownloadFileModel>(data);
+                searchDirectory =  businessDataPath + fileDetails.BusinessGUID +"\\"+ fileDetails.SelectedYear+"\\";
+                files = Directory.GetFiles(searchDirectory,"*"+fileDetails.fileType+"*"); 
+            }
+            catch (Exception exp)
+            {
+                return exp.Message;
+            }
+
+            return "sairahem: " + Path.GetFileName(files[0]);
+        }
        
     }
 }

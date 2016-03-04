@@ -43,5 +43,27 @@ namespace DAL.Properties {
                 return ((string)(this["MDK_DBConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PNEITSH52343d;Initial Catalog=MDK_DB;Persist Security Info=True;User " +
+            "ID=iwebuser;Password=iwebuser")]
+        public string MDK_DBConnectionString2 {
+            get {
+                return ((string)(this["MDK_DBConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PNEITSH52343D;Initial Catalog=MDK_DB;Persist Security Info=True;User " +
+            "ID=iwebuser;Password=iwebuser")]
+        public string MDK_DBConnectionString3 {
+            get {
+                return ((string)(this["MDK_DBConnectionString3"]));
+            }
+        }
     }
 }
