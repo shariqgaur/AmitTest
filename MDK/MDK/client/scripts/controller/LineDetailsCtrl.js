@@ -1,5 +1,5 @@
 ﻿
-angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "apiService", "Upload", function ($scope, $rootScope, $state, $stateParams, apiService, Upload) {
+angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "$rootScope", "$state", "$stateParams", "apiService", "Upload", function ($uibModal, $scope, $rootScope, $state, $stateParams, apiService, Upload) {
 
     var businessGUID = $stateParams.businessId;
 
@@ -36,7 +36,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         }).catch();
     };
 
-    $scope.businessYears = [2011,2012,2013,2014,2015,2016];
+    $scope.businessYears = [2011, 2012, 2013, 2014, 2015, 2016];
 
     $scope.documentTypes = [
         { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
@@ -105,13 +105,44 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$scope", "$rootScope", 
         var fileDetails = {
             BusinessGUID: businessGUID,
             SelectedYear: $scope.selectedDownloadYear,
-            fileType: $scope.upperButtons[$scope.selectedDownloadDoc].value
+         
         }
 
-        apiService.getDocumentsToDownload(fileDetails).then(function (data) {
-            console.log(data);
+        $rootScope.loading = apiService.getDocumentsToDownload(fileDetails).then(function (data) {
+            if (data && data.data && data.data.getDocumentsToDownloadResult.SuccessCode === "FILE_LIST_RECEIVED_SUCCESSFULLY") {
+                $scope.fetchedFileList = angular.fromJson(data.data.getDocumentsToDownloadResult.fileModel);
+                $scope.openFileListModel();
+            }
         }).catch();
     };
+
+    $scope.documentDownload = function (file) {
+        //$rootScope.loading = apiService.documentDownload(fileDetails).then(function (data) {
+
+        //}).catch();
+    };
+
+    $scope.openFileListModel = function () {
+
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: '../client/views/fileModal.html',
+            controller: 'FileModalCtrl',
+            resolve: {
+                fileList: function () {
+                    return {
+                        BusinessGUID: businessGUID,
+                        SelectedYear: $scope.formatYear($scope.selectedDownloadYear),
+                        FileList: $scope.fetchedFileList
+                    }
+                }
+
+            }
+        });
+
+    };
+
+
 
     init();
 }]);

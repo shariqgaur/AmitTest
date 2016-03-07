@@ -163,4 +163,21 @@ body
     margin-left: 5px;
     border: 1px solid #2AABD2;
     color: #000;
+     
 }
+
+
+.deleteBTN
+{
+    background: url(../images/invalid.jpg) no-repeat;
+    border: none;
+    width: 43px;
+    height:43px;
+}
+
+    .deleteBTN:hover
+    {
+        border: none !important;
+    }
+
+

@@ -22,6 +22,8 @@
     <link href="lib/UIpackages/node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet" />
     <link href="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.css" rel="stylesheet" />
+    <link href="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet" />
+
     <link href="style/animate.css" rel="stylesheet" />
     <link href="style/style.css" rel="stylesheet" />
 
@@ -43,11 +45,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-8">
+                 
+                <div class="col-md-2 pull-right">
                     <div class="row" style="margin-top: 60px;">
                         <form>
                             <div class="form-group">
-                                <input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />
+                                <!--<input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />-->
+
+                                <button class="btn btn-primary" ng-click="">
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -84,12 +91,12 @@
         <script src="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.js"></script>
         <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
         <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
 
         <!--Libs End-->
 
-        <!--Custom angular services-->
-        <script src="scripts/common/services/httpFactoryService.js"></script>
-        <!--Custom angular services End-->
 
         <!--App specific-->
         <script src="app.js"></script>
@@ -122,6 +129,7 @@
         <script src="scripts/controller/LineDetailsCtrl.js"></script>
         <script src="scripts/controller/UserManagement.js"></script>
         <script src="scripts/controller/Business/BusinessUserManagementCtrl.js"></script>
+        <script src="scripts/controller/FileModalCtrl.js"></script>
         <!--Angular controllers End-->
     </div>
 </body>

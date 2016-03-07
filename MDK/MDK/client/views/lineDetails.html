@@ -4,36 +4,51 @@
             <h2 ng-bind="businessGUID"></h2>
         </div>
 
-        <div class="col-md-9 pull-right">
+        <!--        <div class="col-md-9 pull-right">
             <div class="pull-right" ng-repeat="button in upperButtons">
 
                 <input type="button" class="btn  btn-sm mdkBTN" value="{{button.text}}" ng-click="showACKNSection($index)" ng-model="selectedDownloadDoc"
                     ng-class="{'selectedUpperButton':$index==selectedDownloadDoc}" />
 
             </div>
+        </div>-->
+
+        <div class="pull-right">
+            <div class="col-md-5">
+                <a href="#/dashboard" class="btn  btn-sm mdkBTN" ng-bind="'Dashboard'" ng-click="" />
+
+            </div>
+
+
         </div>
+
+
+
     </div>
 
 
     <div class="row">
-        <form class="form-inline  pull-right animated" ng-class="{fadeInDown:isShowACKNSection, fadeOutUp:!isShowACKNSection}">
-            <div class="col-md-12">
+        <!--        ng-class="{fadeInDown:isShowACKNSection, fadeOutUp:!isShowACKNSection}"-->
+        <div class="col-md-4 pull-right">
+            <form class="form-inline  pull-right animated">
+                <div class="col-md-12">
 
-                <div class="form-group">
-                    <select 
-                        ng-options="year as formatYear(year) for year in businessYears" 
-                        ng-model="selectedDownloadYear"  
-                        class="form-control">
-                        <option value="">-- select year --</option>
-                    </select> 
+                    <div class="form-group">
+                        <select
+                            ng-options="year as formatYear(year) for year in businessYears"
+                            ng-model="selectedDownloadYear"
+                            class="form-control">
+                            <option value="">-- select year --</option>
+                        </select>
+                    </div>
+
+                    <input type="button" class="btn  btn-sm mdkBTN" value="Get Files" ng-click="getDocumentsToDownload()" />
+                    <!--      <input type="button" class="btn downloadBTN" ng-click="getDocumentsToDownload()"/>-->
+                    <!--<input type="button" ng-click="hideACKNSection()" class="btn  btn-sm mdkBTN" value="X" />-->
                 </div>
-                 
-                <input type="button" class="btn  btn-sm mdkBTN" value="Get Files" ng-click="getDocumentsToDownload()"/>
-                <!--<input type="button" class="btn downloadBTN" ng-click=""/>-->
-                <input type="button" ng-click="hideACKNSection()" class="btn  btn-sm mdkBTN" value="X" />
 
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 
