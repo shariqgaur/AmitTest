@@ -30,107 +30,114 @@
 </head>
 
 <body role="document" ng-app="MDKApp" ng-controller="MainCtrl">
+    <div class="container">
+        <div cg-busy="{promise:$root.loading,templateUrl:'views/loader.html',message:'Processing...',backdrop:true,delay:0,minDuration:1000}">
+            <div class="row" ng-controller="HeaderCtrl">
 
-    <div cg-busy="{promise:$root.loading,templateUrl:'views/loader.html',message:'Processing...',backdrop:true,delay:0,minDuration:1000}">
-        <div class="row" ng-controller="HeaderCtrl">
-
-            <header>
-                <div class="col-md-4">
-                    <div class="logo">
-                        <div class="logoHeading">
-                            <h1><b>AccTrack</b>
-                            </h1>
-                            <small class="logoSubHeading">makes accounting easy !</small>
+                <header>
+                    <div class="col-md-4">
+                        <div class="logo">
+                            <div class="logoHeading">
+                                <h1><b>AccTrack</b>
+                                </h1>
+                                <small class="logoSubHeading">makes accounting easy !</small>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                 
-                <div class="col-md-2 pull-right">
-                    <div class="row" style="margin-top: 60px;">
-                        <form>
-                            <div class="form-group">
-                                <!--<input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />-->
-
-                                <button class="btn btn-primary" ng-click="">
-                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out
-                                </button>
-                            </div>
-                        </form>
+                    <div class="col-md-offset-3 col-md-3">
+                        <div style="margin-top:40%;">
+                            <span><strong>Welcome</strong>&nbsp;&nbsp;<b style="color:darkorange;" ng-bind="loggedInUserName+' !'" ng-init="loggedInUserName='Amit Debadwar'"></b></span>
+                        </div> 
+                        
                     </div>
-                </div>
 
-            </header>
+                    <div class="col-md-2 pull-right">
+                        <div class="row" style="margin-top: 60px;">
+                            <form>
+                                <div class="form-group">
+                                    <!--<input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />-->
 
+                                    <button class="btn btn-primary" ng-click="">
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Log out
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </header>
+
+            </div>
+
+
+            <div class="row">
+                <hr class="mainHR" />
+            </div>
+            <div class="row viewBody">
+
+                <section ui-view></section>
+
+            </div>
+            <div class="row">
+                <hr style="height: 1.1px; background: gray;" />
+                <footer style="height: 40px; border: 0px solid black;">
+                    <div class="text-center">
+                        All rights are reserved by Amit Debadwar
+                    </div>
+                </footer>
+            </div>
+            <!--Libs-->
+            <script src="lib/UIpackages/node_modules/jquery/dist/jquery.min.js"></script>
+            <script src="lib/UIpackages/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="lib/UIpackages/node_modules/angular/angular.min.js"></script>
+            <script src="lib/angular-ui-router.js"></script>
+            <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+            <script src="lib/UIpackages/node_modules/angular-animate/angular-animate.js"></script>
+            <script src="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.js"></script>
+            <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+            <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+            <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+            <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+
+            <!--Libs End-->
+
+
+            <!--App specific-->
+            <script src="app.js"></script>
+            <script src="app.config.js"></script>
+            <!--App specific End-->
+
+
+            <!--App directives-->
+            <script src="scripts/common/directives/fileModel.js"></script>
+            <!--App directives end-->
+
+
+            <!--Angualar constant-->
+            <script src="scripts/common/services/constants.js"></script>
+            <!--Angualar constant End-->
+
+            <!--Angular custom services-->
+            <script src="scripts/common/services/service.js"></script>
+            <!--Angular custom services End-->
+
+            <!--Angular custom filteres-->
+            <script src="scripts/common/filters/formatMobileNumber.js"></script>
+            <!--Angular custom filteres End-->
+
+            <!--Angular controllers-->
+            <script src="scripts/controller/MainController.js"></script>
+            <script src="scripts/controller/LoginCtrl.js"></script>
+            <script src="scripts/controller/DashboardCtrl.js"></script>
+            <script src="scripts/controller/HeaderCtrl.js"></script>
+            <script src="scripts/controller/LineDetailsCtrl.js"></script>
+            <script src="scripts/controller/UserManagement.js"></script>
+            <script src="scripts/controller/Business/BusinessUserManagementCtrl.js"></script>
+            <script src="scripts/controller/FileModalCtrl.js"></script>
+            <!--Angular controllers End-->
         </div>
-
-
-        <div class="row">
-            <hr class="mainHR" />
-        </div>
-        <div class="row viewBody">
-
-            <section ui-view></section>
-
-        </div>
-        <div class="row">
-            <hr style="height: 1.1px; background: gray;" />
-            <footer style="height: 40px; border: 0px solid black;">
-                <div class="text-center">
-                    All rights are reserved by Amit Debadwar
-                </div>
-            </footer>
-        </div>
-        <!--Libs-->
-        <script src="lib/UIpackages/node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="lib/UIpackages/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="lib/UIpackages/node_modules/angular/angular.min.js"></script>
-        <script src="lib/angular-ui-router.js"></script>
-        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-        <script src="lib/UIpackages/node_modules/angular-animate/angular-animate.js"></script>
-        <script src="lib/UIpackages/node_modules/angular-busy/dist/angular-busy.min.js"></script>
-        <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
-        <script src="lib/UIpackages/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
-        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-        <script src="lib/UIpackages/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-
-
-        <!--Libs End-->
-
-
-        <!--App specific-->
-        <script src="app.js"></script>
-        <script src="app.config.js"></script>
-        <!--App specific End-->
-
-
-        <!--App directives-->
-        <script src="scripts/common/directives/fileModel.js"></script>
-        <!--App directives end-->
-
-
-        <!--Angualar constant-->
-        <script src="scripts/common/services/constants.js"></script>
-        <!--Angualar constant End-->
-
-        <!--Angular custom services-->
-        <script src="scripts/common/services/service.js"></script>
-        <!--Angular custom services End-->
-
-        <!--Angular custom filteres-->
-        <script src="scripts/common/filters/formatMobileNumber.js"></script>
-        <!--Angular custom filteres End-->
-
-        <!--Angular controllers-->
-        <script src="scripts/controller/MainController.js"></script>
-        <script src="scripts/controller/LoginCtrl.js"></script>
-        <script src="scripts/controller/DashboardCtrl.js"></script>
-        <script src="scripts/controller/HeaderCtrl.js"></script>
-        <script src="scripts/controller/LineDetailsCtrl.js"></script>
-        <script src="scripts/controller/UserManagement.js"></script>
-        <script src="scripts/controller/Business/BusinessUserManagementCtrl.js"></script>
-        <script src="scripts/controller/FileModalCtrl.js"></script>
-        <!--Angular controllers End-->
     </div>
 </body>
 </html>
