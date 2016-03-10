@@ -9,7 +9,6 @@
 
         <div class="col-md-2 pull-right">
             <a href="#/dashboard" class="btn  btn-sm mdkBTN" ng-bind="'Dashboard'" ng-click="" />
-
         </div>
     </div>
 
@@ -65,7 +64,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="txtFirstName" placeholder="first name" ng-model="firstName">{{firstName}}
+                                    <input type="text" class="form-control" id="txtFirstName" placeholder="first name" ng-model="firstName">
                                 </div>
                             </div>
 
@@ -144,10 +143,11 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <p class="form-control-static"
-                                        ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}">
-                                        <!--data-ng-bind="personalRecordSavedMSG"-->
-                                        businessinfo@example.com
+                                        ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}"
+                                        data-ng-bind="personalRecordSavedMSG">
+                                        Record saved successfully! 
                                     </p>
+                                    <span ng-show="isBusinessInfoSaved">&nbsp;with&nbsp;<b style="color: blue;" ng-bind="businessID">JKKH45321221</b>&nbsp;Business ID. </span>
                                 </div>
                             </div>
                         </div>

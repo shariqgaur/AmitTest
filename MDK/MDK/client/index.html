@@ -46,10 +46,10 @@
                     </div>
 
                     <div class="col-md-offset-3 col-md-3">
-                        <div style="margin-top:40%;">
-                            <span><strong>Welcome</strong>&nbsp;&nbsp;<b style="color:darkorange;" ng-bind="loggedInUserName+' !'" ng-init="loggedInUserName='Amit Debadwar'"></b></span>
-                        </div> 
-                        
+                        <div style="margin-top: 40%;" ng-if="$root.isUserLoggedIn">
+                            <span><strong>Welcome</strong>&nbsp;&nbsp;<b style="color: darkorange;" ng-bind="$root.loggedInUserName+' !'"></b></span>
+                        </div>
+
                     </div>
 
                     <div class="col-md-2 pull-right">
@@ -58,8 +58,8 @@
                                 <div class="form-group">
                                     <!--<input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />-->
 
-                                    <button class="btn btn-primary" ng-click="">
-                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Log out
+                                    <button class="btn btn-primary" ng-click="" ng-if="$root.isUserLoggedIn">
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out
                                     </button>
                                 </div>
                             </form>

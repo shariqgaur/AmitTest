@@ -35,7 +35,7 @@
              
                 $scope.isBusinessInfoSaved = true;
                 $scope.personalRecordSavedMSG = data.data.createBusinessUserResult.SuccessMessage;
-               
+                $scope.businessID=data.data.createBusinessUserResult.tPersonalInfoData.BusinessGUID;
             }
             else {
                 $scope.isBusinessInfoSaved = false;

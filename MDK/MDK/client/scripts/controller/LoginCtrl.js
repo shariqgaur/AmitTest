@@ -1,4 +1,4 @@
-﻿angular.module("MDKApp").controller("LoginCtrl", ["$scope", "$rootScope", "$state", "apiService", function ($scope,$rootScope, $state, apiService) {
+﻿angular.module("MDKApp").controller("LoginCtrl", ["$scope", "$rootScope", "$state", "apiService", function ($scope, $rootScope, $state, apiService) {
     $scope.msg = "My Login";
 
     $scope.login = function () {
@@ -8,9 +8,11 @@
             Password: $scope.userPassword
         };
 
-        $rootScope.loading=apiService.validateUser(loginInfo).then(function (data) {
- 
+        $rootScope.loading = apiService.validateUser(loginInfo).then(function (data) {
+
             if (data.data.validateUserResult.SuccessCode === "VALID_USER") {
+                $rootScope.loggedInUserName = data.data.validateUserResult.tLoginData.UserId;
+                $rootScope.isUserLoggedIn = true;
                 $state.go("dashboard");
             }
             else {
