@@ -75,7 +75,7 @@
 
                         <tr>
                             <th>Name:</th>
-                            <td ng-bind="firstName+' '+middleName+' '+lastName">Amit Chandrakant Debadwar</td>
+                            <td ng-bind="(firstName && middleName && lastName)==null?'N/A':firstName+' '+middleName+' '+lastName">Amit Chandrakant Debadwar</td>
                         </tr>
 
                         <tr>
