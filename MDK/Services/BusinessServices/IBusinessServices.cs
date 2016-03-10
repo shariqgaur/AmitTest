@@ -76,6 +76,13 @@ namespace Services.BusinessServices
         //    Method = "POST")]
         //string documentDownload(string path);
 
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TBankData saveBankInformation(string data);
+
 
     }
 }

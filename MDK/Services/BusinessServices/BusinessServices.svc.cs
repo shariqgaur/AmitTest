@@ -24,6 +24,10 @@ namespace Services.BusinessServices
         TPersonalInfoData tPersonalInfoData = null;
 
         LineDetailsBAL lineDetailsBAL = null;
+
+        BankBAL bankBAL = null;
+        TBankData tBankData = null;
+
         Random RandomPIN = new Random();
         public BusinessServices()
         {
@@ -31,9 +35,14 @@ namespace Services.BusinessServices
 
             personalInfoModel = new PersonalInfoModel();
             personalInfoBAL = new PersonalInfoBAL();
+            
             tPersonalInfoData = new TPersonalInfoData();
+            tBankData = new TBankData();
 
             lineDetailsBAL = new LineDetailsBAL();
+            bankBAL = new BankBAL();
+
+
         }
 
 
@@ -355,35 +364,7 @@ namespace Services.BusinessServices
             public string PropertyName { get; set; }
             public string StringData { get; set; }
         }
-
-
-        public string uploadITACKN(Stream stream)
-        {
-            //string path = HttpContext.Current.Server.MapPath(".");
-            //var parser = new MultipartParser(stream);
-
-
-            //try
-            //{
-
-            //    if (!parser.Success)
-            //        throw new ApplicationException("Error while parsing image file");
-
-            //    using (var ms = new FileStream(path + "\\uploaded\\" + parser.Filename, FileMode.CreateNew, FileAccess.Write))
-            //    {
-            //        ms.Write(parser.FileContents, 0, parser.FileContents.Length);
-            //    }
-
-            //    return "sainath ";
-
-            //}
-            //catch (Exception exp)
-            //{
-            //    return exp.Message;
-            //}
-
-            return string.Empty;
-        }
+         
 
         /// <summary>
         /// This method is used to upload files from client side
@@ -403,7 +384,7 @@ namespace Services.BusinessServices
             string businessId = headers["businessId"];
             string selectedYear = headers["selectedYear"];
             string selectedDocType = headers["selectedDocType"];
-            string fullPath = businessDataPath + businessId + "\\" + selectedYear+"\\";
+            string fullPath = businessDataPath + businessId + "\\" + selectedYear + "\\";
 
             try
             {
@@ -414,7 +395,7 @@ namespace Services.BusinessServices
 
                 if (businessId != null || businessId == string.Empty)
                 {
-                    parser.Filename=parser.Filename+"_"+ businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
+                    parser.Filename = parser.Filename + "_" + businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
                 }
 
                 if (!Directory.Exists(businessDataPath + businessId))
@@ -425,22 +406,22 @@ namespace Services.BusinessServices
                 //check selected year directory exists or not
                 if (!Directory.Exists(fullPath))
                 {
-                    Directory.CreateDirectory(fullPath); 
+                    Directory.CreateDirectory(fullPath);
                 }
 
                 if (File.Exists(fullPath + parser.Filename))
                 {
-                    File.Delete(fullPath+parser.Filename);
+                    File.Delete(fullPath + parser.Filename);
                 }
 
                 using (var ms = new FileStream(fullPath + parser.Filename, FileMode.CreateNew, FileAccess.Write))
                 {
                     ms.Write(parser.FileContents, 0, parser.FileContents.Length);
                 }
-                 
+
             }
             catch (Exception exp)
-            {    
+            {
                 return exp.StackTrace;
             }
 
@@ -457,8 +438,8 @@ namespace Services.BusinessServices
             try
             {
                 var fileDetails = _serializer.Deserialize<GetDownloadFileModel>(data);
-                searchDirectory =  businessDataPath + fileDetails.BusinessGUID +"\\"+ fileDetails.SelectedYear+"\\";
-                files = Directory.GetFiles(searchDirectory,"*"+fileDetails.fileType+"*"); 
+                searchDirectory = businessDataPath + fileDetails.BusinessGUID + "\\" + fileDetails.SelectedYear + "\\";
+                files = Directory.GetFiles(searchDirectory, "*" + fileDetails.fileType + "*");
             }
             catch (Exception exp)
             {
@@ -467,6 +448,31 @@ namespace Services.BusinessServices
 
             return "sairahem: " + Path.GetFileName(files[0]);
         }
-       
+
+        public TBankData saveBankInformation(string data)
+        {
+            try
+            {
+                var bankData = _serializer.Deserialize<BankModel>(data);
+                return bankBAL.saveBankInformation(bankData);
+              
+            }
+            catch (Exception exp)
+            {
+                tBankData.ErrorCode = ErrorCodes.SERVICE_ERROR;
+                tBankData.ErrorMessage = exp.StackTrace;
+
+                return tBankData;
+            }
+
+           
+        }
+
+
+
+        public string uploadITACKN(Stream stream)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

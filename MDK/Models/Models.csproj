@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankModel.cs" />
     <Compile Include="BaseModel.cs" />
     <Compile Include="GetDownloadFileModel.cs" />
     <Compile Include="ErrorCodes.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuccessCodes.cs" />
     <Compile Include="TransportModel\ITransport.cs" />
+    <Compile Include="TransportModel\TBankData.cs" />
     <Compile Include="TransportModel\TLineDetails.cs" />
     <Compile Include="TransportModel\TLoginData.cs" />
     <Compile Include="TransportModel\TPersonalInfoData.cs" />

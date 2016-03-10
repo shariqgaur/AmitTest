@@ -22,135 +22,137 @@
                 </div>
                 <div class="panel-body" style="min-height: 511px;">
                     <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <strong>Does client have Business name?</strong>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Does client have Business name?</strong>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="business" id="rdBusiness_Yes" value="Business_Yes" ng-model="isBusiness" ng-init="isBusiness='Business_Yes'">
+                                            Yes
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
                                     <label class="radio-inline">
-                                        <input type="radio" name="business" id="rdBusiness_Yes" value="Business_Yes" ng-model="isBusiness" ng-init="isBusiness='Business_Yes'">
-                                        Yes
+                                        <input type="radio" name="business" id="rdBusiness_No" value="Business_No" ng-model="isBusiness">
+                                        No
                                     </label>
                                 </div>
                             </div>
-
-                            <div class="col-md-1">
-                                <label class="radio-inline">
-                                    <input type="radio" name="business" id="rdBusiness_No" value="Business_No" ng-model="isBusiness">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row" ng-show="isBusiness=='Business_Yes'">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Business Name</label>
-                                    <input type="text" class="form-control" id="Email7" placeholder="e.g. XYZ PVT LTD." ng-model="businessName">
+                            <div class="row" ng-show="isBusiness=='Business_Yes'">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Business Name</label>
+                                        <input type="text" class="form-control" id="Email7" placeholder="e.g. XYZ PVT LTD." ng-model="businessName">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Business Type</label>
-                                    <select class="form-control" ng-options="item as item for item in ['Propriotorship','Partnership','LLP','PVT LTD','LTD']" ng-model="businessType">
-                                        <option value="">select business type</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row" ng-show="isBusiness=='Business_No'">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="txtFirstName" placeholder="first name" ng-model="firstName">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Business Type</label>
+                                        <select class="form-control" ng-options="item as item for item in ['Propriotorship','Partnership','LLP','PVT LTD','LTD']" ng-model="businessType">
+                                            <option value="">select business type</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="middleName">Middle Name</label>
-                                    <input type="text" class="form-control" id="txtMiddleName" placeholder="middle name" ng-model="middleName">
+
+                            <div class="row" ng-show="isBusiness=='Business_No'">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="txtFirstName" placeholder="first name" ng-model="firstName">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="middleName">Middle Name</label>
+                                        <input type="text" class="form-control" id="txtMiddleName" placeholder="middle name" ng-model="middleName">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="lastName">Lastname</label>
+                                        <input type="text" class="form-control" id="txtLastName" placeholder="last name" ng-model="lastName">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="lastName">Lastname</label>
-                                    <input type="text" class="form-control" id="txtLastName" placeholder="last name" ng-model="lastName">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="contactNumber">Contact Number</label>
-                                    <input type="text" class="form-control" id="txtContactNumber" placeholder="e.g. 909-617-4175" ng-model="contactNumber">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Alternate Number</label>
-                                    <input type="text" class="form-control" id="txtAlternateNumber" placeholder="e.g. 986-022-2007" ng-model="alternateNumber">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="contactNumber">Contact Number</label>
+                                        <input type="text" class="form-control" id="txtContactNumber" placeholder="e.g. 909-617-4175" ng-model="contactNumber">
+                                    </div>
                                 </div>
 
-                            </div>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Alternate Number</label>
+                                        <input type="text" class="form-control" id="txtAlternateNumber" placeholder="e.g. 986-022-2007" ng-model="alternateNumber">
+                                    </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-
-                                <div class="form-group">
-                                    <label for="emailId">Email Id</label>
-                                    <input type="email" class="form-control" id="txtEmailId" placeholder="e.g. amit.debadwar@gmail.com" ng-model="emailId">
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <label for="exampleInputEmail1">Date Of Birth</label>
-                                <input type="date" class="form-control" id="txtDate" ng-model="DateOfBirth">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Address</label>
-                                    <small class="formHelpText">(This address will be used for postal communication.)</small>
-                                    <textarea class="form-control" rows="3" placeholder="please write your full address so that we can reach you out in time !" ng-model="businessAddress"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-primary form-control" value="Save Personal Info" ng-click="savePersonalInfo()" />
                                 </div>
                             </div>
 
-                            <div class="col-md-4 pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
-                                </div>
-                            </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <p class="form-control-static"
-                                        ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}"
-                                        data-ng-bind="personalRecordSavedMSG">
-                                        Record saved successfully! 
-                                    </p>
-                                    <span ng-show="isBusinessInfoSaved">&nbsp;with&nbsp;<b style="color: blue;" ng-bind="businessID">JKKH45321221</b>&nbsp;Business ID. </span>
+                                    <div class="form-group">
+                                        <label for="emailId">Email Id</label>
+                                        <input type="email" class="form-control" id="txtEmailId" placeholder="e.g. amit.debadwar@gmail.com" ng-model="emailId">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="exampleInputEmail1">Date Of Birth</label>
+                                    <input type="date" class="form-control" id="txtDate" ng-model="DateOfBirth">
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Address</label>
+                                        <small class="formHelpText">(This address will be used for postal communication.)</small>
+                                        <textarea class="form-control" rows="3" placeholder="please write your full address so that we can reach you out in time !" ng-model="businessAddress"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-primary form-control" value="Save Personal Info" ng-click="savePersonalInfo()" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <p class="form-control-static"
+                                            ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}"
+                                            data-ng-bind="personalRecordSavedMSG">
+                                            Record saved successfully! 
+                                        </p>
+                                        <span ng-show="isBusinessInfoSaved">&nbsp;with&nbsp;<b style="color: blue;" ng-bind="businessID">JKKH45321221</b>&nbsp;Business ID. </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
             </div>
@@ -160,79 +162,92 @@
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title pull-left">Bank Information</h4>
+
                 </div>
+
                 <div class="panel-title">
+                    <div class="row" ng-if="isBusinessInfoSaved">
+                        <div class="col-md-5 pull-right">
+                            <h6><b>for</b>&nbsp<b ng-bind="businessID" class="businessGUID"></b></h6>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
 
                     <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">Bank Name</label>
-                                    <input type="text" class="form-control" id="Text1" placeholder="e.g. ICICI bank" ng-model="bankName">
+                        <fieldset ng-disabled="!isBusinessInfoSaved">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">Bank Name</label>
+                                        <input type="text" class="form-control" id="Text1" placeholder="e.g. ICICI bank" ng-model="bankName">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">Branch</label>
-                                    <input type="text" class="form-control" id="Text2" placeholder="e.g. Shivaji nagar, Pune." ng-model="bankBranch">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-
-                                    <label for="firstName">Account Number</label>
-                                    <input type="text" class="form-control" id="Text3" placeholder="e.g. ICICI bank" ng-model="bankAccountNumber">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">IFSC Code</label>
-                                    <input type="text" class="form-control" id="Text4" placeholder="e.g. ICICI9860057" ng-model="bankIFSCCode">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">MICR Code</label>
-                                    <input type="text" class="form-control" id="Text5" placeholder="e.g. MICR77876" ng-model="bankMICRCode">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-md-6 pull-right">
-                                <div class="form-group">
-
-                                    <input type="button" class="btn btn-primary form-control" value="Save Bank Info" ng-click="saveBankInformation()" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">Branch</label>
+                                        <input type="text" class="form-control" id="Text2" placeholder="e.g. Shivaji nagar, Pune." ng-model="bankBranch">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6  pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+
+                                        <label for="firstName">Account Number</label>
+                                        <input type="text" class="form-control" id="Text3" placeholder="e.g. ICICI bank" ng-model="bankAccountNumber">
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <p class="form-control-static MDKSuccess" ng-show="true">bankInfo@gmail.com</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">IFSC Code</label>
+                                        <input type="text" class="form-control" id="Text4" placeholder="e.g. ICICI9860057" ng-model="bankIFSCCode">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">MICR Code</label>
+                                        <input type="text" class="form-control" id="Text5" placeholder="e.g. MICR77876" ng-model="bankMICRCode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 pull-right">
+                                    <div class="form-group">
+
+                                        <input type="button" class="btn btn-primary form-control" value="Save Bank Info" ng-click="saveBankInformation()" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6  pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <p class="form-control-static MDKSuccess" 
+                                            ng-show="isBankInfoSaved" 
+                                            ng-bind="bankInfoSavedMSG"
+                                            ng-class="{MDKSuccess:isBankInfoSaved,MDKError:!isBankInfoSaved}">bankInfo@gmail.com</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </form>
 
 
@@ -249,80 +264,86 @@
                     <h4 class="panel-title pull-left">IT Information</h4>
                 </div>
                 <div class="panel-title">
+                    <div class="row" ng-if="isBusinessInfoSaved">
+                        <div class="col-md-5 pull-right">
+                            <h6><b>for</b>&nbsp<b ng-bind="businessID" class="businessGUID"></b></h6>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
 
                     <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">PAN</label>
-                                    <input type="text" class="form-control" id="Text6" placeholder="e.g. ANCPD5684N" ng-model="PAN">
+                        <fieldset ng-disabled="!isBusinessInfoSaved">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">PAN</label>
+                                        <input type="text" class="form-control" id="Text6" placeholder="e.g. ANCPD5684N" ng-model="PAN">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">TAN</label>
-                                    <input type="text" class="form-control" id="Text7" placeholder="e.g. TANB99887" ng-model="TAN">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">VAT</label>
-                                    <input type="text" class="form-control" id="Text8" placeholder="e.g. VATB99887" ng-model="VAT">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">CST</label>
-                                    <input type="text" class="form-control" id="Text9" placeholder="e.g. CST786786" ng-model="CST">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">PTEC</label>
-                                    <input type="text" class="form-control" id="Text10" placeholder="e.g. PTRCB99887" ng-model="PTRC">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName">TAN</label>
-                                    <input type="text" class="form-control" id="Text11" placeholder="e.g. PTEC99887" ng-model="PTEC">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="" />
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">TAN</label>
+                                        <input type="text" class="form-control" id="Text7" placeholder="e.g. TANB99887" ng-model="TAN">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">VAT</label>
+                                        <input type="text" class="form-control" id="Text8" placeholder="e.g. VATB99887" ng-model="VAT">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">CST</label>
+                                        <input type="text" class="form-control" id="Text9" placeholder="e.g. CST786786" ng-model="CST">
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <p class="form-control-static MDKSuccess" ng-show="true">saveitinfo@gmail.com</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">PTEC</label>
+                                        <input type="text" class="form-control" id="Text10" placeholder="e.g. PTRCB99887" ng-model="PTRC">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">TAN</label>
+                                        <input type="text" class="form-control" id="Text11" placeholder="e.g. PTEC99887" ng-model="PTEC">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                            <div class="row">
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <p class="form-control-static MDKSuccess" ng-show="true">saveitinfo@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
 
@@ -335,61 +356,67 @@
                     <h4 class="panel-title pull-left">Other Information</h4>
                 </div>
                 <div class="panel-title">
+                    <div class="row" ng-if="isBusinessInfoSaved">
+                        <div class="col-md-5 pull-right">
+                            <h6><b>for</b>&nbsp<b ng-bind="businessID" class="businessGUID"></b></h6>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body" style="min-height: 365px;">
 
                     <form>
-                        <div class="row">
+                        <fieldset ng-disabled="!isBusinessInfoSaved">
+                            <div class="row">
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">Service TAX Number</label>
-                                    <input type="text" class="form-control" id="Text12" placeholder="e.g. STAX876765" ng-model="serviceTaxNumber">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="firstName">Excise Number</label>
-                                    <input type="text" class="form-control" id="Text13" placeholder="e.g. EXC111222" ng-model="exciseNumber">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="form-group">
-                                    <label for="firstName">PFESI Number</label>
-                                    <input type="text" class="form-control" id="Text14" placeholder="e.g. PF89767898" ng-model="PFESINumber">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-primary form-control" value="Save Other Info" ng-click="" />
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">Service TAX Number</label>
+                                        <input type="text" class="form-control" id="Text12" placeholder="e.g. STAX876765" ng-model="serviceTaxNumber">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6  pull-right">
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="firstName">Excise Number</label>
+                                        <input type="text" class="form-control" id="Text13" placeholder="e.g. EXC111222" ng-model="exciseNumber">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <p class="form-control-static MDKSuccess" ng-show="true">ottherInfo@gmail.com</p>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group">
+                                        <label for="firstName">PFESI Number</label>
+                                        <input type="text" class="form-control" id="Text14" placeholder="e.g. PF89767898" ng-model="PFESINumber">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                            <div class="row">
+                                <div class="col-md-6 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-primary form-control" value="Save Other Info" ng-click="" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6  pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <p class="form-control-static MDKSuccess" ng-show="true">ottherInfo@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </form>
 
                 </div>

@@ -33,15 +33,15 @@ namespace DAL
     partial void InsertBankInfo(BankInfo instance);
     partial void UpdateBankInfo(BankInfo instance);
     partial void DeleteBankInfo(BankInfo instance);
-    partial void InsertPersonalInformation(PersonalInformation instance);
-    partial void UpdatePersonalInformation(PersonalInformation instance);
-    partial void DeletePersonalInformation(PersonalInformation instance);
-    partial void InsertRoleMangemant(RoleMangemant instance);
-    partial void UpdateRoleMangemant(RoleMangemant instance);
-    partial void DeleteRoleMangemant(RoleMangemant instance);
     partial void InsertUserMangement(UserMangement instance);
     partial void UpdateUserMangement(UserMangement instance);
     partial void DeleteUserMangement(UserMangement instance);
+    partial void InsertRoleMangemant(RoleMangemant instance);
+    partial void UpdateRoleMangemant(RoleMangemant instance);
+    partial void DeleteRoleMangemant(RoleMangemant instance);
+    partial void InsertPersonalInformation(PersonalInformation instance);
+    partial void UpdatePersonalInformation(PersonalInformation instance);
+    partial void DeletePersonalInformation(PersonalInformation instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -76,19 +76,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ITDetail> ITDetails
+		public System.Data.Linq.Table<UserMangement> UserMangements
 		{
 			get
 			{
-				return this.GetTable<ITDetail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PersonalInformation> PersonalInformations
-		{
-			get
-			{
-				return this.GetTable<PersonalInformation>();
+				return this.GetTable<UserMangement>();
 			}
 		}
 		
@@ -100,11 +92,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<UserMangement> UserMangements
+		public System.Data.Linq.Table<PersonalInformation> PersonalInformations
 		{
 			get
 			{
-				return this.GetTable<UserMangement>();
+				return this.GetTable<PersonalInformation>();
 			}
 		}
 	}
@@ -131,7 +123,7 @@ namespace DAL
 		
 		private string _BANK_CONTACT_NO;
 		
-		private System.Nullable<int> _PersonalInfoID;
+		private string _BusinessGUID;
 		
 		private EntityRef<PersonalInformation> _PersonalInformation;
 		
@@ -155,8 +147,8 @@ namespace DAL
     partial void OnBANK_ADDRESSChanged();
     partial void OnBANK_CONTACT_NOChanging(string value);
     partial void OnBANK_CONTACT_NOChanged();
-    partial void OnPersonalInfoIDChanging(System.Nullable<int> value);
-    partial void OnPersonalInfoIDChanged();
+    partial void OnBusinessGUIDChanging(string value);
+    partial void OnBusinessGUIDChanged();
     #endregion
 		
 		public BankInfo()
@@ -325,31 +317,31 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonalInfoID", DbType="Int")]
-		public System.Nullable<int> PersonalInfoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessGUID
 		{
 			get
 			{
-				return this._PersonalInfoID;
+				return this._BusinessGUID;
 			}
 			set
 			{
-				if ((this._PersonalInfoID != value))
+				if ((this._BusinessGUID != value))
 				{
 					if (this._PersonalInformation.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnPersonalInfoIDChanging(value);
+					this.OnBusinessGUIDChanging(value);
 					this.SendPropertyChanging();
-					this._PersonalInfoID = value;
-					this.SendPropertyChanged("PersonalInfoID");
-					this.OnPersonalInfoIDChanged();
+					this._BusinessGUID = value;
+					this.SendPropertyChanged("BusinessGUID");
+					this.OnBusinessGUIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_PersonalInformation", ThisKey="PersonalInfoID", OtherKey="Pid", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_PersonalInformation", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
 		public PersonalInformation PersonalInformation
 		{
 			get
@@ -372,11 +364,11 @@ namespace DAL
 					if ((value != null))
 					{
 						value.BankInfos.Add(this);
-						this._PersonalInfoID = value.Pid;
+						this._BusinessGUID = value.BusinessGUID;
 					}
 					else
 					{
-						this._PersonalInfoID = default(Nullable<int>);
+						this._BusinessGUID = default(string);
 					}
 					this.SendPropertyChanged("PersonalInformation");
 				}
@@ -404,227 +396,246 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ITDetails")]
-	public partial class ITDetail
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserMangement")]
+	public partial class UserMangement : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _Pid;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _IncomeTax;
+		private int _Uid;
 		
-		private string _PAN_NO;
+		private string _Role;
 		
-		private string _TAN_NO;
+		private string _LoginName;
 		
-		private string _SalesTax;
+		private string _Password;
 		
-		private string _VAT_NO;
+		private bool _IsActive;
 		
-		private string _CST_NO;
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUidChanging(int value);
+    partial void OnUidChanged();
+    partial void OnRoleChanging(string value);
+    partial void OnRoleChanged();
+    partial void OnLoginNameChanging(string value);
+    partial void OnLoginNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnIsActiveChanging(bool value);
+    partial void OnIsActiveChanged();
+    #endregion
 		
-		private string _PTRC_NO;
-		
-		private string _PTEC_NO;
-		
-		private string _ServiceTaxNo;
-		
-		private string _ExciseNo;
-		
-		private string _PFESI_NO;
-		
-		public ITDetail()
+		public UserMangement()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", DbType="Int")]
-		public System.Nullable<int> Pid
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Uid
 		{
 			get
 			{
-				return this._Pid;
+				return this._Uid;
 			}
 			set
 			{
-				if ((this._Pid != value))
+				if ((this._Uid != value))
 				{
-					this._Pid = value;
+					this.OnUidChanging(value);
+					this.SendPropertyChanging();
+					this._Uid = value;
+					this.SendPropertyChanged("Uid");
+					this.OnUidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IncomeTax", DbType="NVarChar(50)")]
-		public string IncomeTax
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(20)")]
+		public string Role
 		{
 			get
 			{
-				return this._IncomeTax;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._IncomeTax != value))
+				if ((this._Role != value))
 				{
-					this._IncomeTax = value;
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAN_NO", DbType="NVarChar(50)")]
-		public string PAN_NO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NVarChar(200)")]
+		public string LoginName
 		{
 			get
 			{
-				return this._PAN_NO;
+				return this._LoginName;
 			}
 			set
 			{
-				if ((this._PAN_NO != value))
+				if ((this._LoginName != value))
 				{
-					this._PAN_NO = value;
+					this.OnLoginNameChanging(value);
+					this.SendPropertyChanging();
+					this._LoginName = value;
+					this.SendPropertyChanged("LoginName");
+					this.OnLoginNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAN_NO", DbType="NVarChar(50)")]
-		public string TAN_NO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._TAN_NO;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._TAN_NO != value))
+				if ((this._Password != value))
 				{
-					this._TAN_NO = value;
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesTax", DbType="NVarChar(50)")]
-		public string SalesTax
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
+		public bool IsActive
 		{
 			get
 			{
-				return this._SalesTax;
+				return this._IsActive;
 			}
 			set
 			{
-				if ((this._SalesTax != value))
+				if ((this._IsActive != value))
 				{
-					this._SalesTax = value;
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT_NO", DbType="NVarChar(50)")]
-		public string VAT_NO
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMangemant")]
+	public partial class RoleMangemant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Rid;
+		
+		private string _RoleName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRidChanging(int value);
+    partial void OnRidChanged();
+    partial void OnRoleNameChanging(string value);
+    partial void OnRoleNameChanged();
+    #endregion
+		
+		public RoleMangemant()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Rid
 		{
 			get
 			{
-				return this._VAT_NO;
+				return this._Rid;
 			}
 			set
 			{
-				if ((this._VAT_NO != value))
+				if ((this._Rid != value))
 				{
-					this._VAT_NO = value;
+					this.OnRidChanging(value);
+					this.SendPropertyChanging();
+					this._Rid = value;
+					this.SendPropertyChanged("Rid");
+					this.OnRidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CST_NO", DbType="NVarChar(50)")]
-		public string CST_NO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(50)")]
+		public string RoleName
 		{
 			get
 			{
-				return this._CST_NO;
+				return this._RoleName;
 			}
 			set
 			{
-				if ((this._CST_NO != value))
+				if ((this._RoleName != value))
 				{
-					this._CST_NO = value;
+					this.OnRoleNameChanging(value);
+					this.SendPropertyChanging();
+					this._RoleName = value;
+					this.SendPropertyChanged("RoleName");
+					this.OnRoleNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTRC_NO", DbType="NVarChar(50)")]
-		public string PTRC_NO
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			get
+			if ((this.PropertyChanging != null))
 			{
-				return this._PTRC_NO;
-			}
-			set
-			{
-				if ((this._PTRC_NO != value))
-				{
-					this._PTRC_NO = value;
-				}
+				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTEC_NO", DbType="NVarChar(50)")]
-		public string PTEC_NO
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			get
+			if ((this.PropertyChanged != null))
 			{
-				return this._PTEC_NO;
-			}
-			set
-			{
-				if ((this._PTEC_NO != value))
-				{
-					this._PTEC_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceTaxNo", DbType="NVarChar(50)")]
-		public string ServiceTaxNo
-		{
-			get
-			{
-				return this._ServiceTaxNo;
-			}
-			set
-			{
-				if ((this._ServiceTaxNo != value))
-				{
-					this._ServiceTaxNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExciseNo", DbType="NVarChar(50)")]
-		public string ExciseNo
-		{
-			get
-			{
-				return this._ExciseNo;
-			}
-			set
-			{
-				if ((this._ExciseNo != value))
-				{
-					this._ExciseNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFESI_NO", DbType="NVarChar(50)")]
-		public string PFESI_NO
-		{
-			get
-			{
-				return this._PFESI_NO;
-			}
-			set
-			{
-				if ((this._PFESI_NO != value))
-				{
-					this._PFESI_NO = value;
-				}
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -697,7 +708,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
 		public int Pid
 		{
 			get
@@ -917,7 +928,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string BusinessGUID
 		{
 			get
@@ -937,7 +948,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_BankInfos", ThisKey="Pid", OtherKey="PersonalInfoID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_BankInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
 		public EntitySet<BankInfo> BankInfos
 		{
 			get
@@ -980,250 +991,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.PersonalInformation = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMangemant")]
-	public partial class RoleMangemant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Rid;
-		
-		private string _RoleName;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRidChanging(int value);
-    partial void OnRidChanged();
-    partial void OnRoleNameChanging(string value);
-    partial void OnRoleNameChanged();
-    #endregion
-		
-		public RoleMangemant()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Rid
-		{
-			get
-			{
-				return this._Rid;
-			}
-			set
-			{
-				if ((this._Rid != value))
-				{
-					this.OnRidChanging(value);
-					this.SendPropertyChanging();
-					this._Rid = value;
-					this.SendPropertyChanged("Rid");
-					this.OnRidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(50)")]
-		public string RoleName
-		{
-			get
-			{
-				return this._RoleName;
-			}
-			set
-			{
-				if ((this._RoleName != value))
-				{
-					this.OnRoleNameChanging(value);
-					this.SendPropertyChanging();
-					this._RoleName = value;
-					this.SendPropertyChanged("RoleName");
-					this.OnRoleNameChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserMangement")]
-	public partial class UserMangement : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Uid;
-		
-		private string _Role;
-		
-		private string _LoginName;
-		
-		private string _Password;
-		
-		private bool _IsActive;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUidChanging(int value);
-    partial void OnUidChanged();
-    partial void OnRoleChanging(string value);
-    partial void OnRoleChanged();
-    partial void OnLoginNameChanging(string value);
-    partial void OnLoginNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnIsActiveChanging(bool value);
-    partial void OnIsActiveChanged();
-    #endregion
-		
-		public UserMangement()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Uid
-		{
-			get
-			{
-				return this._Uid;
-			}
-			set
-			{
-				if ((this._Uid != value))
-				{
-					this.OnUidChanging(value);
-					this.SendPropertyChanging();
-					this._Uid = value;
-					this.SendPropertyChanged("Uid");
-					this.OnUidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(20)")]
-		public string Role
-		{
-			get
-			{
-				return this._Role;
-			}
-			set
-			{
-				if ((this._Role != value))
-				{
-					this.OnRoleChanging(value);
-					this.SendPropertyChanging();
-					this._Role = value;
-					this.SendPropertyChanged("Role");
-					this.OnRoleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NVarChar(200)")]
-		public string LoginName
-		{
-			get
-			{
-				return this._LoginName;
-			}
-			set
-			{
-				if ((this._LoginName != value))
-				{
-					this.OnLoginNameChanging(value);
-					this.SendPropertyChanging();
-					this._LoginName = value;
-					this.SendPropertyChanged("LoginName");
-					this.OnLoginNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
-		public bool IsActive
-		{
-			get
-			{
-				return this._IsActive;
-			}
-			set
-			{
-				if ((this._IsActive != value))
-				{
-					this.OnIsActiveChanging(value);
-					this.SendPropertyChanging();
-					this._IsActive = value;
-					this.SendPropertyChanged("IsActive");
-					this.OnIsActiveChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿angular.module("MDKApp").controller("BusinessUserManagementCtrl", ["$scope", "$state", "apiService", function ($scope, $state, apiService) {
+﻿angular.module("MDKApp").controller("BusinessUserManagementCtrl", ["$scope", "$rootScope", "$state", "apiService", function ($scope, $rootScope, $state, apiService) {
 
     /*
      * Year formatting in dropdown with html 
@@ -9,7 +9,7 @@
         return item + '-'+incremented;
     }
    */
- 
+
     $scope.savePersonalInfo = function () {
 
         var personalInfo = {
@@ -27,20 +27,48 @@
             BusinessAddress: $scope.businessAddress
         };
 
- 
 
-        apiService.savePersonalInfo(personalInfo).then(function (data) {
-            console.log(data);
+
+        $rootScope.loading = apiService.savePersonalInfo(personalInfo).then(function (data) {
+
             if (data.data.createBusinessUserResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
-             
+
                 $scope.isBusinessInfoSaved = true;
                 $scope.personalRecordSavedMSG = data.data.createBusinessUserResult.SuccessMessage;
-                $scope.businessID=data.data.createBusinessUserResult.tPersonalInfoData.BusinessGUID;
+                $scope.businessID = data.data.createBusinessUserResult.tPersonalInfoData.BusinessGUID;
             }
             else {
                 $scope.isBusinessInfoSaved = false;
                 $scope.personalRecordSavedMSG = data.data.createBusinessUserResult.ErrorMessage;
             }
+
+        }).catch();
+
+    };
+
+    $scope.saveBankInformation = function () {
+
+        var bankInfo = {
+            BusinessGUID: $scope.businessID,
+            BankName: $scope.bankName,
+            BankBranch: $scope.bankBranch,
+            BankAccountNumber: $scope.bankAccountNumber,
+            IFSCCode: $scope.bankIFSCCode,
+            MICRCode: $scope.bankMICRCode
+        }
+
+        $rootScope.loading = apiService.saveBankInformation(bankInfo).then(function (data) {
+
+
+            if (data.data.saveBankInformationResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
+                $scope.isBankInfoSaved = true;
+                $scope.bankInfoSavedMSG = data.data.saveBankInformationResult.SuccessMessage;
+            }
+            else {
+                $scope.isBankInfoSaved = false;
+                $scope.bankInfoSavedMSG = data.data.saveBankInformationResult.ErrorMessage;
+            }
+
 
         }).catch();
 
