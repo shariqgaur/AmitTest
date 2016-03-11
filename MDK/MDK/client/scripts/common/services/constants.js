@@ -1,6 +1,6 @@
 angular.module("MDKApp").
-constant('serverName', 'http://localhost:').
-constant('port', '9595').
+constant('serverName', 'http://10.50.210.175:').
+constant('port', '1545').
 constant('AdminServices', '/WCF/AdminServices/AdminServices.svc/').
 constant('BusinessServices', '/WCF/BusinessServices/BusinessServices.svc/');
 

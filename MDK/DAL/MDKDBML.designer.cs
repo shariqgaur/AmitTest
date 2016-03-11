@@ -45,6 +45,9 @@ namespace DAL
     partial void InsertITInfo(ITInfo instance);
     partial void UpdateITInfo(ITInfo instance);
     partial void DeleteITInfo(ITInfo instance);
+    partial void InsertOtherInfo(OtherInfo instance);
+    partial void UpdateOtherInfo(OtherInfo instance);
+    partial void DeleteOtherInfo(OtherInfo instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -108,6 +111,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<ITInfo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OtherInfo> OtherInfos
+		{
+			get
+			{
+				return this.GetTable<OtherInfo>();
 			}
 		}
 	}
@@ -685,6 +696,8 @@ namespace DAL
 		
 		private EntitySet<ITInfo> _ITInfos;
 		
+		private EntitySet<OtherInfo> _OtherInfos;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -719,6 +732,7 @@ namespace DAL
 		{
 			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
 			this._ITInfos = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos), new Action<ITInfo>(this.detach_ITInfos));
+			this._OtherInfos = new EntitySet<OtherInfo>(new Action<OtherInfo>(this.attach_OtherInfos), new Action<OtherInfo>(this.detach_OtherInfos));
 			OnCreated();
 		}
 		
@@ -988,6 +1002,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_OtherInfo", Storage="_OtherInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<OtherInfo> OtherInfos
+		{
+			get
+			{
+				return this._OtherInfos;
+			}
+			set
+			{
+				this._OtherInfos.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1027,6 +1054,18 @@ namespace DAL
 		}
 		
 		private void detach_ITInfos(ITInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = null;
+		}
+		
+		private void attach_OtherInfos(OtherInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = this;
+		}
+		
+		private void detach_OtherInfos(OtherInfo entity)
 		{
 			this.SendPropertyChanging();
 			entity.PersonalInformation = null;
@@ -1320,6 +1359,205 @@ namespace DAL
 					if ((value != null))
 					{
 						value.ITInfos.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OtherInfo")]
+	public partial class OtherInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _ServiceTaxNumber;
+		
+		private string _ExciseNumber;
+		
+		private string _PFESINumber;
+		
+		private string _BusinessGUID;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnServiceTaxNumberChanging(string value);
+    partial void OnServiceTaxNumberChanged();
+    partial void OnExciseNumberChanging(string value);
+    partial void OnExciseNumberChanged();
+    partial void OnPFESINumberChanging(string value);
+    partial void OnPFESINumberChanged();
+    partial void OnBusinessGUIDChanging(string value);
+    partial void OnBusinessGUIDChanged();
+    #endregion
+		
+		public OtherInfo()
+		{
+			this._PersonalInformation = default(EntityRef<PersonalInformation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceTaxNumber", DbType="NVarChar(50)")]
+		public string ServiceTaxNumber
+		{
+			get
+			{
+				return this._ServiceTaxNumber;
+			}
+			set
+			{
+				if ((this._ServiceTaxNumber != value))
+				{
+					this.OnServiceTaxNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ServiceTaxNumber = value;
+					this.SendPropertyChanged("ServiceTaxNumber");
+					this.OnServiceTaxNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExciseNumber", DbType="NVarChar(200)")]
+		public string ExciseNumber
+		{
+			get
+			{
+				return this._ExciseNumber;
+			}
+			set
+			{
+				if ((this._ExciseNumber != value))
+				{
+					this.OnExciseNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ExciseNumber = value;
+					this.SendPropertyChanged("ExciseNumber");
+					this.OnExciseNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFESINumber", DbType="NVarChar(50)")]
+		public string PFESINumber
+		{
+			get
+			{
+				return this._PFESINumber;
+			}
+			set
+			{
+				if ((this._PFESINumber != value))
+				{
+					this.OnPFESINumberChanging(value);
+					this.SendPropertyChanging();
+					this._PFESINumber = value;
+					this.SendPropertyChanged("PFESINumber");
+					this.OnPFESINumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessGUID
+		{
+			get
+			{
+				return this._BusinessGUID;
+			}
+			set
+			{
+				if ((this._BusinessGUID != value))
+				{
+					if (this._PersonalInformation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusinessGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessGUID = value;
+					this.SendPropertyChanged("BusinessGUID");
+					this.OnBusinessGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_OtherInfo", Storage="_PersonalInformation", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation
+		{
+			get
+			{
+				return this._PersonalInformation.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation.Entity = null;
+						previousValue.OtherInfos.Remove(this);
+					}
+					this._PersonalInformation.Entity = value;
+					if ((value != null))
+					{
+						value.OtherInfos.Add(this);
 						this._BusinessGUID = value.BusinessGUID;
 					}
 					else

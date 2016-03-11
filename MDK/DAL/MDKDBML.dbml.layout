@@ -26,7 +26,7 @@
         <elementListCompartment Id="3eb1c99f-5058-4f87-9aa7-448ef9113bd1" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.52005126953125); (3.5 : 2.52005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.12424967447917); (3.5 : 3.12424967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_BankInfo" />
       <nodes>
         <classShapeMoniker Id="d0f04b66-826e-4da6-8bdc-b1d6021e097c" />
@@ -39,11 +39,24 @@
         <elementListCompartment Id="5758411e-08ed-456c-b118-833c682e3fe3" absoluteBounds="7.015, 3.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.9848046875); (7 : 3.9848046875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.9848046875); (7 : 3.9848046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_ITInfo" />
       <nodes>
         <classShapeMoniker Id="d0f04b66-826e-4da6-8bdc-b1d6021e097c" />
         <classShapeMoniker Id="d1380a5e-a1b8-421e-8de8-21cec62d4a2d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f3c52744-53e4-4a31-959f-ab2198da4dfd" absoluteBounds="3.375, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MDKDBMLDataContext/OtherInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43be8df9-66d8-4a1f-ac50-c8fd66b48eab" absoluteBounds="3.39, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.69794840494792); (3.375 : 1.69794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_OtherInfo" />
+      <nodes>
+        <classShapeMoniker Id="d0f04b66-826e-4da6-8bdc-b1d6021e097c" />
+        <classShapeMoniker Id="f3c52744-53e4-4a31-959f-ab2198da4dfd" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
