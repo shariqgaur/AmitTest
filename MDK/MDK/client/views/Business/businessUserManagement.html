@@ -239,10 +239,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <p class="form-control-static MDKSuccess" 
-                                            ng-show="isBankInfoSaved" 
+                                        <p class="form-control-static MDKSuccess"
+                                            ng-show="isBankInfoSaved"
                                             ng-bind="bankInfoSavedMSG"
-                                            ng-class="{MDKSuccess:isBankInfoSaved,MDKError:!isBankInfoSaved}">bankInfo@gmail.com</p>
+                                            ng-class="{MDKSuccess:isBankInfoSaved,MDKError:!isBankInfoSaved}">
+                                            bankInfo@gmail.com
+                                        </p>
 
                                     </div>
                                 </div>
@@ -324,7 +326,7 @@
                             <div class="row">
                                 <div class="col-md-4 pull-right">
                                     <div class="form-group">
-                                        <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="" />
+                                        <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="saveITInfo()" />
                                     </div>
                                 </div>
 
@@ -339,7 +341,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <p class="form-control-static MDKSuccess" ng-show="true">saveitinfo@gmail.com</p>
+                                        <p class="form-control-static"
+                                            ng-show="isITInfoSaved"
+                                            ng-bind="iTInfoSavedMSG"
+                                            ng-class="{MDKSuccess:isITInfoSaved,MDKError:!isITInfoSaved}">
+                                            saveitinfo@gmail.com
+                                        </p>
                                     </div>
                                 </div>
                             </div>

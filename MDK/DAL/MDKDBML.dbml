@@ -43,6 +43,22 @@
       <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_ITInfo" Member="ITInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="ITInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITInfo" Member="ITInfos">
+    <Type Name="ITInfo">
+      <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IncomeTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VAT_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CST_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTRC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTEC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonalInformation_ITInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

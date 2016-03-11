@@ -42,6 +42,9 @@ namespace DAL
     partial void InsertPersonalInformation(PersonalInformation instance);
     partial void UpdatePersonalInformation(PersonalInformation instance);
     partial void DeletePersonalInformation(PersonalInformation instance);
+    partial void InsertITInfo(ITInfo instance);
+    partial void UpdateITInfo(ITInfo instance);
+    partial void DeleteITInfo(ITInfo instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -97,6 +100,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<PersonalInformation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ITInfo> ITInfos
+		{
+			get
+			{
+				return this.GetTable<ITInfo>();
 			}
 		}
 	}
@@ -672,6 +683,8 @@ namespace DAL
 		
 		private EntitySet<BankInfo> _BankInfos;
 		
+		private EntitySet<ITInfo> _ITInfos;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -705,6 +718,7 @@ namespace DAL
 		public PersonalInformation()
 		{
 			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
+			this._ITInfos = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos), new Action<ITInfo>(this.detach_ITInfos));
 			OnCreated();
 		}
 		
@@ -961,6 +975,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_ITInfo", Storage="_ITInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<ITInfo> ITInfos
+		{
+			get
+			{
+				return this._ITInfos;
+			}
+			set
+			{
+				this._ITInfos.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -991,6 +1018,337 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.PersonalInformation = null;
+		}
+		
+		private void attach_ITInfos(ITInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = this;
+		}
+		
+		private void detach_ITInfos(ITInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ITInfo")]
+	public partial class ITInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Pid;
+		
+		private string _IncomeTax;
+		
+		private string _PAN_NO;
+		
+		private string _TAN_NO;
+		
+		private string _VAT_NO;
+		
+		private string _CST_NO;
+		
+		private string _PTRC_NO;
+		
+		private string _PTEC_NO;
+		
+		private string _SalesTax;
+		
+		private string _BusinessGUID;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPidChanging(int value);
+    partial void OnPidChanged();
+    partial void OnIncomeTaxChanging(string value);
+    partial void OnIncomeTaxChanged();
+    partial void OnPAN_NOChanging(string value);
+    partial void OnPAN_NOChanged();
+    partial void OnTAN_NOChanging(string value);
+    partial void OnTAN_NOChanged();
+    partial void OnVAT_NOChanging(string value);
+    partial void OnVAT_NOChanged();
+    partial void OnCST_NOChanging(string value);
+    partial void OnCST_NOChanged();
+    partial void OnPTRC_NOChanging(string value);
+    partial void OnPTRC_NOChanged();
+    partial void OnPTEC_NOChanging(string value);
+    partial void OnPTEC_NOChanged();
+    partial void OnSalesTaxChanging(string value);
+    partial void OnSalesTaxChanged();
+    partial void OnBusinessGUIDChanging(string value);
+    partial void OnBusinessGUIDChanged();
+    #endregion
+		
+		public ITInfo()
+		{
+			this._PersonalInformation = default(EntityRef<PersonalInformation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Pid
+		{
+			get
+			{
+				return this._Pid;
+			}
+			set
+			{
+				if ((this._Pid != value))
+				{
+					this.OnPidChanging(value);
+					this.SendPropertyChanging();
+					this._Pid = value;
+					this.SendPropertyChanged("Pid");
+					this.OnPidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IncomeTax", DbType="NVarChar(50)")]
+		public string IncomeTax
+		{
+			get
+			{
+				return this._IncomeTax;
+			}
+			set
+			{
+				if ((this._IncomeTax != value))
+				{
+					this.OnIncomeTaxChanging(value);
+					this.SendPropertyChanging();
+					this._IncomeTax = value;
+					this.SendPropertyChanged("IncomeTax");
+					this.OnIncomeTaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAN_NO", DbType="NVarChar(50)")]
+		public string PAN_NO
+		{
+			get
+			{
+				return this._PAN_NO;
+			}
+			set
+			{
+				if ((this._PAN_NO != value))
+				{
+					this.OnPAN_NOChanging(value);
+					this.SendPropertyChanging();
+					this._PAN_NO = value;
+					this.SendPropertyChanged("PAN_NO");
+					this.OnPAN_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAN_NO", DbType="NVarChar(50)")]
+		public string TAN_NO
+		{
+			get
+			{
+				return this._TAN_NO;
+			}
+			set
+			{
+				if ((this._TAN_NO != value))
+				{
+					this.OnTAN_NOChanging(value);
+					this.SendPropertyChanging();
+					this._TAN_NO = value;
+					this.SendPropertyChanged("TAN_NO");
+					this.OnTAN_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT_NO", DbType="NVarChar(50)")]
+		public string VAT_NO
+		{
+			get
+			{
+				return this._VAT_NO;
+			}
+			set
+			{
+				if ((this._VAT_NO != value))
+				{
+					this.OnVAT_NOChanging(value);
+					this.SendPropertyChanging();
+					this._VAT_NO = value;
+					this.SendPropertyChanged("VAT_NO");
+					this.OnVAT_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CST_NO", DbType="NVarChar(50)")]
+		public string CST_NO
+		{
+			get
+			{
+				return this._CST_NO;
+			}
+			set
+			{
+				if ((this._CST_NO != value))
+				{
+					this.OnCST_NOChanging(value);
+					this.SendPropertyChanging();
+					this._CST_NO = value;
+					this.SendPropertyChanged("CST_NO");
+					this.OnCST_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTRC_NO", DbType="NVarChar(50)")]
+		public string PTRC_NO
+		{
+			get
+			{
+				return this._PTRC_NO;
+			}
+			set
+			{
+				if ((this._PTRC_NO != value))
+				{
+					this.OnPTRC_NOChanging(value);
+					this.SendPropertyChanging();
+					this._PTRC_NO = value;
+					this.SendPropertyChanged("PTRC_NO");
+					this.OnPTRC_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTEC_NO", DbType="NVarChar(50)")]
+		public string PTEC_NO
+		{
+			get
+			{
+				return this._PTEC_NO;
+			}
+			set
+			{
+				if ((this._PTEC_NO != value))
+				{
+					this.OnPTEC_NOChanging(value);
+					this.SendPropertyChanging();
+					this._PTEC_NO = value;
+					this.SendPropertyChanged("PTEC_NO");
+					this.OnPTEC_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesTax", DbType="NVarChar(50)")]
+		public string SalesTax
+		{
+			get
+			{
+				return this._SalesTax;
+			}
+			set
+			{
+				if ((this._SalesTax != value))
+				{
+					this.OnSalesTaxChanging(value);
+					this.SendPropertyChanging();
+					this._SalesTax = value;
+					this.SendPropertyChanged("SalesTax");
+					this.OnSalesTaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessGUID
+		{
+			get
+			{
+				return this._BusinessGUID;
+			}
+			set
+			{
+				if ((this._BusinessGUID != value))
+				{
+					if (this._PersonalInformation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusinessGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessGUID = value;
+					this.SendPropertyChanged("BusinessGUID");
+					this.OnBusinessGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_ITInfo", Storage="_PersonalInformation", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation
+		{
+			get
+			{
+				return this._PersonalInformation.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation.Entity = null;
+						previousValue.ITInfos.Remove(this);
+					}
+					this._PersonalInformation.Entity = value;
+					if ((value != null))
+					{
+						value.ITInfos.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

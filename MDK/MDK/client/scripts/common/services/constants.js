@@ -5,7 +5,7 @@ constant('AdminServices', '/WCF/AdminServices/AdminServices.svc/').
 constant('BusinessServices', '/WCF/BusinessServices/BusinessServices.svc/');
 
 angular.module('MDKApp').value('cgBusyDefaults', {
-    message: 'Processing...',
+    message: 'sai...',
     backdrop: true,
     templateUrl: 'views/loader.html',
     delay: 300,

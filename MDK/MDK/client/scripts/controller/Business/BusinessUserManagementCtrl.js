@@ -74,9 +74,38 @@
 
     };
 
+    $scope.saveITInfo = function () {
+       
+        var ITInfo = {
+            IncomeTax: '',
+            PAN_NO: $scope.PAN,
+            TAN_NO: $scope.TAN,
+            VAT_NO: $scope.VAT,
+            CST_NO: $scope.CST,
+            PTRC_NO: $scope.PTRC,
+            PTEC_NO: $scope.PTEC,
+            SalesTax: '',
+            BusinessGUID: $scope.businessID
+        }
+
+        $rootScope.loading = apiService.saveITInfo(ITInfo).then(function (data) {
+            if (data.data.saveITInfoResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
+                $scope.isITInfoSaved = true;
+                $scope.iTInfoSavedMSG = data.data.saveITInfoResult.SuccessMessage;
+            }
+
+        }).catch();
 
 
 
+    };
+
+    var temp = {
+        ServiceTaxNo: $scope.serviceTaxNumber,
+        ExciseNo: $scope.exciseNumber,
+        PFESI_NO: $scope.PFESINumber,
+        BusinessGUID: $scope.businessID
+    };
 
 
 

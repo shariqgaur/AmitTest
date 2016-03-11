@@ -28,6 +28,10 @@ namespace Services.BusinessServices
         BankBAL bankBAL = null;
         TBankData tBankData = null;
 
+        TITInfoData tITInfoData = null;
+        ITInfoBAL iTInfoBAL = null;
+
+
         Random RandomPIN = new Random();
         public BusinessServices()
         {
@@ -42,6 +46,8 @@ namespace Services.BusinessServices
             lineDetailsBAL = new LineDetailsBAL();
             bankBAL = new BankBAL();
 
+            tITInfoData = new TITInfoData();
+            iTInfoBAL = new ITInfoBAL();
 
         }
 
@@ -467,12 +473,29 @@ namespace Services.BusinessServices
 
            
         }
-
-
+ 
 
         public string uploadITACKN(Stream stream)
         {
             throw new NotImplementedException();
+        }
+
+        public TITInfoData saveITInfo(string data)
+        {
+            try
+            {
+                var ITInformationData = _serializer.Deserialize<ITInfoModel>(data);
+                return iTInfoBAL.saveITInfo(ITInformationData);
+
+            }
+
+            catch (Exception exp)
+            {
+                tITInfoData.ErrorCode = ErrorCodes.SERVICE_ERROR;
+                tITInfoData.ErrorMessage = exp.StackTrace;
+                return tITInfoData;
+
+            }
         }
     }
 }
