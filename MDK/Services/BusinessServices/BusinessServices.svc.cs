@@ -497,5 +497,11 @@ namespace Services.BusinessServices
 
             }
         }
+
+
+        public TITInfoData saveOtherInfo(string data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

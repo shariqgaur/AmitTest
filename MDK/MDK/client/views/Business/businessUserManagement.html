@@ -372,7 +372,8 @@
                 <div class="panel-body" style="min-height: 365px;">
 
                     <form>
-                        <fieldset ng-disabled="!isBusinessInfoSaved">
+                        <!--ng-disabled="!isBusinessInfoSaved"-->
+                        <fieldset>
                             <div class="row">
 
                                 <div class="col-md-12">
@@ -405,7 +406,7 @@
                             <div class="row">
                                 <div class="col-md-6 pull-right">
                                     <div class="form-group">
-                                        <input type="button" class="btn btn-primary form-control" value="Save Other Info" ng-click="" />
+                                        <input type="button" class="btn btn-primary form-control" value="Save Other Info" ng-click="saveOtherInfo()" />
                                     </div>
                                 </div>
 

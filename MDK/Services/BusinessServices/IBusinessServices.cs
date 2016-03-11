@@ -90,6 +90,13 @@ namespace Services.BusinessServices
             Method = "POST")]
         TITInfoData saveITInfo(string data);
 
+         [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TITInfoData saveOtherInfo(string data);
+
         
     }
 }

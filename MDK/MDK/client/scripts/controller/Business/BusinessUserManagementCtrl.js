@@ -100,14 +100,25 @@
 
     };
 
-    var temp = {
-        ServiceTaxNo: $scope.serviceTaxNumber,
-        ExciseNo: $scope.exciseNumber,
-        PFESI_NO: $scope.PFESINumber,
-        BusinessGUID: $scope.businessID
+    
+
+    $scope.saveOtherInfo = function () {
+
+        var otherInfo = {
+            ServiceTaxNo: $scope.serviceTaxNumber,
+            ExciseNo: $scope.exciseNumber,
+            PFESI_NO: $scope.PFESINumber,
+            BusinessGUID: $scope.businessID
+        };
+
+        $rootScope.loading = apiService.saveOtherInfo(otherInfo).then(function (data) {
+
+
+
+        }).catch();
+
+
     };
-
-
 
 
 }]);
