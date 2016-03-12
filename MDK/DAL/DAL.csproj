@@ -47,6 +47,7 @@
     <Compile Include="Business\BankDAL.cs" />
     <Compile Include="Business\ITInfoDAL.cs" />
     <Compile Include="Business\LineDetailsDAL.cs" />
+    <Compile Include="Business\OtherInfoDAL.cs" />
     <Compile Include="Business\PersonalInfoDAL.cs" />
     <Compile Include="InterfaceDAL\IDal.cs" />
     <Compile Include="MDKDBML.designer.cs">

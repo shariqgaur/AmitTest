@@ -11,21 +11,36 @@
       <Column Name="BANK_CONTACT_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="PersonalInformation_BankInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo2" Member="PersonalInformation2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo3" Member="PersonalInformation3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserMangement" Member="UserMangements">
-    <Type Name="UserMangement">
-      <Column Name="Uid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Role" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.ITInfo" Member="ITInfos">
+    <Type Name="ITInfo">
+      <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IncomeTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VAT_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CST_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTRC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTEC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonalInformation_ITInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_ITInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
-    <Type Name="RoleMangemant">
-      <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.OtherInfo" Member="OtherInfos">
+    <Type Name="OtherInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceTaxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExciseNumber" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PFESINumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonalInformation_OtherInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_OtherInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PersonalInformation" Member="PersonalInformations">
@@ -43,33 +58,28 @@
       <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo1" Member="BankInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo2" Member="BankInfos2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo3" Member="BankInfos3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
       <Association Name="PersonalInformation_ITInfo" Member="ITInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="ITInfo" />
+      <Association Name="PersonalInformation_ITInfo1" Member="ITInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="ITInfo" />
       <Association Name="PersonalInformation_OtherInfo" Member="OtherInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="OtherInfo" />
+      <Association Name="PersonalInformation_OtherInfo1" Member="OtherInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="OtherInfo" />
     </Type>
   </Table>
-  <Table Name="dbo.ITInfo" Member="ITInfos">
-    <Type Name="ITInfo">
-      <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IncomeTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TAN_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="VAT_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CST_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PTRC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PTEC_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SalesTax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="PersonalInformation_ITInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+  <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
+    <Type Name="RoleMangemant">
+      <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OtherInfo" Member="OtherInfos">
-    <Type Name="OtherInfo">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ServiceTaxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ExciseNumber" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="PFESINumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="PersonalInformation_OtherInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+  <Table Name="dbo.UserMangement" Member="UserMangements">
+    <Type Name="UserMangement">
+      <Column Name="Uid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

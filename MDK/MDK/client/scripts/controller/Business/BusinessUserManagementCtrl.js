@@ -75,7 +75,7 @@
     };
 
     $scope.saveITInfo = function () {
-       
+
         var ITInfo = {
             IncomeTax: '',
             PAN_NO: $scope.PAN,
@@ -100,20 +100,23 @@
 
     };
 
-    
+
 
     $scope.saveOtherInfo = function () {
 
         var otherInfo = {
-            ServiceTaxNo: $scope.serviceTaxNumber,
-            ExciseNo: $scope.exciseNumber,
+            ServiceTaxNumber: $scope.serviceTaxNumber,
+            ExciseNumber: $scope.exciseNumber,
             PFESI_NO: $scope.PFESINumber,
             BusinessGUID: $scope.businessID
         };
 
         $rootScope.loading = apiService.saveOtherInfo(otherInfo).then(function (data) {
 
-
+            if (data.data.saveOtherInfoResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
+                $scope.isOtherInfoSaved = true;
+                $scope.otherInfoSavedMSG = data.data.saveOtherInfoResult.SuccessMessage;
+            }
 
         }).catch();
 

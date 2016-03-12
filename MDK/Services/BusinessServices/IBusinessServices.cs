@@ -66,7 +66,7 @@ namespace Services.BusinessServices
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
-        string getDocumentsToDownload(string data);
+        TFileData getDocumentsToDownload(string data);
 
 
         //[OperationContract]
@@ -95,7 +95,7 @@ namespace Services.BusinessServices
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
-        TITInfoData saveOtherInfo(string data);
+        TOtherInfoData saveOtherInfo(string data);
 
         
     }

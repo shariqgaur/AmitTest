@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-   public class OtherInfoModel:IModel
+    public class FileModel
     {
-        public string ServiceTaxNumber { get; set; }
-        public string ExciseNumber { get; set; }
-        public string PFESI_NO { get; set; }
         public string BusinessGUID { get; set; }
+        public string SelectedYear { get; set; }
+        public string fileType { get; set; }
+        public string FileName { get; set; }
     }
 }

@@ -172,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="min-height:510px;">
 
                     <form>
                         <fieldset ng-disabled="!isBusinessInfoSaved">
@@ -369,11 +369,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-body" style="min-height: 365px;">
+                <div class="panel-body" style="min-height: 300px;">
 
                     <form>
+                        
                         <!--ng-disabled="!isBusinessInfoSaved"-->
-                        <fieldset>
+                        <fieldset >
                             <div class="row">
 
                                 <div class="col-md-12">
@@ -420,7 +421,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <p class="form-control-static MDKSuccess" ng-show="true">ottherInfo@gmail.com</p>
+                                        <p class="form-control-static"
+                                            ng-show="isOtherInfoSaved"
+                                            ng-bind="otherInfoSavedMSG"
+                                            ng-class="{MDKSuccess:isOtherInfoSaved,MDKError:!isOtherInfoSaved}">
+                                            saveitinfo@gmail.com
+                                        </p>
                                     </div>
                                 </div>
                             </div>

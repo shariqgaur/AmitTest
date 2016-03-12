@@ -41,6 +41,10 @@ angular.module("MDKApp")
             return self.__post(serverName + port + BusinessServices + "saveITInfo", { "data": angular.toJson(data) });
         };
 
+        self.saveOtherInfo = function (data) {
+            return self.__post(serverName + port + BusinessServices + "saveOtherInfo", { "data": angular.toJson(data) });
+        };
+        
         
 
 

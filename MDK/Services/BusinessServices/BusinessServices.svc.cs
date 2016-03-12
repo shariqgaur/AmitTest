@@ -31,6 +31,7 @@ namespace Services.BusinessServices
         TITInfoData tITInfoData = null;
         ITInfoBAL iTInfoBAL = null;
 
+        TOtherInfoData tOtherInfoData = null;
 
         Random RandomPIN = new Random();
         public BusinessServices()
@@ -39,7 +40,7 @@ namespace Services.BusinessServices
 
             personalInfoModel = new PersonalInfoModel();
             personalInfoBAL = new PersonalInfoBAL();
-            
+
             tPersonalInfoData = new TPersonalInfoData();
             tBankData = new TBankData();
 
@@ -48,6 +49,8 @@ namespace Services.BusinessServices
 
             tITInfoData = new TITInfoData();
             iTInfoBAL = new ITInfoBAL();
+
+            tOtherInfoData = new TOtherInfoData();
 
         }
 
@@ -370,7 +373,7 @@ namespace Services.BusinessServices
             public string PropertyName { get; set; }
             public string StringData { get; set; }
         }
-         
+
 
         /// <summary>
         /// This method is used to upload files from client side
@@ -435,24 +438,47 @@ namespace Services.BusinessServices
         }
 
 
-        public string getDocumentsToDownload(string data)
+        public TFileData getDocumentsToDownload(string data)
         {
+
+
+
             string basePath = HttpContext.Current.Server.MapPath(".");
             string businessDataPath = basePath + "\\uploaded\\businessData\\";
             string searchDirectory = null;
             string[] files;
+            TFileData tFileData = new TFileData();
+            tFileData.fileModel = new List<FileModel>();
+
             try
             {
                 var fileDetails = _serializer.Deserialize<GetDownloadFileModel>(data);
                 searchDirectory = businessDataPath + fileDetails.BusinessGUID + "\\" + fileDetails.SelectedYear + "\\";
-                files = Directory.GetFiles(searchDirectory, "*" + fileDetails.fileType + "*");
+                //files = Directory.GetFiles(searchDirectory, "*" + fileDetails.fileType + "*");
+                files = Directory.GetFiles(searchDirectory);
+
+                foreach (var file in files)
+                {
+                    tFileData.fileModel.Add(new FileModel()
+                    {
+                        BusinessGUID = fileDetails.BusinessGUID,
+                        SelectedYear = fileDetails.SelectedYear,
+                        FileName = Path.GetFileName(file)
+                    });
+                }
+
+
+                tFileData.SuccessCode = SuccessCodes.FILE_LIST_RETRIEVED;
+                tFileData.SuccessMessage = SuccessMessages.FILE_LIST_RETRIEVED_SUCCESSFULLY_MSG;
+                return tFileData;
+
             }
             catch (Exception exp)
             {
-                return exp.Message;
+                tFileData.ErrorCode = ErrorCodes.SERVICE_ERROR;
+                tFileData.ErrorMessage = exp.StackTrace;
+                return tFileData;
             }
-
-            return "sairahem: " + Path.GetFileName(files[0]);
         }
 
         public TBankData saveBankInformation(string data)
@@ -461,7 +487,7 @@ namespace Services.BusinessServices
             {
                 var bankData = _serializer.Deserialize<BankModel>(data);
                 return bankBAL.saveBankInformation(bankData);
-              
+
             }
             catch (Exception exp)
             {
@@ -471,9 +497,9 @@ namespace Services.BusinessServices
                 return tBankData;
             }
 
-           
+
         }
- 
+
 
         public string uploadITACKN(Stream stream)
         {
@@ -499,9 +525,22 @@ namespace Services.BusinessServices
         }
 
 
-        public TITInfoData saveOtherInfo(string data)
-        {
-            throw new NotImplementedException();
+        public TOtherInfoData saveOtherInfo(string data)
+        { 
+            try
+            {
+                var otherInfoData = _serializer.Deserialize<OtherInfoModel>(data);
+                return new OtherInfoBAL().saveOtherInfo(otherInfoData);
+                 
+            }
+
+            catch (Exception exp)
+            {
+                tOtherInfoData.ErrorCode = ErrorCodes.SERVICE_ERROR;
+                tOtherInfoData.ErrorMessage = exp.StackTrace;
+
+                return tOtherInfoData;
+            }
         }
     }
 }

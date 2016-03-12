@@ -136,7 +136,6 @@ body
 .businessGUID
 {
     color: #006598;
-    
 }
 /*Global END*/
 
@@ -168,7 +167,6 @@ body
     margin-left: 5px;
     border: 1px solid #2AABD2;
     color: #000;
-     
 }
 
 
@@ -177,7 +175,7 @@ body
     background: url(../images/invalid.jpg) no-repeat;
     border: none;
     width: 43px;
-    height:43px;
+    height: 43px;
 }
 
     .deleteBTN:hover
@@ -185,8 +183,21 @@ body
         border: none !important;
     }
 
-.deduct_bot_margin {
+.deduct_bot_margin
+{
     margin-bottom: 0px;
 }
 
 
+.loaderImg
+{
+    background-image: url(../images/loader.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50px 50px;
+}
+
+body .loaderImg
+{
+    
+}

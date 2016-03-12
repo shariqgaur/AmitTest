@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BankModel.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="FileModel.cs" />
     <Compile Include="GetDownloadFileModel.cs" />
     <Compile Include="ErrorCodes.cs" />
     <Compile Include="IModel.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="SuccessCodes.cs" />
     <Compile Include="TransportModel\ITransport.cs" />
     <Compile Include="TransportModel\TBankData.cs" />
+    <Compile Include="TransportModel\TFileData.cs" />
     <Compile Include="TransportModel\TITInfoData.cs" />
     <Compile Include="TransportModel\TLineDetails.cs" />
     <Compile Include="TransportModel\TLoginData.cs" />

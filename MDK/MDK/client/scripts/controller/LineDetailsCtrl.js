@@ -12,6 +12,21 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
           { text: 'IT Acknowledgement', value: 'ITAcknowledgement' }
     ];
 
+
+    $scope.businessYears = [2011, 2012, 2013, 2014, 2015, 2016];
+
+    $scope.documentTypes = [
+        { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
+        { text: '26 AS', value: '26AS' },
+        { text: 'TAX Challan', value: 'TAXChallan' },
+        { text: 'Audit Report', value: 'AuditReport' },
+        { text: 'Workbook', value: 'Workbook' },
+        { text: 'Other', value: 'other' },
+
+    ];
+
+    $scope.docThumbnail = "../client/images/defaultDoc.png";
+
     var init = function () {
         $rootScope.loading = apiService.getLineDetails(businessGUID).then(function (data) {
 
@@ -35,18 +50,6 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
 
         }).catch();
     };
-
-    $scope.businessYears = [2011, 2012, 2013, 2014, 2015, 2016];
-
-    $scope.documentTypes = [
-        { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
-        { text: '26 AS', value: '26AS' },
-        { text: 'TAX Challan', value: 'TAXChallan' },
-        { text: 'Audit Report', value: 'AuditReport' },
-        { text: 'Workbook', value: 'Workbook' },
-        { text: 'Other', value: 'other' },
-
-    ];
 
     $scope.fileChanged = function () {
         // console.log($scope.modelDocument);
@@ -75,7 +78,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
     };
 
 
-    $scope.docThumbnail = "../client/images/defaultDoc.png";
+
 
 
 
@@ -105,12 +108,13 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
         var fileDetails = {
             BusinessGUID: businessGUID,
             SelectedYear: $scope.selectedDownloadYear,
-         
+
         }
 
         $rootScope.loading = apiService.getDocumentsToDownload(fileDetails).then(function (data) {
-            if (data && data.data && data.data.getDocumentsToDownloadResult.SuccessCode === "FILE_LIST_RECEIVED_SUCCESSFULLY") {
+            if (data && data.data && data.data.getDocumentsToDownloadResult.SuccessCode === "FILE_LIST_RETRIEVED") {
                 $scope.fetchedFileList = angular.fromJson(data.data.getDocumentsToDownloadResult.fileModel);
+                console.log($scope.fetchedFileList);
                 $scope.openFileListModel();
             }
         }).catch();
