@@ -32,6 +32,7 @@ namespace Services.BusinessServices
         ITInfoBAL iTInfoBAL = null;
 
         TOtherInfoData tOtherInfoData = null;
+        OtherInfoBAL otherInfoBAL = null;
 
         Random RandomPIN = new Random();
         public BusinessServices()
@@ -51,6 +52,7 @@ namespace Services.BusinessServices
             iTInfoBAL = new ITInfoBAL();
 
             tOtherInfoData = new TOtherInfoData();
+            otherInfoBAL = new OtherInfoBAL();
 
         }
 
@@ -404,7 +406,8 @@ namespace Services.BusinessServices
 
                 if (businessId != null || businessId == string.Empty)
                 {
-                    parser.Filename = parser.Filename + "_" + businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
+                    //parser.Filename=parser.Filename+"_"+ businessId + "_" + selectedDocType + "_" + selectedYear + "_" + RandomPIN.Next(0, 9999).ToString() + Path.GetExtension(parser.Filename);
+                    parser.Filename = Path.GetFileNameWithoutExtension(parser.Filename) + "_" + selectedDocType + Path.GetExtension(parser.Filename);
                 }
 
                 if (!Directory.Exists(businessDataPath + businessId))
@@ -526,12 +529,12 @@ namespace Services.BusinessServices
 
 
         public TOtherInfoData saveOtherInfo(string data)
-        { 
+        {
             try
             {
                 var otherInfoData = _serializer.Deserialize<OtherInfoModel>(data);
                 return new OtherInfoBAL().saveOtherInfo(otherInfoData);
-                 
+
             }
 
             catch (Exception exp)
@@ -541,6 +544,25 @@ namespace Services.BusinessServices
 
                 return tOtherInfoData;
             }
+        }
+
+
+        public TBankData getBankDetails(string businessGUID)
+        {
+            return bankBAL.getBankDetails(businessGUID);
+        }
+
+
+        public TITInfoData getITDetails(string businessGUID)
+        {
+            return iTInfoBAL.getITDetails(businessGUID);
+        }
+
+
+        public TOtherInfoData getOtherDetails(string businessGUID)
+        {
+            
+            return otherInfoBAL.getOtherDetails(businessGUID);
         }
     }
 }

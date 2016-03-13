@@ -8,5 +8,6 @@ namespace Models.TransportModel
 {
    public class TITInfoData: TransportData
     {
+        public  ITInfoModel itInfoModel { get; set; }
     }
 }

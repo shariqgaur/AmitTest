@@ -197,7 +197,15 @@ body
     background-size: 50px 50px;
 }
 
+
 body .loaderImg
-{
-    
+{     
+    overflow-y:no-content !important;
 }
+
+
+
+
+ 
+
+

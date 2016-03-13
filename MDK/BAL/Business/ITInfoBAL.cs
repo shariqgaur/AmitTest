@@ -33,5 +33,10 @@ namespace BAL.Business
            }
            return null;
        }
+
+       public TITInfoData getITDetails(string businessGUID)
+       { 
+           return iTInfoDal.getITDetails(businessGUID);
+       }
     }
 }

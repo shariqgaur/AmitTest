@@ -8,20 +8,18 @@
         <table class="table table- table-hover">
             <thead>
                 <tr>
-                    <th>File</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+                    <th>Documents</th>
+                 </tr>
             </thead>
             <tbody>
-
+             
                 <tr ng-repeat="file in fileList">
                     <td ng-bind="file.FileName"></td>
                     <td>
                                <!--<input type="button" class="btn downloadBTN" ng-click="getDocumentsToDownload()"/>-->
 
                         <button  style="border:none; background:none;">
-                            <span class="glyphicon glyphicon-download" style="color:#2A6496;" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-download" style="color:#2A6496;" aria-hidden="true" ng-click="downloadFile(file.BusinessGUID,file.SelectedYear,file.FileName)"></span>
                         </button>
                         
                     </td>

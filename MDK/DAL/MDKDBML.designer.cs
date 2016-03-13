@@ -30,9 +30,6 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBankInfo(BankInfo instance);
-    partial void UpdateBankInfo(BankInfo instance);
-    partial void DeleteBankInfo(BankInfo instance);
     partial void InsertITInfo(ITInfo instance);
     partial void UpdateITInfo(ITInfo instance);
     partial void DeleteITInfo(ITInfo instance);
@@ -48,6 +45,9 @@ namespace DAL
     partial void InsertUserMangement(UserMangement instance);
     partial void UpdateUserMangement(UserMangement instance);
     partial void DeleteUserMangement(UserMangement instance);
+    partial void InsertBankInfo(BankInfo instance);
+    partial void UpdateBankInfo(BankInfo instance);
+    partial void DeleteBankInfo(BankInfo instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -72,14 +72,6 @@ namespace DAL
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<BankInfo> BankInfos
-		{
-			get
-			{
-				return this.GetTable<BankInfo>();
-			}
 		}
 		
 		public System.Data.Linq.Table<ITInfo> ITInfos
@@ -121,412 +113,12 @@ namespace DAL
 				return this.GetTable<UserMangement>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BankInfo")]
-	public partial class BankInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _BankName;
-		
-		private string _Branch;
-		
-		private string _AccountNo;
-		
-		private string _IFSC_CODE;
-		
-		private string _MICR_CODE;
-		
-		private string _BANK_ADDRESS;
-		
-		private string _BANK_CONTACT_NO;
-		
-		private string _BusinessGUID;
-		
-		private EntityRef<PersonalInformation> _PersonalInformation;
-		
-		private EntityRef<PersonalInformation> _PersonalInformation1;
-		
-		private EntityRef<PersonalInformation> _PersonalInformation2;
-		
-		private EntityRef<PersonalInformation> _PersonalInformation3;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnBankNameChanging(string value);
-    partial void OnBankNameChanged();
-    partial void OnBranchChanging(string value);
-    partial void OnBranchChanged();
-    partial void OnAccountNoChanging(string value);
-    partial void OnAccountNoChanged();
-    partial void OnIFSC_CODEChanging(string value);
-    partial void OnIFSC_CODEChanged();
-    partial void OnMICR_CODEChanging(string value);
-    partial void OnMICR_CODEChanged();
-    partial void OnBANK_ADDRESSChanging(string value);
-    partial void OnBANK_ADDRESSChanged();
-    partial void OnBANK_CONTACT_NOChanging(string value);
-    partial void OnBANK_CONTACT_NOChanged();
-    partial void OnBusinessGUIDChanging(string value);
-    partial void OnBusinessGUIDChanged();
-    #endregion
-		
-		public BankInfo()
-		{
-			this._PersonalInformation = default(EntityRef<PersonalInformation>);
-			this._PersonalInformation1 = default(EntityRef<PersonalInformation>);
-			this._PersonalInformation2 = default(EntityRef<PersonalInformation>);
-			this._PersonalInformation3 = default(EntityRef<PersonalInformation>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		public System.Data.Linq.Table<BankInfo> BankInfos
 		{
 			get
 			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankName", DbType="NVarChar(200)")]
-		public string BankName
-		{
-			get
-			{
-				return this._BankName;
-			}
-			set
-			{
-				if ((this._BankName != value))
-				{
-					this.OnBankNameChanging(value);
-					this.SendPropertyChanging();
-					this._BankName = value;
-					this.SendPropertyChanged("BankName");
-					this.OnBankNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Branch", DbType="NVarChar(200)")]
-		public string Branch
-		{
-			get
-			{
-				return this._Branch;
-			}
-			set
-			{
-				if ((this._Branch != value))
-				{
-					this.OnBranchChanging(value);
-					this.SendPropertyChanging();
-					this._Branch = value;
-					this.SendPropertyChanged("Branch");
-					this.OnBranchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="NVarChar(50)")]
-		public string AccountNo
-		{
-			get
-			{
-				return this._AccountNo;
-			}
-			set
-			{
-				if ((this._AccountNo != value))
-				{
-					this.OnAccountNoChanging(value);
-					this.SendPropertyChanging();
-					this._AccountNo = value;
-					this.SendPropertyChanged("AccountNo");
-					this.OnAccountNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IFSC_CODE", DbType="NVarChar(50)")]
-		public string IFSC_CODE
-		{
-			get
-			{
-				return this._IFSC_CODE;
-			}
-			set
-			{
-				if ((this._IFSC_CODE != value))
-				{
-					this.OnIFSC_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._IFSC_CODE = value;
-					this.SendPropertyChanged("IFSC_CODE");
-					this.OnIFSC_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MICR_CODE", DbType="NVarChar(50)")]
-		public string MICR_CODE
-		{
-			get
-			{
-				return this._MICR_CODE;
-			}
-			set
-			{
-				if ((this._MICR_CODE != value))
-				{
-					this.OnMICR_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MICR_CODE = value;
-					this.SendPropertyChanged("MICR_CODE");
-					this.OnMICR_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_ADDRESS", DbType="NVarChar(500)")]
-		public string BANK_ADDRESS
-		{
-			get
-			{
-				return this._BANK_ADDRESS;
-			}
-			set
-			{
-				if ((this._BANK_ADDRESS != value))
-				{
-					this.OnBANK_ADDRESSChanging(value);
-					this.SendPropertyChanging();
-					this._BANK_ADDRESS = value;
-					this.SendPropertyChanged("BANK_ADDRESS");
-					this.OnBANK_ADDRESSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_CONTACT_NO", DbType="NVarChar(100)")]
-		public string BANK_CONTACT_NO
-		{
-			get
-			{
-				return this._BANK_CONTACT_NO;
-			}
-			set
-			{
-				if ((this._BANK_CONTACT_NO != value))
-				{
-					this.OnBANK_CONTACT_NOChanging(value);
-					this.SendPropertyChanging();
-					this._BANK_CONTACT_NO = value;
-					this.SendPropertyChanged("BANK_CONTACT_NO");
-					this.OnBANK_CONTACT_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BusinessGUID
-		{
-			get
-			{
-				return this._BusinessGUID;
-			}
-			set
-			{
-				if ((this._BusinessGUID != value))
-				{
-					if ((((this._PersonalInformation.HasLoadedOrAssignedValue || this._PersonalInformation1.HasLoadedOrAssignedValue) 
-								|| this._PersonalInformation2.HasLoadedOrAssignedValue) 
-								|| this._PersonalInformation3.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBusinessGUIDChanging(value);
-					this.SendPropertyChanging();
-					this._BusinessGUID = value;
-					this.SendPropertyChanged("BusinessGUID");
-					this.OnBusinessGUIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_PersonalInformation", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
-		public PersonalInformation PersonalInformation
-		{
-			get
-			{
-				return this._PersonalInformation.Entity;
-			}
-			set
-			{
-				PersonalInformation previousValue = this._PersonalInformation.Entity;
-				if (((previousValue != value) 
-							|| (this._PersonalInformation.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PersonalInformation.Entity = null;
-						previousValue.BankInfos.Remove(this);
-					}
-					this._PersonalInformation.Entity = value;
-					if ((value != null))
-					{
-						value.BankInfos.Add(this);
-						this._BusinessGUID = value.BusinessGUID;
-					}
-					else
-					{
-						this._BusinessGUID = default(string);
-					}
-					this.SendPropertyChanged("PersonalInformation");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo1", Storage="_PersonalInformation1", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
-		public PersonalInformation PersonalInformation1
-		{
-			get
-			{
-				return this._PersonalInformation1.Entity;
-			}
-			set
-			{
-				PersonalInformation previousValue = this._PersonalInformation1.Entity;
-				if (((previousValue != value) 
-							|| (this._PersonalInformation1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PersonalInformation1.Entity = null;
-						previousValue.BankInfos1.Remove(this);
-					}
-					this._PersonalInformation1.Entity = value;
-					if ((value != null))
-					{
-						value.BankInfos1.Add(this);
-						this._BusinessGUID = value.BusinessGUID;
-					}
-					else
-					{
-						this._BusinessGUID = default(string);
-					}
-					this.SendPropertyChanged("PersonalInformation1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo2", Storage="_PersonalInformation2", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
-		public PersonalInformation PersonalInformation2
-		{
-			get
-			{
-				return this._PersonalInformation2.Entity;
-			}
-			set
-			{
-				PersonalInformation previousValue = this._PersonalInformation2.Entity;
-				if (((previousValue != value) 
-							|| (this._PersonalInformation2.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PersonalInformation2.Entity = null;
-						previousValue.BankInfos2.Remove(this);
-					}
-					this._PersonalInformation2.Entity = value;
-					if ((value != null))
-					{
-						value.BankInfos2.Add(this);
-						this._BusinessGUID = value.BusinessGUID;
-					}
-					else
-					{
-						this._BusinessGUID = default(string);
-					}
-					this.SendPropertyChanged("PersonalInformation2");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo3", Storage="_PersonalInformation3", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
-		public PersonalInformation PersonalInformation3
-		{
-			get
-			{
-				return this._PersonalInformation3.Entity;
-			}
-			set
-			{
-				PersonalInformation previousValue = this._PersonalInformation3.Entity;
-				if (((previousValue != value) 
-							|| (this._PersonalInformation3.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PersonalInformation3.Entity = null;
-						previousValue.BankInfos3.Remove(this);
-					}
-					this._PersonalInformation3.Entity = value;
-					if ((value != null))
-					{
-						value.BankInfos3.Add(this);
-						this._BusinessGUID = value.BusinessGUID;
-					}
-					else
-					{
-						this._BusinessGUID = default(string);
-					}
-					this.SendPropertyChanged("PersonalInformation3");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<BankInfo>();
 			}
 		}
 	}
@@ -1153,14 +745,6 @@ namespace DAL
 		
 		private string _BusinessGUID;
 		
-		private EntitySet<BankInfo> _BankInfos;
-		
-		private EntitySet<BankInfo> _BankInfos1;
-		
-		private EntitySet<BankInfo> _BankInfos2;
-		
-		private EntitySet<BankInfo> _BankInfos3;
-		
 		private EntitySet<ITInfo> _ITInfos;
 		
 		private EntitySet<ITInfo> _ITInfos1;
@@ -1168,6 +752,14 @@ namespace DAL
 		private EntitySet<OtherInfo> _OtherInfos;
 		
 		private EntitySet<OtherInfo> _OtherInfos1;
+		
+		private EntitySet<BankInfo> _BankInfos;
+		
+		private EntitySet<BankInfo> _BankInfos1;
+		
+		private EntitySet<BankInfo> _BankInfos2;
+		
+		private EntitySet<BankInfo> _BankInfos3;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1201,14 +793,14 @@ namespace DAL
 		
 		public PersonalInformation()
 		{
-			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
-			this._BankInfos1 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos1), new Action<BankInfo>(this.detach_BankInfos1));
-			this._BankInfos2 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos2), new Action<BankInfo>(this.detach_BankInfos2));
-			this._BankInfos3 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos3), new Action<BankInfo>(this.detach_BankInfos3));
 			this._ITInfos = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos), new Action<ITInfo>(this.detach_ITInfos));
 			this._ITInfos1 = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos1), new Action<ITInfo>(this.detach_ITInfos1));
 			this._OtherInfos = new EntitySet<OtherInfo>(new Action<OtherInfo>(this.attach_OtherInfos), new Action<OtherInfo>(this.detach_OtherInfos));
 			this._OtherInfos1 = new EntitySet<OtherInfo>(new Action<OtherInfo>(this.attach_OtherInfos1), new Action<OtherInfo>(this.detach_OtherInfos1));
+			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
+			this._BankInfos1 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos1), new Action<BankInfo>(this.detach_BankInfos1));
+			this._BankInfos2 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos2), new Action<BankInfo>(this.detach_BankInfos2));
+			this._BankInfos3 = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos3), new Action<BankInfo>(this.detach_BankInfos3));
 			OnCreated();
 		}
 		
@@ -1452,58 +1044,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_BankInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
-		public EntitySet<BankInfo> BankInfos
-		{
-			get
-			{
-				return this._BankInfos;
-			}
-			set
-			{
-				this._BankInfos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo1", Storage="_BankInfos1", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
-		public EntitySet<BankInfo> BankInfos1
-		{
-			get
-			{
-				return this._BankInfos1;
-			}
-			set
-			{
-				this._BankInfos1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo2", Storage="_BankInfos2", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
-		public EntitySet<BankInfo> BankInfos2
-		{
-			get
-			{
-				return this._BankInfos2;
-			}
-			set
-			{
-				this._BankInfos2.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo3", Storage="_BankInfos3", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
-		public EntitySet<BankInfo> BankInfos3
-		{
-			get
-			{
-				return this._BankInfos3;
-			}
-			set
-			{
-				this._BankInfos3.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_ITInfo", Storage="_ITInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
 		public EntitySet<ITInfo> ITInfos
 		{
@@ -1556,6 +1096,58 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_BankInfos", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<BankInfo> BankInfos
+		{
+			get
+			{
+				return this._BankInfos;
+			}
+			set
+			{
+				this._BankInfos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo1", Storage="_BankInfos1", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<BankInfo> BankInfos1
+		{
+			get
+			{
+				return this._BankInfos1;
+			}
+			set
+			{
+				this._BankInfos1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo2", Storage="_BankInfos2", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<BankInfo> BankInfos2
+		{
+			get
+			{
+				return this._BankInfos2;
+			}
+			set
+			{
+				this._BankInfos2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo3", Storage="_BankInfos3", ThisKey="BusinessGUID", OtherKey="BusinessGUID")]
+		public EntitySet<BankInfo> BankInfos3
+		{
+			get
+			{
+				return this._BankInfos3;
+			}
+			set
+			{
+				this._BankInfos3.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1574,54 +1166,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_BankInfos(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation = this;
-		}
-		
-		private void detach_BankInfos(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation = null;
-		}
-		
-		private void attach_BankInfos1(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation1 = this;
-		}
-		
-		private void detach_BankInfos1(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation1 = null;
-		}
-		
-		private void attach_BankInfos2(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation2 = this;
-		}
-		
-		private void detach_BankInfos2(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation2 = null;
-		}
-		
-		private void attach_BankInfos3(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation3 = this;
-		}
-		
-		private void detach_BankInfos3(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.PersonalInformation3 = null;
 		}
 		
 		private void attach_ITInfos(ITInfo entity)
@@ -1670,6 +1214,54 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.PersonalInformation1 = null;
+		}
+		
+		private void attach_BankInfos(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = this;
+		}
+		
+		private void detach_BankInfos(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation = null;
+		}
+		
+		private void attach_BankInfos1(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation1 = this;
+		}
+		
+		private void detach_BankInfos1(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation1 = null;
+		}
+		
+		private void attach_BankInfos2(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation2 = this;
+		}
+		
+		private void detach_BankInfos2(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation2 = null;
+		}
+		
+		private void attach_BankInfos3(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation3 = this;
+		}
+		
+		private void detach_BankInfos3(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.PersonalInformation3 = null;
 		}
 	}
 	
@@ -1892,6 +1484,414 @@ namespace DAL
 					this._IsActive = value;
 					this.SendPropertyChanged("IsActive");
 					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BankInfo")]
+	public partial class BankInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _BankName;
+		
+		private string _Branch;
+		
+		private string _AccountNo;
+		
+		private string _IFSC_CODE;
+		
+		private string _MICR_CODE;
+		
+		private string _BANK_ADDRESS;
+		
+		private string _BANK_CONTACT_NO;
+		
+		private string _BusinessGUID;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation1;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation2;
+		
+		private EntityRef<PersonalInformation> _PersonalInformation3;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBankNameChanging(string value);
+    partial void OnBankNameChanged();
+    partial void OnBranchChanging(string value);
+    partial void OnBranchChanged();
+    partial void OnAccountNoChanging(string value);
+    partial void OnAccountNoChanged();
+    partial void OnIFSC_CODEChanging(string value);
+    partial void OnIFSC_CODEChanged();
+    partial void OnMICR_CODEChanging(string value);
+    partial void OnMICR_CODEChanged();
+    partial void OnBANK_ADDRESSChanging(string value);
+    partial void OnBANK_ADDRESSChanged();
+    partial void OnBANK_CONTACT_NOChanging(string value);
+    partial void OnBANK_CONTACT_NOChanged();
+    partial void OnBusinessGUIDChanging(string value);
+    partial void OnBusinessGUIDChanged();
+    #endregion
+		
+		public BankInfo()
+		{
+			this._PersonalInformation = default(EntityRef<PersonalInformation>);
+			this._PersonalInformation1 = default(EntityRef<PersonalInformation>);
+			this._PersonalInformation2 = default(EntityRef<PersonalInformation>);
+			this._PersonalInformation3 = default(EntityRef<PersonalInformation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankName", DbType="NVarChar(200)")]
+		public string BankName
+		{
+			get
+			{
+				return this._BankName;
+			}
+			set
+			{
+				if ((this._BankName != value))
+				{
+					this.OnBankNameChanging(value);
+					this.SendPropertyChanging();
+					this._BankName = value;
+					this.SendPropertyChanged("BankName");
+					this.OnBankNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Branch", DbType="NVarChar(200)")]
+		public string Branch
+		{
+			get
+			{
+				return this._Branch;
+			}
+			set
+			{
+				if ((this._Branch != value))
+				{
+					this.OnBranchChanging(value);
+					this.SendPropertyChanging();
+					this._Branch = value;
+					this.SendPropertyChanged("Branch");
+					this.OnBranchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="NVarChar(50)")]
+		public string AccountNo
+		{
+			get
+			{
+				return this._AccountNo;
+			}
+			set
+			{
+				if ((this._AccountNo != value))
+				{
+					this.OnAccountNoChanging(value);
+					this.SendPropertyChanging();
+					this._AccountNo = value;
+					this.SendPropertyChanged("AccountNo");
+					this.OnAccountNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IFSC_CODE", DbType="NVarChar(50)")]
+		public string IFSC_CODE
+		{
+			get
+			{
+				return this._IFSC_CODE;
+			}
+			set
+			{
+				if ((this._IFSC_CODE != value))
+				{
+					this.OnIFSC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._IFSC_CODE = value;
+					this.SendPropertyChanged("IFSC_CODE");
+					this.OnIFSC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MICR_CODE", DbType="NVarChar(50)")]
+		public string MICR_CODE
+		{
+			get
+			{
+				return this._MICR_CODE;
+			}
+			set
+			{
+				if ((this._MICR_CODE != value))
+				{
+					this.OnMICR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MICR_CODE = value;
+					this.SendPropertyChanged("MICR_CODE");
+					this.OnMICR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_ADDRESS", DbType="NVarChar(500)")]
+		public string BANK_ADDRESS
+		{
+			get
+			{
+				return this._BANK_ADDRESS;
+			}
+			set
+			{
+				if ((this._BANK_ADDRESS != value))
+				{
+					this.OnBANK_ADDRESSChanging(value);
+					this.SendPropertyChanging();
+					this._BANK_ADDRESS = value;
+					this.SendPropertyChanged("BANK_ADDRESS");
+					this.OnBANK_ADDRESSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_CONTACT_NO", DbType="NVarChar(100)")]
+		public string BANK_CONTACT_NO
+		{
+			get
+			{
+				return this._BANK_CONTACT_NO;
+			}
+			set
+			{
+				if ((this._BANK_CONTACT_NO != value))
+				{
+					this.OnBANK_CONTACT_NOChanging(value);
+					this.SendPropertyChanging();
+					this._BANK_CONTACT_NO = value;
+					this.SendPropertyChanged("BANK_CONTACT_NO");
+					this.OnBANK_CONTACT_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessGUID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessGUID
+		{
+			get
+			{
+				return this._BusinessGUID;
+			}
+			set
+			{
+				if ((this._BusinessGUID != value))
+				{
+					if ((((this._PersonalInformation.HasLoadedOrAssignedValue || this._PersonalInformation1.HasLoadedOrAssignedValue) 
+								|| this._PersonalInformation2.HasLoadedOrAssignedValue) 
+								|| this._PersonalInformation3.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBusinessGUIDChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessGUID = value;
+					this.SendPropertyChanged("BusinessGUID");
+					this.OnBusinessGUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo", Storage="_PersonalInformation", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation
+		{
+			get
+			{
+				return this._PersonalInformation.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation.Entity = null;
+						previousValue.BankInfos.Remove(this);
+					}
+					this._PersonalInformation.Entity = value;
+					if ((value != null))
+					{
+						value.BankInfos.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo1", Storage="_PersonalInformation1", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation1
+		{
+			get
+			{
+				return this._PersonalInformation1.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation1.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation1.Entity = null;
+						previousValue.BankInfos1.Remove(this);
+					}
+					this._PersonalInformation1.Entity = value;
+					if ((value != null))
+					{
+						value.BankInfos1.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo2", Storage="_PersonalInformation2", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation2
+		{
+			get
+			{
+				return this._PersonalInformation2.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation2.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation2.Entity = null;
+						previousValue.BankInfos2.Remove(this);
+					}
+					this._PersonalInformation2.Entity = value;
+					if ((value != null))
+					{
+						value.BankInfos2.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PersonalInformation_BankInfo3", Storage="_PersonalInformation3", ThisKey="BusinessGUID", OtherKey="BusinessGUID", IsForeignKey=true)]
+		public PersonalInformation PersonalInformation3
+		{
+			get
+			{
+				return this._PersonalInformation3.Entity;
+			}
+			set
+			{
+				PersonalInformation previousValue = this._PersonalInformation3.Entity;
+				if (((previousValue != value) 
+							|| (this._PersonalInformation3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PersonalInformation3.Entity = null;
+						previousValue.BankInfos3.Remove(this);
+					}
+					this._PersonalInformation3.Entity = value;
+					if ((value != null))
+					{
+						value.BankInfos3.Add(this);
+						this._BusinessGUID = value.BusinessGUID;
+					}
+					else
+					{
+						this._BusinessGUID = default(string);
+					}
+					this.SendPropertyChanged("PersonalInformation3");
 				}
 			}
 		}

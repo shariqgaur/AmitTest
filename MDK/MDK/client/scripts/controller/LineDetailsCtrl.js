@@ -49,6 +49,10 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
 
 
         }).catch();
+
+        $scope.getBankDetails();
+        $scope.getITDetails();
+        $scope.getOtherDetails();
     };
 
     $scope.fileChanged = function () {
@@ -76,12 +80,6 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
         var nextYear = year + 1;
         return year + "-" + nextYear;
     };
-
-
-
-
-
-
 
     $scope.uploadDocument = function () {
         $rootScope.loading = Upload.upload({
@@ -129,7 +127,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
     $scope.openFileListModel = function () {
 
         var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
+            animation: true,
             templateUrl: '../client/views/fileModal.html',
             controller: 'FileModalCtrl',
             resolve: {
@@ -146,7 +144,57 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
 
     };
 
+    $scope.getBankDetails = function () {
 
+        $rootScope.loading = apiService.getBankDetails(businessGUID).then(function (data) {
+            if (data && data.data) {
+                var bankDataFetched = data.data.getBankDetailsResult.bankModel;
+              
+             $scope.bankName = bankDataFetched.BankName;
+             $scope.branch= bankDataFetched.BankBranch;
+             $scope.bankAccountNumber = bankDataFetched.BankAccountNumber;
+             $scope.bankIFSCCode=bankDataFetched.IFSCCode;
+             $scope.bankMICRCode=bankDataFetched.MICRCode;
+                 
+            }
+
+
+        }).catch();
+    };
+
+    $scope.getITDetails = function () {
+  
+        $rootScope.loading = apiService.getITDetails(businessGUID).then(function (data) {
+
+            if (data && data.data) {
+                var fetchedITDetails = data.data.getITDetailsResult.itInfoModel;
+                $scope.PAN = fetchedITDetails.PAN_NO;
+                $scope.TAN = fetchedITDetails.TAN_NO;
+                $scope.VAT = fetchedITDetails.VAT_NO;
+                $scope.CST = fetchedITDetails.CST_NO;
+                $scope.PTRCNumber = fetchedITDetails.PTRC_NO;
+                $scope.PTECNumber = fetchedITDetails.PTEC_NO;
+             }
+
+        }).catch();
+
+    };
+
+    $scope.getOtherDetails = function () {
+
+        $rootScope.loading = apiService.getOtherDetails(businessGUID).then(function (data) {
+
+            if (data && data.data) {
+                var fetchedOtherinfo = data.data.getOtherDetailsResult.otherInfoModel;
+
+                $scope.exciseNumber = fetchedOtherinfo.ExciseNumber;
+                $scope.pFESI_NO = fetchedOtherinfo.PFESI_NO;
+                $scope.serviceTaxNumber = fetchedOtherinfo.ServiceTaxNumber;
+
+
+            }
+        }).catch();
+    };
 
     init();
 }]);

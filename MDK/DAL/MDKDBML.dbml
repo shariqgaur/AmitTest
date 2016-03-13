@@ -1,21 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MDK_DB" Class="MDKDBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.BankInfo" Member="BankInfos">
-    <Type Name="BankInfo">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BankName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Branch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IFSC_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MICR_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BANK_ADDRESS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="BANK_CONTACT_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="PersonalInformation_BankInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
-      <Association Name="PersonalInformation_BankInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
-      <Association Name="PersonalInformation_BankInfo2" Member="PersonalInformation2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
-      <Association Name="PersonalInformation_BankInfo3" Member="PersonalInformation3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ITInfo" Member="ITInfos">
     <Type Name="ITInfo">
       <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -57,14 +40,14 @@
       <Column Name="BusinessName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BusinessType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
-      <Association Name="PersonalInformation_BankInfo1" Member="BankInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
-      <Association Name="PersonalInformation_BankInfo2" Member="BankInfos2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
-      <Association Name="PersonalInformation_BankInfo3" Member="BankInfos3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
       <Association Name="PersonalInformation_ITInfo" Member="ITInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="ITInfo" />
       <Association Name="PersonalInformation_ITInfo1" Member="ITInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="ITInfo" />
       <Association Name="PersonalInformation_OtherInfo" Member="OtherInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="OtherInfo" />
       <Association Name="PersonalInformation_OtherInfo1" Member="OtherInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="OtherInfo" />
+      <Association Name="PersonalInformation_BankInfo" Member="BankInfos" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo1" Member="BankInfos1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo2" Member="BankInfos2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
+      <Association Name="PersonalInformation_BankInfo3" Member="BankInfos3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="BankInfo" />
     </Type>
   </Table>
   <Table Name="dbo.RoleMangemant" Member="RoleMangemants">
@@ -80,6 +63,23 @@
       <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BankInfo" Member="BankInfos">
+    <Type Name="BankInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BankName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Branch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IFSC_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MICR_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BANK_ADDRESS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BANK_CONTACT_NO" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BusinessGUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PersonalInformation_BankInfo" Member="PersonalInformation" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo2" Member="PersonalInformation2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+      <Association Name="PersonalInformation_BankInfo3" Member="PersonalInformation3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

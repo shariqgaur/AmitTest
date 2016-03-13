@@ -8,5 +8,6 @@ namespace Models.TransportModel
 {
     public class TOtherInfoData:TransportData
     {
+     public OtherInfoModel otherInfoModel {get;set;}
     }
 }

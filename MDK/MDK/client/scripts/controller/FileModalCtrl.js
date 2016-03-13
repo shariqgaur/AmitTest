@@ -9,6 +9,14 @@
       
     };
 
+    $scope.downloadFile = function (businessGUID, selectedYear, fileName) {
+        var partialPath = businessGUID + '\\' + selectedYear + '\\' + fileName;
+
+
+
+    };
+
+
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };

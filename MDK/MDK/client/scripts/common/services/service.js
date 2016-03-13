@@ -45,7 +45,19 @@ angular.module("MDKApp")
             return self.__post(serverName + port + BusinessServices + "saveOtherInfo", { "data": angular.toJson(data) });
         };
         
-        
+        self.getBankDetails = function (data) {
+            return self.__post(serverName + port + BusinessServices + "getBankDetails", { "businessGUID": data });
+        };
+
+        self.getITDetails = function (data) {
+            return self.__post(serverName + port + BusinessServices + "getITDetails", { "businessGUID": data });
+        };
+
+        self.getOtherDetails = function (data) {
+            return self.__post(serverName + port + BusinessServices + "getOtherDetails", { "businessGUID": data });
+        };
+
+
 
 
     }]);

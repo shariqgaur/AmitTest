@@ -90,13 +90,37 @@ namespace Services.BusinessServices
             Method = "POST")]
         TITInfoData saveITInfo(string data);
 
-         [OperationContract]
+        [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             Method = "POST")]
         TOtherInfoData saveOtherInfo(string data);
 
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TBankData getBankDetails(string businessGUID);
+
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TITInfoData getITDetails(string businessGUID);
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TOtherInfoData getOtherDetails(string businessGUID);
+
         
+
+
     }
 }

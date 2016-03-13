@@ -21,5 +21,10 @@ namespace BAL.Business
         {
             return bankDal.saveBankInformation(model);
         }
+
+        public TBankData getBankDetails(string businessGUID)
+        {
+            return bankDal.getBankDetails(businessGUID);
+        }
     }
 }

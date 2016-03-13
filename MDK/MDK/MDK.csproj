@@ -160,6 +160,7 @@
     <Content Include="client\scripts\js\windowsexception.js" />
     <Content Include="client\style\animate.css" />
     <Content Include="client\style\style.css" />
+    <Content Include="client\style\StyleSheet1.css" />
     <Content Include="client\Test\karma.conf.js" />
     <Content Include="client\Test\tests\example.js" />
     <Content Include="client\Test\tests\exampleTestSpec.js" />
@@ -225,6 +226,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="db\schemaNdata\10.sql" />
     <Content Include="db\schemaNdata\9.sql" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />

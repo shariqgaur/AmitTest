@@ -21,7 +21,7 @@
                 <div class="panel-title">
                 </div>
                 <div class="panel-body" style="min-height: 511px;">
-                    <form>
+                    <form name="personalInfoForm" novalidate>
                         <fieldset>
                             <div class="row">
                                 <div class="col-md-6">
@@ -47,7 +47,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Business Name</label>
-                                        <input type="text" class="form-control" id="Email7" placeholder="e.g. XYZ PVT LTD." ng-model="businessName">
+                                        <input type="text" class="form-control" id="Email7" placeholder="e.g. XYZ PVT LTD." 
+                                            ng-model="businessName"
+                                             validation-field-required="true">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -312,13 +314,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">PTEC</label>
-                                        <input type="text" class="form-control" id="Text10" placeholder="e.g. PTRCB99887" ng-model="PTRC">
+                                        <input type="text" class="form-control" id="Text10" placeholder="e.g. PTRCB99887" ng-model="PTEC">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName">TAN</label>
-                                        <input type="text" class="form-control" id="Text11" placeholder="e.g. PTEC99887" ng-model="PTEC">
+                                        <label for="firstName">PTRC</label>
+                                        <input type="text" class="form-control" id="Text11" placeholder="e.g. PTEC99887" ng-model="PTRC">
                                     </div>
                                 </div>
                             </div>

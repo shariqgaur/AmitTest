@@ -20,6 +20,8 @@ namespace DAL.Business
         {
             _dataContext = new MDKDBMLDataContext();
             tITInfoData = new TITInfoData();
+            tITInfoData.itInfoModel = new ITInfoModel();
+
             entity = new ITInfo();
         }
 
@@ -55,6 +57,47 @@ namespace DAL.Business
             }
 
             return null;
+        }
+
+        public TITInfoData getITDetails(string businessGUID)
+        {
+            try
+            {
+                var itInfo = _dataContext.ITInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
+
+                if (itInfo != null)
+                {
+                    tITInfoData.itInfoModel.BusinessGUID = itInfo.BusinessGUID;
+                    tITInfoData.itInfoModel.IncomeTax = itInfo.IncomeTax;
+                    tITInfoData.itInfoModel.PAN_NO = itInfo.PAN_NO;
+                    tITInfoData.itInfoModel.TAN_NO = itInfo.TAN_NO;
+                    tITInfoData.itInfoModel.VAT_NO = itInfo.VAT_NO;
+                    tITInfoData.itInfoModel.CST_NO = itInfo.CST_NO;
+                    tITInfoData.itInfoModel.PTRC_NO = itInfo.PTRC_NO;
+                    tITInfoData.itInfoModel.PTEC_NO = itInfo.PTEC_NO;
+                    tITInfoData.itInfoModel.SalesTax = itInfo.SalesTax;
+
+                    tITInfoData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
+                }
+
+                else
+                {
+                    tITInfoData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
+                    tITInfoData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
+                }
+
+                return tITInfoData;
+            }
+
+            catch (Exception exp)
+            {
+                tITInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+                tITInfoData.ErrorMessage = exp.StackTrace;
+
+                return tITInfoData;
+            }
+
+
         }
     }
 }

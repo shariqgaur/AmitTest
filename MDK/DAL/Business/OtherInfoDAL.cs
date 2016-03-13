@@ -25,7 +25,7 @@ namespace DAL.Business
         public TOtherInfoData saveOtherInfo(IModel model)
         {
 
-          
+
             try
             {
                 _model = (OtherInfoModel)model;
@@ -53,5 +53,40 @@ namespace DAL.Business
             }
 
         }
+
+        public TOtherInfoData getOtherDetails(string businessGUID)
+        {
+            tOtherInfoData.otherInfoModel = new OtherInfoModel();
+
+            var otherInfo = _dataContext.OtherInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
+            try
+            {
+                if (otherInfo != null)
+                {
+                    tOtherInfoData.otherInfoModel.BusinessGUID = otherInfo.BusinessGUID;
+                    tOtherInfoData.otherInfoModel.ExciseNumber = otherInfo.ExciseNumber;
+                    tOtherInfoData.otherInfoModel.PFESI_NO = otherInfo.PFESINumber;
+                    tOtherInfoData.otherInfoModel.ServiceTaxNumber = otherInfo.ServiceTaxNumber;
+
+                    tOtherInfoData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
+
+                    return tOtherInfoData;
+                }
+                else
+                {
+                    tOtherInfoData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
+                    tOtherInfoData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
+
+                    return tOtherInfoData;
+                }
+            }
+            catch (Exception exp)
+            {
+                tOtherInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+                tOtherInfoData.ErrorMessage = exp.StackTrace;
+
+                return tOtherInfoData;
+            }
+         }
     }
 }

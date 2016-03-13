@@ -13,9 +13,13 @@ namespace BAL.Business
    public class OtherInfoBAL:IBal
     {
        public TOtherInfoData saveOtherInfo(IModel model)
-        {
-            return new OtherInfoBAL().saveOtherInfo(model);
-            //return new OtherInfoDAL().saveOtherInfo(model);
+        {   
+            return new OtherInfoDAL().saveOtherInfo(model);
         }
+
+       public TOtherInfoData getOtherDetails(string businessGUID)
+       {
+           return new OtherInfoDAL().getOtherDetails(businessGUID);
+       }
     }
 }

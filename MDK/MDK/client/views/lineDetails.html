@@ -64,7 +64,7 @@
                     <table class="table table- table-hover">
 
                         <tr>
-                            <th>Business Id</th>
+                            <th>Business Id:</th>
                             <td><a href="#" ng-bind="businessGUID"></a></td>
                         </tr>
 
@@ -114,37 +114,40 @@
                         <tr>
                             <th>Bank Name: 
                             </th>
-                            <td>State Bank Of India.
+                            <td ng-bind="bankName">
                             </td>
                         </tr>
                         <tr>
                             <th>Branch:    
                             </th>
-                            <td>Mahavir society, Vazirabad, Nanded.
+                            <td ng-bind="branch"> 
                             </td>
                         </tr>
                         <tr>
                             <th>Account Number:   
                             </th>
-                            <td>9898-9898-9878-8987
+                            <td ng-bind="bankAccountNumber">
                             </td>
                         </tr>
                         <tr>
                             <th>IFSC Code:    
                             </th>
-                            <td>AVC898767
+                            <td ng-bind="bankIFSCCode">AVC898767
                             </td>
                         </tr>
                         <tr>
                             <th>MICR Code:    
                             </th>
-                            <td>MICR786786
+                            <td ng-bind="bankMICRCode">
                             </td>
                         </tr>
                         <tr>
-                            <th></th>
+                            <th>
+
+                            </th>
                             <td></td>
                         </tr>
+                       
                     </table>
                 </div>
 
@@ -168,28 +171,28 @@
 
                         <tr>
                             <th>PAN Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="PAN">JFKD787656</td>
                         </tr>
                         <tr>
                             <th>TAN Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="TAN">JFKD787656</td>
                         </tr>
                         <tr>
                             <th>VAT Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="VAT">JFKD787656</td>
                         </tr>
 
                         <tr>
                             <th>CST Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="CST">JFKD787656</td>
                         </tr>
                         <tr>
                             <th>PTRC Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="PTRCNumber">JFKD787656</td>
                         </tr>
                         <tr>
                             <th>PTEC Number: </th>
-                            <td>JFKD787656</td>
+                            <td ng-bind="PTECNumber">JFKD787656</td>
                         </tr>
 
                     </table>
@@ -210,16 +213,16 @@
 
                         <tr>
                             <th>Service Tax Number: </th>
-                            <td>AMVKD786577</td>
+                            <td ng-bind="serviceTaxNumber">AMVKD786577</td>
                         </tr>
                         <tr>
                             <th>Excise Number: </th>
-                            <td>AMFKJD7907</td>
+                            <td ng-bind`="exciseNumber">AMFKJD7907</td>
                         </tr>
                         <tr>
                             <th>PFESI Number: 
                             </th>
-                            <td>PFESI786786
+                            <td ng-bind="pFESI_NO">PFESI786786
                             </td>
                         </tr>
                         <tr>
