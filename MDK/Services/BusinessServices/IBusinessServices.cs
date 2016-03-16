@@ -119,6 +119,13 @@ namespace Services.BusinessServices
             Method = "POST")]
         TOtherInfoData getOtherDetails(string businessGUID);
 
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+             RequestFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Wrapped,
+             Method = "POST")]
+        string downloadFile(string filePath);
         
 
 

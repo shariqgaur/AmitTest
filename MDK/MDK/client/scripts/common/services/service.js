@@ -57,7 +57,13 @@ angular.module("MDKApp")
             return self.__post(serverName + port + BusinessServices + "getOtherDetails", { "businessGUID": data });
         };
 
+        self.downloadFile = function (downloadPath) {
+            return self.__post(serverName + port + BusinessServices + "downloadFile", { "filePath": downloadPath });
+        };
 
+        
+
+        
 
 
     }]);

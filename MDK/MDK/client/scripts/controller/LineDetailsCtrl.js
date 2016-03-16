@@ -118,12 +118,6 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
         }).catch();
     };
 
-    $scope.documentDownload = function (file) {
-        //$rootScope.loading = apiService.documentDownload(fileDetails).then(function (data) {
-
-        //}).catch();
-    };
-
     $scope.openFileListModel = function () {
 
         var modalInstance = $uibModal.open({

@@ -8,6 +8,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Script.Serialization;
 using BAL.Business;
 using Models;
@@ -563,6 +564,17 @@ namespace Services.BusinessServices
         {
             
             return otherInfoBAL.getOtherDetails(businessGUID);
+        }
+
+       public string downloadFile(string filePath)
+        {
+            var serverPath = HostingEnvironment.MapPath("~/BusinessServices/uploaded/businessData");
+            var fullpath = Path.Combine(serverPath, filePath);
+
+            WebOperationContext.Current.OutgoingResponse.ContentType = "application/octet-stream";
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("content-disposition", "inline; filename=" + fullpath);  
+          //  return File.OpenRead(fullpath);
+            return fullpath;
         }
     }
 }
