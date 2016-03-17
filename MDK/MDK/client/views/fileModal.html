@@ -14,13 +14,16 @@
             <tbody>
              
                 <tr ng-repeat="file in fileList">
+                    <!--<td><a ng-href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/{{file.BusinessGUID}}/{{file.SelectedYear}}/{{file.FileName}}" ng-bind="file.FileName"></a></td>-->
                     <td ng-bind="file.FileName"></td>
+
                     <td>
                                <!--<input type="button" class="btn downloadBTN" ng-click="getDocumentsToDownload()"/>-->
-
-                        <button  style="border:none; background:none;">
-                            <span class="glyphicon glyphicon-download" style="color:#2A6496;" aria-hidden="true" ng-click="documentDownload(file.BusinessGUID,file.SelectedYear,file.FileName)"></span>
-                        </button>
+                        <!--ng-click="documentDownload(file.BusinessGUID,file.SelectedYear,file.FileName)"-->
+                        <a ng-href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/{{file.BusinessGUID}}/{{file.SelectedYear}}/{{file.FileName}}"  style="border:none; background:none;">
+                            <span class="glyphicon glyphicon-download" style="color:#2A6496;" aria-hidden="true"></span>
+                        </a>
+                      
                         
                     </td>
                     <td>
@@ -39,5 +42,7 @@
     <div class="modal-footer">
        <!-- <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>-->
         <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+        <a  href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/XHQF-39609833/2011/clientSideUnitTesting_ITAcknowledgement.docx"></a>
+       
     </div>
 </div>

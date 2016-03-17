@@ -566,15 +566,15 @@ namespace Services.BusinessServices
             return otherInfoBAL.getOtherDetails(businessGUID);
         }
 
-       public string downloadFile(string filePath)
+       public Stream downloadFile(string filePath)
         {
             var serverPath = HostingEnvironment.MapPath("~/BusinessServices/uploaded/businessData");
             var fullpath = Path.Combine(serverPath, filePath);
 
             WebOperationContext.Current.OutgoingResponse.ContentType = "application/octet-stream";
             WebOperationContext.Current.OutgoingResponse.Headers.Add("content-disposition", "inline; filename=" + fullpath);  
-          //  return File.OpenRead(fullpath);
-            return fullpath;
+           return File.OpenRead(fullpath);
+           // return fullpath;
         }
     }
 }

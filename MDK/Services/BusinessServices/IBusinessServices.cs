@@ -125,7 +125,7 @@ namespace Services.BusinessServices
              RequestFormat = WebMessageFormat.Json,
              BodyStyle = WebMessageBodyStyle.Wrapped,
              Method = "POST")]
-        string downloadFile(string filePath);
+        Stream downloadFile(string filePath);
         
 
 

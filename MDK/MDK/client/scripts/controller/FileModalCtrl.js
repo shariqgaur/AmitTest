@@ -9,16 +9,37 @@
       
     };
 
-    $scope.downloadFile = function (businessGUID, selectedYear, fileName) {
-        var partialPath = businessGUID + '\\' + selectedYear + '\\' + fileName;
+    $scope.f = function () {
+        alert('sairahem');
+    };
 
-        $rootScope.loading = apiService.downloadFile(partialPath).then(function (data) {
-            
-        }).catch();
+    $scope.downloadFile = function (businessGUID, selectedYear, fileName) {
+        alert('sai');
+
+        //var partialPath = businessGUID + '\\' + selectedYear + '\\' + fileName;
+    
+        //$rootScope.loading = apiService.downloadFile(partialPath).then(function (data) {
+         
+
+        //}).catch();
          
     };
 
+    $scope.test = function (businessGUID, selectedYear, fileName) {
+        alert('DOWNLOADING..');
 
+        var partialPath = businessGUID + '\\' + selectedYear + '\\' + fileName;
+        $rootScope.loading = apiService.downloadFile(partialPath).then(function (data) {
+
+            var blob = new Blob([data], {
+                 
+            });
+         
+            navigator.msSaveBlob(blob, 'S.pdf');
+
+        }).catch();
+
+    };
    
 
     $scope.cancel = function () {
