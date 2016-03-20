@@ -197,15 +197,26 @@ body
     background-size: 50px 50px;
 }
 
+form .CustomValidationError
+{
+    color:red;
+}
 
-body .loaderImg
-{     
-    overflow-y:no-content !important;
+.text-success
+{
+    color:green;
+}
+
+.info-question
+{
+    color:#3170A8;
 }
 
 
-
-
- 
-
-
+.rectangle{ 
+    border:1px solid #ccc; 
+    width:60%; 
+    min-height:255px;
+    padding: 10px;
+    text-align:center;
+}

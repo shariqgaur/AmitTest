@@ -79,8 +79,8 @@
                         </tr>
 
                         <tr>
-                            <th>Contact Number:</th>
-                            <td ng-bind="contactNo | tel">+91 909-617-4175</td>
+                            <th>Contact Number</th>
+                            <td ng-bind="contactNo | tel">+91 90</td>
                         </tr>
 
                         <tr>
@@ -114,20 +114,17 @@
                         <tr>
                             <th>Bank Name: 
                             </th>
-                            <td ng-bind="bankName">
-                            </td>
+                            <td ng-bind="bankName"></td>
                         </tr>
                         <tr>
                             <th>Branch:    
                             </th>
-                            <td ng-bind="branch"> 
-                            </td>
+                            <td ng-bind="branch"></td>
                         </tr>
                         <tr>
                             <th>Account Number:   
                             </th>
-                            <td ng-bind="bankAccountNumber">
-                            </td>
+                            <td ng-bind="bankAccountNumber"></td>
                         </tr>
                         <tr>
                             <th>IFSC Code:    
@@ -138,16 +135,13 @@
                         <tr>
                             <th>MICR Code:    
                             </th>
-                            <td ng-bind="bankMICRCode">
-                            </td>
+                            <td ng-bind="bankMICRCode"></td>
                         </tr>
                         <tr>
-                            <th>
-
-                            </th>
+                            <th></th>
                             <td></td>
                         </tr>
-                       
+
                     </table>
                 </div>
 
@@ -217,7 +211,7 @@
                         </tr>
                         <tr>
                             <th>Excise Number: </th>
-                            <td ng-bind`="exciseNumber">AMFKJD7907</td>
+                            <td ng-bind="exciseNumber">AMFKJD7907</td>
                         </tr>
                         <tr>
                             <th>PFESI Number: 
@@ -234,7 +228,7 @@
             </div>
         </div>
     </div>
-
+     
     <div class="row">
         <div class="col-md-12">
 
@@ -244,144 +238,31 @@
                 </div>
                 <div class="panel-body">
                     <table class="table table- table-hover">
-
-                        <!-- <tr>
-                            <th>IT Acknowledgement</th>
-                            <td>
-                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedACKNYear">
-                                    <option value="">Select year</option>
-                                </select>
-                            </td>
-                            <td>
-                                <span class="button" ngf-select ng-model="modelDocument" name="file" ngf-pattern="'image/*,.pdf'" ngf-change="fC()"
-                                    ngf-accept="'image/*,.pdf'" ngf-max-size="20MB">click here to upload a document
-                                </span>
-
-                            </td>
-                            <td>
-                                <span class="help-block" ng-bind="modelDocument.name"></span>
-                            </td>
-
-
-                            <td>
-                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" ng-disabled="1==1" />
-                            </td>
-                            <td>status
-                            </td>
-                        </tr>
-
                         <tr>
-                            <th>26 AS</th>
+
                             <td>
-                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selected26ASYear">
-                                    <option value="">Select year</option>
+                                <select ng-options="year as formatYear(year) for year in businessYears" ng-model="selectedYear">
+                                    <option value="">-- Select year --</option>
                                 </select>
                             </td>
 
                             <td>
-                                <span class="button" ngf-select ng-model="modelDocument" name="file" ngf-pattern="'image/*'"
-                                    ngf-accept="'image/*'" ngf-max-size="20MB">click here to upload a document
-                                </span>
-                            </td>
-                            <td>
-                                <span class="help-block" ng-bind="modelDocument.name"></span>
-                            </td>
-
-
-                            <td>
-                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
-                            </td>
-
-                            <td>status
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>TAX Challan</th>
-                            <td>
-                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedTAXChallanYear">
-                                    <option value="">Select year</option>
-                                </select>
-                            </td>
-
-                            <td>
-                                <span class="button" ngf-select ng-model="modelDocument" name="file" ngf-pattern="'image/*'"
-                                    ngf-accept="'image/*'" ngf-max-size="20MB">click here to upload a document
-                                </span>
-                            </td>
-                            <td>
-                                <span class="help-block" ng-bind="modelDocument.name"></span>
-                            </td>
-
-
-                            <td>
-                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
-                            </td>
-
-                            <td>status
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>Audit Report</th>
-                            <td>
-                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedARYear">
-                                    <option value="">Select year</option>
-                                </select>
-                            </td>
-
-                            <td>
-                                <span class="button" ngf-select ng-model="modelDocument" name="file" ngf-pattern="'image/*'"
-                                    ngf-accept="'image/*'" ngf-max-size="20MB">click here to upload a document
-                                </span>
-                            </td>
-                            <td>
-                                <span class="help-block" ng-bind="modelDocument.name"></span>
-                            </td>
-
-
-                            <td>
-                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
-                            </td>
-
-                            <td>status
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>Workbook</th>
-                            <td>
-                                <select ng-options="year as formatYear(year) for year in [2000,2001,2002]" ng-model="selectedWBYear">
-                                    <option value="">Select year</option>
-                                </select>
-                            </td>
-
-                            <td>
-                                <span class="button" ngf-select ng-model="modelDocument" name="file" ngf-pattern="'image/*'"
-                                    ngf-accept="'image/*'" ngf-max-size="20MB">click here to upload a document
-                                </span>
-                            </td>
-                            <td>
-                                <span class="help-block" ng-bind="modelDocument.name"></span>
-                            </td>
-
-
-                            <td>
-                                <img src="../client/images/upload.png" ng-click="uploadDocument()" style="cursor: pointer" />
-                            </td>
-
-                            <td>status
-                            </td>
-                        </tr>-->
-                        <tr>
-                            <td>
-                                <select ng-options="doc.value as doc.text for doc in documentTypes" ng-model="selectedDocumentType">
+                                <select ng-options="doc.value as doc.text for doc in documentTypes" ng-model="selectedDocumentType"
+                                    ng-disabled="!selectedYear">
                                     <option value="">select document type</option>
                                 </select>
                             </td>
+
+                            <td ng-show="selectedDocumentType=='SALESTAX'">
+                                <select ng-options="period as period.text  for period in periods" ng-model="selectedPeriod"
+                                    ng-disabled="!selectedDocumentType">
+                                    <option value="">-- Period --</option>
+                                </select>
+                            </td>
+
                             <td>
-                                <select ng-options="year as formatYear(year) for year in businessYears" ng-model="selectedYear" ng-disabled="!selectedDocumentType">
-                                    <option value="">Select year</option>
+                                <select ng-options="subcategory as subcategory.text for subcategory in subcategories" ng-model="selectedSubCategory" ng-disabled="!selectedDocumentType">
+                                    <option value="">-- Sub category --</option>
                                 </select>
                             </td>
                             <td>

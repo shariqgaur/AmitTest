@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <!--<input type="button" class="btn btn-primary col-md-1 pull-right" id="exampleInputPassword1" style="margin-right: 105px;" value="Logout" />-->
 
-                                    <button class="btn btn-primary" ng-click="" ng-if="$root.isUserLoggedIn">
+                                    <button class="btn btn-primary" ng-click="logout()" ng-if="$root.isUserLoggedIn">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out
                                     </button>
                                 </div>
@@ -83,7 +83,8 @@
                 <hr style="height: 1.1px; background: gray;" />
                 <footer style="height: 40px; border: 0px solid black;">
                     <div class="text-center">
-                        All rights are reserved by Amit Debadwar
+                        All rights are reserved by MDK TAX Consultants. <br />
+                       Contact us: <b>+91 9822699151</b> or mail us @ <b>mohan.kulkarni@mdk.com</b>
                     </div>
                 </footer>
             </div>
@@ -137,6 +138,8 @@
             <script src="scripts/controller/UserManagement.js"></script>
             <script src="scripts/controller/Business/BusinessUserManagementCtrl.js"></script>
             <script src="scripts/controller/FileModalCtrl.js"></script>
+            <script src="scripts/controller/LogoutCtrl.js"></script>
+            
             <!--Angular controllers End-->
         </div>
     </div>

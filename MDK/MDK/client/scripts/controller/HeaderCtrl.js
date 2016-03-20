@@ -1,6 +1,8 @@
-﻿angular.module("MDKApp").controller("HeaderCtrl", ["$scope", "$state", "apiService", function ($scope, $state, apiService) {
+﻿angular.module("MDKApp").controller("HeaderCtrl", ["$scope", "$rootScope", "$state", "apiService", function ($scope,$rootScope, $state, apiService) {
    
     $scope.logout = function () {
-        $state.go('login');
+        $rootScope.isUserLoggedIn = false;
+        $rootScope.loggedInUserName = "";
+        $state.go('logout');
     };
 }]);

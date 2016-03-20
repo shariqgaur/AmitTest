@@ -1,46 +1,55 @@
 ﻿<div>
     <div class="modal-header">
-        <h3 class="modal-title"><a href="" ng-bind="businessGUID"></a></h3>
-       For the year:  <b ng-bind="year"></b>
+        <div class="row">
+            <div class="col-md-5">
+                <h3 class="modal-title"><a href="" ng-bind="businessGUID"></a></h3>
+                For the year:  <b ng-bind="year"></b>
+            </div>
+            <div class="col-md-4 pull-right">
+                <select ng-options="doc.value as doc.text for doc in documentTypes" ng-model="selectedDocumentType">
+                    <option value="">select document type</option>
+                </select>
+            </div>
+        </div>
+
     </div>
     <div class="modal-body">
-        
+
         <table class="table table- table-hover">
             <thead>
                 <tr>
                     <th>Documents</th>
-                 </tr>
+                </tr>
+
             </thead>
             <tbody>
-             
                 <tr ng-repeat="file in fileList">
                     <!--<td><a ng-href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/{{file.BusinessGUID}}/{{file.SelectedYear}}/{{file.FileName}}" ng-bind="file.FileName"></a></td>-->
                     <td ng-bind="file.FileName"></td>
 
                     <td>
-                               <!--<input type="button" class="btn downloadBTN" ng-click="getDocumentsToDownload()"/>-->
+                        <!--<input type="button" class="btn downloadBTN" ng-click="getDocumentsToDownload()"/>-->
                         <!--ng-click="documentDownload(file.BusinessGUID,file.SelectedYear,file.FileName)"-->
-                        <a ng-href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/{{file.BusinessGUID}}/{{file.SelectedYear}}/{{file.FileName}}"  style="border:none; background:none;">
-                            <span class="glyphicon glyphicon-download" style="color:#2A6496;" aria-hidden="true"></span>
+                        <a ng-href="http://localhost:9595/WCF/BusinessServices/uploaded/businessData/{{file.BusinessGUID}}/{{file.SelectedYear}}/{{file.FileName}}" style="border: none; background: none;">
+                            <span class="glyphicon glyphicon-download" style="color: #2A6496;" aria-hidden="true"></span>
                         </a>
-                      
-                        
+
+
                     </td>
                     <td>
-                       <!--  <input type="button" class="btn deleteBTN" ng-click="getDocumentsToDownload()"/>-->
+                        <!--  <input type="button" class="btn deleteBTN" ng-click="getDocumentsToDownload()"/>-->
 
-                        <button style="border:none; background:none;">
-                            <span class="glyphicon glyphicon-remove" style="color:red;" aria-hidden="true"></span>
+                        <button style="border: none; background: none;">
+                            <span class="glyphicon glyphicon-remove" style="color: red;" aria-hidden="true"></span>
                         </button>
-
-                    </td>
+                     </td>
                 </tr>
             </tbody>
         </table>
 
     </div>
     <div class="modal-footer">
-       <!-- <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>-->
+        <!-- <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>-->
         <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
     </div>
 </div>

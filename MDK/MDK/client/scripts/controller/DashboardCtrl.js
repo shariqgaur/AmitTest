@@ -1,9 +1,9 @@
 ﻿
-angular.module("MDKApp").controller("DashboardCtrl", ["$scope", "$state", "apiService", function ($scope, $state, apiService) {
+angular.module("MDKApp").controller("DashboardCtrl", ["$scope","$rootScope", "$state", "apiService", function ($scope,$rootScope, $state, apiService) {
 
 
     var init = function () {
-        apiService.getAllBusinessLines().then(getAllBusinessLinesSuccess).catch();
+$rootScope.loading=apiService.getAllBusinessLines().then(getAllBusinessLinesSuccess).catch();
     };
 
     var getAllBusinessLinesSuccess = function (data) {

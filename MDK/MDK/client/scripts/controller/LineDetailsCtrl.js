@@ -2,28 +2,60 @@
 angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "$rootScope", "$state", "$stateParams", "apiService", "Upload", function ($uibModal, $scope, $rootScope, $state, $stateParams, apiService, Upload) {
 
     var businessGUID = $stateParams.businessId;
-
-    $scope.upperButtons = [
-
-          { text: 'Workbook', value: 'Workbook' },
-          { text: 'Audit Report', value: 'AuditReport' },
-          { text: 'TAX Challan', value: 'TAXChallan' },
-          { text: '26 AS', value: '26AS' },
-          { text: 'IT Acknowledgement', value: 'ITAcknowledgement' }
-    ];
-
-
+ 
     $scope.businessYears = [2011, 2012, 2013, 2014, 2015, 2016];
 
     $scope.documentTypes = [
-        { text: 'IT Acknowledgement', value: 'ITAcknowledgement' },
-        { text: '26 AS', value: '26AS' },
-        { text: 'TAX Challan', value: 'TAXChallan' },
-        { text: 'Audit Report', value: 'AuditReport' },
-        { text: 'Workbook', value: 'Workbook' },
-        { text: 'Other', value: 'other' },
+        { text: 'Income TAX', value: 'INCOMETAX' },
+        { text: 'Sales TAX', value: 'SALESTAX' },
+        { text: 'Service TAX', value: 'ServiceTAX' },
+        { text: 'Excise TAX', value: 'ExciseTAX' }
 
     ];
+
+
+    $scope.subDocuementForIncomeTax = [
+        { text: 'IT ACK', value: 'IncomeTax' },
+        { text: 'Excel workbook', value: 'SALESTAX' },
+        { text: 'Audit Report', value: 'ServiceTAX' },
+        { text: '26AS', value: 'ExciseTAX' },
+        { text: 'Challans', value: 'Challans' }
+
+    ];
+
+    $scope.subDocumentsForSalesTax = [
+        { text: 'VAT Returns', value: 'IncomeTax' },
+        { text: 'CST Returns', value: 'SALESTAX' },
+        { text: 'PTRC Returns', value: 'ServiceTAX' },
+        { text: 'PTEC Challan', value: 'ExciseTAX' },
+        { text: 'Annexure J1/J2', value: 'Challans' },
+        { text: '704 ACK', value: 'Challans' },
+        { text: 'Excel workbook', value: 'Challans' },
+        { text: 'Challans', value: 'Challans' }
+
+    ];
+
+
+    $scope.periods = [
+            { text: 'Monthly', value: 'MONTHLY' },
+            { text: 'Quarterly', value: 'QUA' },
+            { text: 'Half Yearly', value: 'HYear' },
+            { text: 'Yearly', value: 'YEARLY' }
+    ];
+
+
+    $scope.subcategories = [];
+
+    $scope.$watch('selectedDocumentType', function (newVal, oldvalue) {
+
+        if (newVal == 'INCOMETAX') {
+            $scope.subcategories = $scope.subDocuementForIncomeTax;
+        }
+        else if (newVal == 'SALESTAX') {
+            $scope.subcategories = $scope.subDocumentsForSalesTax;
+        }
+    });
+
 
     $scope.docThumbnail = "../client/images/defaultDoc.png";
 
@@ -143,13 +175,13 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
         $rootScope.loading = apiService.getBankDetails(businessGUID).then(function (data) {
             if (data && data.data) {
                 var bankDataFetched = data.data.getBankDetailsResult.bankModel;
-              
-             $scope.bankName = bankDataFetched.BankName;
-             $scope.branch= bankDataFetched.BankBranch;
-             $scope.bankAccountNumber = bankDataFetched.BankAccountNumber;
-             $scope.bankIFSCCode=bankDataFetched.IFSCCode;
-             $scope.bankMICRCode=bankDataFetched.MICRCode;
-                 
+
+                $scope.bankName = bankDataFetched.BankName;
+                $scope.branch = bankDataFetched.BankBranch;
+                $scope.bankAccountNumber = bankDataFetched.BankAccountNumber;
+                $scope.bankIFSCCode = bankDataFetched.IFSCCode;
+                $scope.bankMICRCode = bankDataFetched.MICRCode;
+
             }
 
 
@@ -157,7 +189,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
     };
 
     $scope.getITDetails = function () {
-  
+
         $rootScope.loading = apiService.getITDetails(businessGUID).then(function (data) {
 
             if (data && data.data) {
@@ -168,7 +200,7 @@ angular.module("MDKApp").controller("LineDetailsCtrl", ["$uibModal", "$scope", "
                 $scope.CST = fetchedITDetails.CST_NO;
                 $scope.PTRCNumber = fetchedITDetails.PTRC_NO;
                 $scope.PTECNumber = fetchedITDetails.PTEC_NO;
-             }
+            }
 
         }).catch();
 

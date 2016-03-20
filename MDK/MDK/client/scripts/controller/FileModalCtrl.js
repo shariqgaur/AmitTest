@@ -25,23 +25,16 @@
          
     };
 
-    $scope.test = function (businessGUID, selectedYear, fileName) {
-        alert('DOWNLOADING..');
 
-        var partialPath = businessGUID + '\\' + selectedYear + '\\' + fileName;
-        $rootScope.loading = apiService.downloadFile(partialPath).then(function (data) {
 
-            var blob = new Blob([data], {
-                 
-            });
+    $scope.documentTypes = [
+        { text: 'Income TAX', value: 'INCOMETAX' },
+        { text: 'Sales TAX', value: 'SALESTAX' },
+        { text: 'Service TAX', value: 'ServiceTAX' },
+        { text: 'Excise TAX', value: 'ExciseTAX' }
+
+    ];
          
-            navigator.msSaveBlob(blob, 'S.pdf');
-
-        }).catch();
-
-    };
-   
-
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };

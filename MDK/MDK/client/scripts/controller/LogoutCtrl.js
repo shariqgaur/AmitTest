@@ -1,5 +1,5 @@
 ﻿
-angular.module("MDKApp").controller("UserManagementCtrl", ["$scope","$rootScope", "$state","$q", "apiService", function ($scope,$rootScope, $state,$q, apiService) {
+angular.module("MDKApp").controller("LogoutCtrl", ["$scope", "$rootScope", "$state", "$q", "apiService", function ($scope, $rootScope, $state, $q, apiService) {
 
     var userManagementLoaded = $q.defer();
 

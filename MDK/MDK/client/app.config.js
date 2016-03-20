@@ -22,6 +22,10 @@ angular.module('MDKApp').config(['$stateProvider', '$urlRouterProvider', functio
             url: "/businessUserManagement",
             templateUrl: "views/Business/businessUserManagement.html",
             controller: "BusinessUserManagementCtrl"
+        }).state("logout", {
+            url: "/logout",
+            templateUrl: "views/logout.html",
+            controller: "LogoutCtrl"
         });
 
     $urlRouterProvider.otherwise("/login");

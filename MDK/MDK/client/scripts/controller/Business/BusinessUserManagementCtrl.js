@@ -119,9 +119,17 @@
             }
 
         }).catch();
-
-
     };
 
-
+    $scope.locallyDefinedValidations = [
+          {
+              errorMessage: 'Please select business type',
+              validator: function (errorMessageElement, val) {
+                  return /-- select business type --/.test(val) !== true;
+              }
+          }
+    ];
+     
+    $('#ifscInfo').tooltip();
+    $('#micrInfo').tooltip();
 }]);

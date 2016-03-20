@@ -149,6 +149,7 @@
     <Content Include="client\scripts\common\services\service.js" />
     <Content Include="client\scripts\controller\Business\BusinessUserManagementCtrl.js" />
     <Content Include="client\scripts\controller\FileModalCtrl.js" />
+    <Content Include="client\scripts\controller\LogoutCtrl.js" />
     <Content Include="client\scripts\controller\UserManagement.js" />
     <Content Include="client\scripts\controller\LineDetailsCtrl.js" />
     <Content Include="client\scripts\controller\HeaderCtrl.js" />
@@ -170,6 +171,7 @@
     <Content Include="client\views\lineDetails.html" />
     <Content Include="client\views\loader.html" />
     <Content Include="client\views\login.html" />
+    <Content Include="client\views\logout.html" />
     <Content Include="client\views\userManagement.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
