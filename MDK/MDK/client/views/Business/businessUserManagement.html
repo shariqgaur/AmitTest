@@ -1,11 +1,9 @@
 ﻿<div ng-controller="BusinessUserManagementCtrl">
-
     <div class="row">
         <div class="col-md-5">
             <h2>Business User Management
             </h2>
         </div>
-
 
         <div class="col-md-2 pull-right">
             <a href="#/dashboard" class="btn  btn-sm mdkBTN" ng-bind="'Dashboard'" ng-click="" />
@@ -13,38 +11,34 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title pull-left">Business Personal Information</h4>
                 </div>
                 <div class="panel-title">
                 </div>
-                <div class="panel-body" style="min-height: 511px;">
+                <div class="panel-body">
                     <form name="personalInfoForm" novalidate>
                         <fieldset>
+
                             <div class="row">
-                                <div class="col-md-6">
-                                    <strong>Does client have Business name?</strong>
-                                </div>
-                                <div class="col-md-1">
+
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="business" id="rdBusiness_Yes" value="Business_Yes" ng-model="isBusiness" ng-init="isBusiness='Business_Yes'">
-                                            Yes
-                                        </label>
+                                        <label for="exampleInputEmail1">Business Type</label>
+                                        <select
+                                            name="drpBusinessType"
+                                            class="form-control"
+                                            ng-options="item.value as item.text for item in businessTypes"
+                                            ng-model="selectedBusinessType"
+                                            ng-change="businessTypeChange()">
+                                            <option value="">-- select business type --</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="col-md-1">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="business" id="rdBusiness_No" value="Business_No" ng-model="isBusiness">
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row" ng-show="isBusiness=='Business_Yes'">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Business Name</label>
                                         <input type="text" class="form-control" id="Email7"
@@ -53,104 +47,139 @@
                                             validation-field-required="true">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Business Type</label>
-                                        <select
-                                            name="drpBusinessType"
-                                            class="form-control"
-                                            ng-options="item as item for item in ['Propriotorship','Partnership','LLP','PVT LTD','LTD']"
-                                            ng-model="businessType"
-                                            validation-field-required="true"
-                                            validation-dynamically-defined="locallyDefinedValidations">
-                                            <option value="">-- select business type --</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
 
 
-                            <div class="row" ng-show="isBusiness=='Business_No'">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="txtFirstName" placeholder="first name" ng-model="firstName">
-                                    </div>
-                                </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="middleName">Middle Name</label>
-                                        <input type="text" class="form-control" id="txtMiddleName" placeholder="middle name" ng-model="middleName">
-                                    </div>
-                                </div>
+                                        <label for="exampleInputEmail1">Business PAN</label><small class="formHelpText">&nbsp&nbsp&nbsp(Companyni's PAN NO)</small>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="lastName">Lastname</label>
-                                        <input type="text" class="form-control" id="txtLastName" placeholder="last name" ng-model="lastName">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="contactNumber">Contact Number</label>
-                                        <input type="text" class="form-control" id="txtContactNumber" placeholder="e.g. 909-617-4175"
-                                            ng-model="contactNumber"
-                                            validation-field-required="true"
-                                            validation-only-numbers="{message:'field contain only digits.', value: true}"
-                                            validation-min-length="{message:'please enter 10 digit valid mobile number', value: 10}"
-                                            validation-max-length="{message:'please enter Indian mobile number', value: 10}">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Alternate Number</label>
-                                        <input type="text" class="form-control" id="txtAlternateNumber" placeholder="e.g. 986-022-2007"
-                                            ng-model="alternateNumber"
-                                            validation-field-required="true"
-                                            validation-only-numbers="{message:'field contain only digits.', value: true}"
-                                            validation-min-length="{message:'please enter 10 digit valid mobile number', value: 10}"
-                                            validation-max-length="{message:'please enter Indian mobile number', value: 10}">
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-
-                                    <div class="form-group">
-                                        <label for="emailId">Email Id</label>
-                                        <input type="email" class="form-control" id="txtEmailId"
-                                            placeholder="e.g. amit.debadwar@gmail.com" ng-model="emailId"
-                                            validation-email="true"
+                                        <span class="glyphicon glyphicon-info-sign info-question pull-right" aria-hidden="true"
+                                            id="businessPANInfo"
+                                            data-toggle="tooltip"
+                                            title="This is the Company's or grouped PAN number. We use this PAN number to open an account with MDK TAX Consultant." data-placement="left"></span>
+                                        <input type="text" class="form-control" id="lkdf"
+                                            placeholder="e.g. ANCPD87656N"
+                                            ng-model="dfjldkjf"
                                             validation-field-required="true">
                                     </div>
 
                                 </div>
 
+                            </div>
+                            <hr class="personalInfoHR">
 
-                                <div class="col-md-6">
-                                    <label for="exampleInputEmail1">Date Of Birth</label>
-                                    <input type="date" class="form-control" id="txtDate" ng-model="DateOfBirth">
+                            <div class="row" ng-repeat="owner in ownersList" ng-show="ownersList.length>0" style="margin-bottom: 20px;">
+
+                                <div class="col-md-12">
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+
+                                                <label for="personLbl" style="color: orange; font-size: larger;">Person {{$index + 1}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="firstName">First Name</label>
+                                                <input type="text" class="form-control" id="Text27" placeholder="first name" ng-model="owner.firstName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="firstName">Middle Name</label>
+                                                <input type="text" class="form-control" id="Text27" placeholder="middle name" ng-model="owner.middleName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="firstName">Last Name</label>
+                                                <input type="text" class="form-control" id="Text27" placeholder="last name" ng-model="owner.lastName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="firstName">Contact Number</label>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="txtContactNumber" placeholder="e.g. 909-617-4175"
+                                                    ng-model="contactNumber"
+                                                    validation-field-required="true"
+                                                    validation-only-numbers="{message:'field contain only digits.', value: true}"
+                                                    validation-min-length="{message:'please enter 10 digit valid mobile number', value: 10}"
+                                                    validation-max-length="{message:'please enter Indian mobile number', value: 10}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="alternateNumber">Alternate Number</label>
+                                                <input type="text" class="form-control" id="txtAlternateNumber" placeholder="e.g. 986-022-2007"
+                                                    ng-model="alternateNumber"
+                                                    validation-field-required="true"
+                                                    validation-only-numbers="{message:'field contain only digits.', value: true}"
+                                                    validation-min-length="{message:'please enter 10 digit valid mobile number', value: 10}"
+                                                    validation-max-length="{message:'please enter Indian mobile number', value: 10}">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="emailID">Email Id</label>
+                                                <input type="email" class="form-control" id="txtEmailId"
+                                                    placeholder="e.g. amit.debadwar@gmail.com" ng-model="emailId"
+                                                    validation-email="true"
+                                                    validation-field-required="true">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="dob">Date of Birth</label>
+                                                <input type="date" class="form-control" id="txtDate" ng-model="DateOfBirth">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <textarea class="form-control" rows="3" placeholder="please write your full address so that we can reach you out in time !"
+                                                    ng-model="businessAddress"
+                                                    validation-min-length="{message:'please provide the address in detail, so that we can reach you out.', value: 30}"></textarea>
+                                                <small class="formHelpText">(This address will be used for postal communication.)</small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <hr class="personalInfoHR" />
                                 </div>
                             </div>
-                            <div class="row">
+
+                            <div class="row" ng-show="selectedBusinessType && !(selectedBusinessType == 'PROP') && ownersList.length<7">
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Address</label>
-                                        <small class="formHelpText">(This address will be used for postal communication.)</small>
-                                        <textarea class="form-control" rows="3" placeholder="please write your full address so that we can reach you out in time !"
-                                            ng-model="businessAddress"
-                                            validation-min-length="{message:'please provide the address in detail, so that we can reach you out.', value: 30}"></textarea>
+                                    <div class="form-group pull-right">
+                                        <a href="" class="btn btn-sm mdkBTN" ng-bind="addMoreOwnerText" ng-click="addMorePartner()"></a>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row" ng-show="ownersList.length==7">
+                                <div class="col-md-12 text-center">
+                                    <small class="formHelpText">You can not add more than seven partners or directors.</small>
+                                </div>
+                            </div>
+
+
+
                             <div class="row">
                                 <div class="col-md-4 pull-right">
                                     <div class="form-group">
@@ -183,6 +212,11 @@
             </div>
         </div>
 
+
+    </div>
+
+
+    <div class="row">
         <div class="col-md-4">
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
@@ -197,21 +231,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-body" style="min-height: 510px;">
+                <div class="panel-body">
 
                     <form>
-                        <!--ng-disabled="!isBusinessInfoSaved"-->
+
                         <fieldset ng-disabled="!isBusinessInfoSaved">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">Bank Name</label>
                                         <input type="text" class="form-control" id="Text1" placeholder="e.g. ICICI bank" ng-model="bankName">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
+
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">Branch</label>
                                         <input type="text" class="form-control" id="Text2" placeholder="e.g. Shivaji nagar, Pune." ng-model="bankBranch">
@@ -230,22 +263,20 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">IFSC Code</label>&nbsp
                                         <span class="glyphicon glyphicon-info-sign info-question pull-right" aria-hidden="true"
                                             id="ifscInfo"
                                             data-toggle="tooltip"
-                                            title="IFSC code is given on your bank's passbook." data-placement="left"></span>
+                                            title="IFSC code is given on your bank's passbook." data-placement="top"></span>
                                         <input type="text" class="form-control" id="Text4"
                                             placeholder="e.g. ICICI9860057"
                                             ng-model="bankIFSCCode">
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">MICR Code</label>&nbsp
                                         <span
@@ -255,7 +286,8 @@
                                             data-toggle="tooltip"
                                             title="Magnetic Ink Character Recognition Code (MICR Code) is a character-recognition technology used mainly by the banking industry to ease the processing and clearance of cheques and other documents."
                                             data-content="Magnetic Ink Character Recognition Code (MICR Code) is a character-recognition technology used mainly by the banking industry to ease the processing and clearance of cheques and other documents."
-                                            data-placement="left"></span>
+                                            data-placement="top"
+                                            tooltip-append-to-body="true"></span>
                                         <input type="text" class="form-control" id="Text5" placeholder="e.g. MICR77876" ng-model="bankMICRCode">
                                     </div>
                                 </div>
@@ -296,11 +328,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
                     <h4 class="panel-title pull-left">IT Information</h4>
@@ -364,15 +393,16 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4 pull-right">
+                                
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="saveITInfo()" />
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 pull-right">
+                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                        <input type="button" class="btn btn-primary form-control" value="Save IT Info" ng-click="saveITInfo()" />
                                     </div>
                                 </div>
 
@@ -477,9 +507,10 @@
             </div>
         </div>
     </div>
+
 </div>
 
-<div class="row">
+<!--<div class="row">
     <div class="col-md-12">
 
         <div class="panel panel-info">
@@ -491,7 +522,7 @@
                 <form>
 
                     <fieldset ng-disabled="!isBusinessInfoSaved">
-  
+
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -622,4 +653,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

@@ -8,7 +8,65 @@
         var incremented = item + 1;
         return item + '-'+incremented;
     }
+
+    //Indian pan card validation
+    ^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$
    */
+
+    $scope.businessTypes = [
+        { text: 'Propriotorship', value: 'PROP' },
+        { text: 'Partnership', value: 'PARTNER' },
+        { text: 'LLP', value: 'LLP' },
+        { text: 'PVT LTD', value: 'PLTD' },
+        { text: 'LTD', value: 'LTD' }
+
+
+    ];
+
+
+    $scope.ownersList = [];
+
+    function OwnerModel(firstName, middleName, lastName) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+    };
+
+
+
+    $scope.businessTypeChange = function () {
+
+
+        $scope.ownersList = [];
+        if (!$scope.selectedBusinessType) {
+            $scope.ownersList = [];
+
+        }
+        else if ($scope.selectedBusinessType == 'PROP') {
+
+            $scope.ownersList.push(new OwnerModel('', '', ''));
+        }
+
+        else {
+
+            $scope.ownersList.push(new OwnerModel('', '', ''));
+            $scope.ownersList.push(new OwnerModel('', '', ''));
+        }
+
+        if ($scope.selectedBusinessType === 'PARTNER' || $scope.selectedBusinessType === 'LLP') {
+            $scope.addMoreOwnerText = '+ Add more partners';
+        }
+
+        else if ($scope.selectedBusinessType === 'PLTD' || $scope.selectedBusinessType === 'LTD') {
+            $scope.addMoreOwnerText = '+ Add more directors';
+        }
+
+    };
+
+    $scope.addMorePartner = function () {
+        $scope.ownersList.push(new OwnerModel('', '', ''));
+    };
+
 
     $scope.savePersonalInfo = function () {
 
@@ -18,7 +76,7 @@
             MiddleName: $scope.middleName,
             LastName: $scope.lastName,
             BusinessName: $scope.businessName,
-            BusinessType: $scope.businessType,
+            BusinessType: $scope.selectedBusinessType,
             ContactNo: $scope.contactNumber,
             AlternateNumber: $scope.alternateNumber,
             EmailID: $scope.emailId,
@@ -121,15 +179,7 @@
         }).catch();
     };
 
-    $scope.locallyDefinedValidations = [
-          {
-              errorMessage: 'Please select business type',
-              validator: function (errorMessageElement, val) {
-                  return /-- select business type --/.test(val) !== true;
-              }
-          }
-    ];
-     
-    $('#ifscInfo').tooltip();
-    $('#micrInfo').tooltip();
+    $('#ifscInfo').tooltip({ container: 'body' });
+    $('#micrInfo').tooltip({ container: 'body' });
+    $('#businessPANInfo').tooltip({ container: 'body' });
 }]);
